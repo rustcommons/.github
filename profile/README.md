@@ -1,5 +1,7 @@
 # 🦀 Rust Commons
 
+<img src="https://raw.githubusercontent.com/rustcommons/.github/main/assets/rust-commons.svg" width="160" height="160" alt="Rust Commons: an orange crab with a crate-shaped shell">
+
 Rust tooling and infrastructure for Linux compatibility and offline Rust development.
 
 ## Linux compatibility and ABI crates
