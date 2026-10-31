@@ -2,13 +2,13 @@
 
 Rust tooling and infrastructure for Linux compatibility and offline Rust development.
 
-Start with [cargo-libc](https://github.com/rustcommons/cargo-libc) for the Cargo
-workflow, or explore the supporting libraries and compatibility tests below.
-
 ## Linux compatibility and ABI crates
 
 Tools and data for building Rust programs for older Linux systems and checking
 their libc and kernel requirements.
+
+Start with [cargo-libc](https://github.com/rustcommons/cargo-libc) for the Cargo
+workflow, or explore the supporting libraries and compatibility tests below.
 
 | Repository | Purpose |
 | --- | --- |
