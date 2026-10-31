@@ -1,4 +1,4 @@
-# rustcommons organization profile
+# 🦀 Rust Commons
 
 [profile/README.md](profile/README.md) is the public profile displayed on the
 [rustcommons organization page](https://github.com/rustcommons). It states the
