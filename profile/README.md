@@ -1,4 +1,4 @@
-# rustcommons
+# 🦀 Rust Commons
 
 Rust tooling and infrastructure for Linux compatibility and offline Rust development.
 
