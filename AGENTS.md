@@ -20,6 +20,15 @@ This file is the primary source of instructions for this repository.
 - Run checks appropriate to the change. For documentation-only changes, verify links, commands, and the diff; do not run unrelated builds.
 - Publishing packages, creating releases, or changing production data requires explicit user authorization.
 
+## Documentation and requirements traceability
+
+- Follow the [Rust Commons documentation conventions](https://github.com/rustcommons/.github/blob/main/docs/DOCUMENTATION.md).
+- Maintain [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) as the repository's index of confirmed requirements, their sources, implementation or documentation, verification evidence, and gaps. Preserve stable repository-scoped IDs and existing identifiers; never renumber or reuse them.
+- Distinguish verified behavior, partial verification, planned work, deferred work, and scope exclusions. A source reference or passing test supports only the scope it actually checks; record missing evidence explicitly.
+- Keep the README focused on purpose, prerequisites, setup, and guide links. Keep detailed workflows in maintained guides, future work in the roadmap, and dated release or validation evidence identifiable as historical records.
+- Update affected requirements, documentation, and trace links together when behavior, scope, interfaces, prerequisites, or validation changes. Use exact versions or revisions for release evidence, and do not rewrite historical outcomes or treat repository edits as changes to an immutable published package.
+- Validate documentation changes with source and command checks, links, rendering, and a clean diff. Run additional builds or tests only when changed examples, package contents, or behavior require them.
+
 ## Documentation validation
 
 - Read the current files before editing. Inspect live repository READMEs and source content when changing project descriptions; do not infer capabilities from repository names.
