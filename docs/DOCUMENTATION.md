@@ -106,3 +106,7 @@ This change introduces the [.github index](REQUIREMENTS.md). Other repository
 indexes are being prepared independently; this snapshot does not claim their
 audits or adoption are complete. Later adoption should be recorded with exact
 repository revisions and dates rather than changing this historical observation.
+
+The subsequent [dated adoption record](ADOPTION.md) tracks confirmed merged
+revisions, counts and evidence boundaries separately from
+this initial observation.

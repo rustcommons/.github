@@ -11,3 +11,6 @@ Maintainers: follow the [documentation conventions](docs/DOCUMENTATION.md) and
 use the [requirements index](docs/REQUIREMENTS.md) to trace this repository's
 confirmed scope, documentation, and validation gaps. These are documentation
 maintenance paths; this repository requires no build or runtime setup.
+
+The dated [adoption record](docs/ADOPTION.md) tracks repository index revisions,
+requirement counts, and remaining verification gaps.
