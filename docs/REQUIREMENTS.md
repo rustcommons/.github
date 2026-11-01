@@ -42,6 +42,9 @@ in the baseline; retain these IDs for subsequent changes.
   diagram is applicable; they do not assert that a render proves behavior.
 - [Adoption record](ADOPTION.md): dated cross-repository index revisions, counts,
   evidence boundaries and remaining gaps; not runtime certification.
+- [Architecture diagram audit](ARCHITECTURE-DIAGRAMS.md): dated diagram coverage,
+  source/render boundaries and explicit non-applicability for the three
+  repositories without an implemented product architecture.
 - [AGENTS](../AGENTS.md): primary maintainer instructions;
   [CLAUDE](../CLAUDE.md): authority shim.
 - [Assets](../assets/rust-commons.svg): editable logo and PNG companions.

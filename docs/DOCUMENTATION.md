@@ -62,6 +62,9 @@ method in the change evidence. Rendering validates presentation, not behavior.
 Keep historical diagrams identifiable as snapshots instead of silently updating
 their recorded outcomes.
 
+The dated [architecture diagram audit](ARCHITECTURE-DIAGRAMS.md) records this
+convention's initial follow-up across all eight repositories.
+
 ## Requirements index
 
 Every repository maintains `docs/REQUIREMENTS.md` with these sections, in order:
