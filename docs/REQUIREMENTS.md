@@ -36,7 +36,10 @@ in the baseline; retain these IDs for subsequent changes.
 - [Public profile](../profile/README.md): organization scope and project/guide
   links, not implementation or compatibility certification.
 - [Documentation conventions](DOCUMENTATION.md): maintained cross-repository
-  reader paths, evidence rules, and adoption snapshot.
+  reader paths, evidence rules, architecture-diagram conventions, and adoption
+  snapshot. The [diagram conventions](DOCUMENTATION.md#architecture-diagrams)
+  require source and requirement links plus inspected render evidence where a
+  diagram is applicable; they do not assert that a render proves behavior.
 - [Adoption record](ADOPTION.md): dated cross-repository index revisions, counts,
   evidence boundaries and remaining gaps; not runtime certification.
 - [AGENTS](../AGENTS.md): primary maintainer instructions;
