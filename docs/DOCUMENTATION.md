@@ -35,6 +35,36 @@ sources and state gaps or unsupported cases explicitly. Do not infer support
 from a repository name, a successful host test, static inspection, or simulation;
 none certifies runtime compatibility on untested target systems.
 
+## Architecture diagrams
+
+Use a small, editable diagram where it helps explain implemented components,
+dependency direction, data flow, or a trust boundary. Prefer Mermaid in an
+existing maintained architecture or guide document; do not add empty diagram
+files or diagrams of unapproved placeholder designs.
+
+Explain what arrows mean and distinguish build-time collection, library/API
+consumption, and runtime execution where they differ. Keep native host and target
+boundaries visible when relevant. Label planned or deferred components explicitly
+and separately from implemented paths; inspection and simulation must not appear
+to establish real-target qualification.
+
+Link diagram explanations to authoritative source and existing requirement IDs.
+Include the containing document in the requirements index's Documentation map.
+Diagrams illustrate those contracts; they do not introduce new requirements or
+replace source, provenance, licensing, or validation evidence. A documentation or
+placeholder repository can record architecture diagrams as Not applicable when
+it has no implemented product architecture to explain.
+
+When affected components or interfaces change, review the diagram and its trace
+links with the prose. Check syntax, inspect an actual rendered preview for
+readable labels and unambiguous arrows, and record the source revision and render
+method in the change evidence. Rendering validates presentation, not behavior.
+Keep historical diagrams identifiable as snapshots instead of silently updating
+their recorded outcomes.
+
+The dated [architecture diagram audit](ARCHITECTURE-DIAGRAMS.md) records this
+convention's initial follow-up across all eight repositories.
+
 ## Requirements index
 
 Every repository maintains `docs/REQUIREMENTS.md` with these sections, in order:
