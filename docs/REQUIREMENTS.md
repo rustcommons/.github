@@ -29,6 +29,8 @@ in the baseline; retain these IDs for subsequent changes.
 | ORG-REQ-008 | Keep a shared maintainer convention and stable repo-scoped requirements index; current documentation traceability instruction and shared AGENTS section. | [Conventions](DOCUMENTATION.md), this index, root maintainer links, AGENTS shared section. | 2026-11-01 inspection of exact table columns, required sections, status vocabulary, prefix map, and local links; Markdown render and diff checks recorded in PR. | Verified: this repository's index and convention only; the [dated adoption record](ADOPTION.md) now records all eight merged indexes and bounded structural/review evidence; per-requirement legal, platform and partial-verification gaps remain. |
 | ORG-REQ-009 | Keep edits scoped to authorized documentation, preserve historical release evidence, and avoid settings, dependency, CI, asset, or release changes; AGENTS scope, validation, and publication rules plus current task constraints. | This documentation-only candidate; shared convention's release/evidence rules. | 2026-11-01 changed-path and full diff review against `dd9ca1a`; only README, AGENTS, and docs files change. | Verified: candidate diff boundary only; account settings and linked repository releases were not audited or modified. |
 
+| ORG-REQ-010 | Keep consistent changelogs, user-facing notes, GitHub Releases and release-completion checks for shipped software; maintainer instruction on 2026-11-02. | [Release convention](RELEASING.md), [shared instructions](../AGENTS.md#release-documentation), and per-repository changelog/notes/checker adoption. | Shared section and convention reviewed with unchanged profile/assets; each leaf records its own CI, historical and live-release verification. | Implemented—partial verification: central policy is documented; cross-repository adoption and backfill remain separately tracked until reviewed and published. |
+
 ## Documentation map
 
 - [README](../README.md): repository purpose and maintainer entry point; no
@@ -40,6 +42,7 @@ in the baseline; retain these IDs for subsequent changes.
   snapshot. The [diagram conventions](DOCUMENTATION.md#architecture-diagrams)
   require source and requirement links plus inspected render evidence where a
   diagram is applicable; they do not assert that a render proves behavior.
+- [Release documentation convention](RELEASING.md): changelog/note structure, release completion, safe historical backfill and checks; not a software release for this profile repository.
 - [Adoption record](ADOPTION.md): dated cross-repository index revisions, counts,
   evidence boundaries and remaining gaps; not runtime certification.
 - [Architecture diagram audit](ARCHITECTURE-DIAGRAMS.md): dated diagram coverage,

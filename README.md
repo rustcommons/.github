@@ -14,3 +14,6 @@ maintenance paths; this repository requires no build or runtime setup.
 
 The dated [adoption record](docs/ADOPTION.md) tracks repository index revisions,
 requirement counts, and remaining verification gaps.
+
+Release-bearing projects follow the [release documentation convention](docs/RELEASING.md),
+including user-facing changelogs, GitHub Releases and verification gates.

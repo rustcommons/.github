@@ -128,6 +128,14 @@ commands, check links and rendering, and run `git diff --check`. Run additional
 builds or tests only if changed examples, package contents, or behavior require
 them. Keep evidence specific; successful Markdown checks are not a product audit.
 
+## Release notes and changelogs
+
+Follow the [release documentation convention](RELEASING.md). Versioned software
+repositories maintain a root changelog, reviewed notes and GitHub Releases in
+addition to detailed qualification records. Shared AGENTS rules and automated
+checks make these explicit completion gates; profile/placeholder repositories
+remain Not applicable until they ship software.
+
 ## Adoption snapshot
 
 On 2026-11-01, GitHub Contents API lookups for `docs/REQUIREMENTS.md` on the
