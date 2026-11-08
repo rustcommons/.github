@@ -1,7 +1,8 @@
 # Current Rust Commons release status
 
 Maintained coordination page, checked 2026-11-08 UTC. Repository versions are
-independent: producer workspace 0.6.0 and cargo-libc 0.6.0 are different releases.
+independent: the current delivered pair is producer workspace 0.6.0 and
+cargo-libc 0.7.0.
 A merged dependency update is not a published consumer update. Registry archives,
 immutable source tags and per-repository release records remain authoritative.
 
@@ -13,7 +14,7 @@ this page provides the current hand-off without rewriting those snapshots.
 
 | Repository | Delivered version | Current delivery state | Next action / boundary |
 | --- | --- | --- | --- |
-| [cargo-libc](https://github.com/rustcommons/cargo-libc) | [0.6.0](https://github.com/rustcommons/cargo-libc/releases/tag/v0.6.0) | Released 0.6.0 locks producer 0.5.0. [Main adoption](https://github.com/rustcommons/cargo-libc/commit/b2db2daa13f5658ea406c55e67c59f5e371c7143) requires producer 0.6.0. | [0.7.0 candidate PR26](https://github.com/rustcommons/cargo-libc/pull/26): versioned package/install and publication gates pending. No second 0.6.0 upload. |
+| [cargo-libc](https://github.com/rustcommons/cargo-libc) | [0.7.0](https://github.com/rustcommons/cargo-libc/releases/tag/v0.7.0) | Released source `6317117` requires producer 0.6.0; [final record](https://github.com/rustcommons/cargo-libc/blob/13930d40126ef9c5093030988ba1e460460e1b8e/docs/RELEASE-0.7.0.md) verifies official archive/tag/docs.rs, native and hosted registry installs, and exact live Release/full published-docs checks. | Producer-to-consumer delivery is complete. Existing application/CI pins must deliberately upgrade; immutable 0.6.0 still uses the older producer. |
 | [linux-abi-tools](https://github.com/rustcommons/linux-abi-tools) | [0.6.0 for all five crates](https://github.com/rustcommons/linux-abi-tools/releases/tag/v0.6.0) | [Completed producer record](https://github.com/rustcommons/linux-abi-tools/blob/01676c8eec800d9339058d31f4c3f9e53cdd0fa6/docs/RELEASE-0.6.0.md); official archives, exact source, docs.rs and registry-install checks passed. | No new producer release needed for the current Cargo hand-off. |
 | [glibc-abilists](https://github.com/rustcommons/glibc-abilists) | [0.1.2](https://github.com/rustcommons/glibc-abilists/releases/tag/v0.1.2) | Corrected API docs are published. [Current main](https://github.com/rustcommons/glibc-abilists/commit/896783bf4f6e5e48c0954e897b98dfd3b39b003b) adds documentation/infrastructure only. | No unshipped API/data fix established; README release-navigation additions alone do not require another docs release. |
 | [glibc-provider](https://github.com/rustcommons/glibc-provider) | [glibc-provider-sources 0.1.1](https://github.com/rustcommons/glibc-provider/releases/tag/v0.1.1) | Corrected packaged README is published; source pack remains unchanged. | No source-pack release needed for this hand-off; compiled prebuilt objects remain legally gated. |
@@ -24,7 +25,7 @@ this page provides the current hand-off without rewriting those snapshots.
 
 ## Consumer dependency baseline
 
-| Input | Published cargo-libc 0.6.0 lock | 0.7.0 candidate lock | Why |
+| Input | Previous cargo-libc 0.6.0 lock | Delivered cargo-libc 0.7.0 lock | Why |
 | --- | --- | --- | --- |
 | libc-abi-tools | 0.5.0 | 0.6.0, minimum 0.6.0 | Deliver the immutable provider-generation repair. |
 | kernel-abi-tools | 0.3.3 | 0.3.3 | Source/data unchanged through producer 0.6.0; retain existing minimum. |
@@ -40,6 +41,8 @@ therefore do not establish a missing fix. Producer 0.6.0 itself retains upstream
 That is distinct from Cargo's consumer lock. Do not republish merely to make all
 numbers equal; refresh a real registry graph deliberately and qualify its package.
 
+Completed consumer hand-off: [published-install CI42526522128](https://github.com/rustcommons/cargo-libc/actions/runs/42526522128) passed, including Docker/Podman run/test and the generation gate. [Full twelve-version docs verification](https://github.com/rustcommons/cargo-libc/actions/runs/42527435394) and [final exact-head verification](https://github.com/rustcommons/cargo-libc/actions/runs/42527625989) passed. Original local harness failures and corrected resumes remain explicit in the release record; modern-host/container evidence is not old-system qualification. No additional producer/data release was needed.
+
 ## Current requirements inventory
 
 The historical adoption baseline contains 126 rows. The maintained indexes below
@@ -49,7 +52,7 @@ change. Stable IDs retain gaps reserved for unmerged research; do not renumber.
 | Repository | Rows | Index checked |
 | --- | ---: | --- |
 | .github | 11 | [Current organization index](REQUIREMENTS.md) |
-| cargo-libc | 30 | [Merged adoption index](https://github.com/rustcommons/cargo-libc/blob/b2db2daa13f5658ea406c55e67c59f5e371c7143/docs/REQUIREMENTS.md) |
+| cargo-libc | 30 | [Delivered 0.7.0 index](https://github.com/rustcommons/cargo-libc/blob/13930d40126ef9c5093030988ba1e460460e1b8e/docs/REQUIREMENTS.md) |
 | linux-abi-tools | 31 | [Producer index](https://github.com/rustcommons/linux-abi-tools/blob/01676c8eec800d9339058d31f4c3f9e53cdd0fa6/docs/REQUIREMENTS.md) |
 | glibc-abilists | 16 | [Index](https://github.com/rustcommons/glibc-abilists/blob/main/docs/REQUIREMENTS.md) |
 | glibc-provider | 17 | [Index](https://github.com/rustcommons/glibc-provider/blob/main/docs/REQUIREMENTS.md) |
