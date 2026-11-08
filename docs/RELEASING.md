@@ -4,6 +4,10 @@ This is the shared release-documentation contract for Rust Commons repositories
 that ship versioned software. The organization profile and unreleased
 placeholders adopt the instruction without inventing software releases.
 
+The [current release matrix](RELEASE-STATUS.md) coordinates producer publication,
+consumer dependency adoption and registry delivery. Update those stages separately
+and link authoritative per-project evidence; preserve dated adoption snapshots.
+
 ## Reader-facing records
 
 Maintain a root CHANGELOG.md based on Keep a Changelog: an Unreleased section,
