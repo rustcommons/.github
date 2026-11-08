@@ -38,6 +38,10 @@ This file is the primary source of instructions for this repository.
 - Preserve profile text when changing instructions only. Documentation checks require no dependency installs, builds, package publishing, or changes to code, versions, or lockfiles.
 - After an authorized push, verify the remote commit and changed file contents.
 
+## Release coordination
+
+- Maintain [docs/RELEASE-STATUS.md](docs/RELEASE-STATUS.md) when producer publication, consumer minimum adoption, candidate version selection or release closeout changes. Distinguish main from registry delivery, preserve dated adoption/diagram snapshots, and retain explicit qualification gaps.
+
 ## Release documentation
 
 - For a repository that ships versioned software, maintain a root `CHANGELOG.md` with an `Unreleased` section and dated, user-facing entries for shipped versions. Record noteworthy changes and their user impact as work is completed; do not substitute a roadmap, Git tag, CI log or validation report for a changelog.
