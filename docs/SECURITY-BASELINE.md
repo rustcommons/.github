@@ -1,7 +1,7 @@
 # Rust Commons security baseline
 
-Owner-approved baseline, 2026-11-15. This is the shared maintainer reference for
-all Rust Commons repositories. Requirements below describe the required end state;
+Owner-approved baseline, 2026-11-15; amended the same day for runner capacity.
+This is the shared maintainer reference for all Rust Commons repositories. Requirements below describe the required end state;
 they do not assert that every repository's workflow rollout or release
 qualification is complete. Keep repository-specific implementation and evidence
 in each requirements index and PR. The [default security policy](../SECURITY.md)
@@ -32,9 +32,14 @@ coordinator-reported rollout, not an independent settings audit in this document
 ## Required repository changes
 
 1. **Dependency updates.** Maintain `.github/dependabot.yml` for `github-actions`
-   and, when there is a Cargo project, `cargo`. Use weekly schedules, group minor
-   and patch updates, and set `open-pull-requests-limit: 5` for each ecosystem.
+   and, when there is a Cargo project, `cargo`. Use monthly version-update schedules,
+   group minor and patch updates, retain cooldowns, and set
+   `open-pull-requests-limit: 2` for each ecosystem.
    Cover the actual manifests/workspaces; review major updates separately.
+   Security updates remain advisory-triggered, independent of the version-update
+   schedule, cooldown and configurable version-PR limit. See the
+   [Dependabot reference](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference).
+   The amendment supersedes the initial weekly/five-PR version-update policy.
 2. **Action identity and permissions.** Pin every third-party action to a full
    commit SHA, including GitHub-maintained actions, with its version tag in a
    trailing comment. Keep workflow-level permissions read-only and grant writes
@@ -43,7 +48,15 @@ coordinator-reported rollout, not an independent settings audit in this document
 3. **Workflow linting.** Run [zizmor](https://docs.zizmor.sh/integrations/) on PRs.
    Fix findings or justify narrowly scoped suppressions inline; do not turn off
    the gate to bypass findings. Use unprivileged PR execution, not privileged
-   execution of untrusted contributions.
+   execution of untrusted contributions. Give every repository-defined PR
+   workflow a workflow-specific per-PR concurrency group with
+   `cancel-in-progress: true`; use a unique run fallback for non-PR events.
+   For `dependabot[bot]` PRs keep core checks (fmt, clippy, test, cargo-deny,
+   zizmor, lf-only and CodeQL, where applicable), and skip expensive matrices
+   or qualification jobs with `if: github.actor != 'dependabot[bot]'` or an
+   explicit path/label gate. Required `lf-only` must still run. Inventory open
+   Dependabot PRs in the amendment PR: safe patch/minor or MAJOR needing work,
+   with a risk note. Do not merge those PRs as part of this rollout.
 4. **Rust dependency policy.** Rust projects run `cargo-deny` in CI with a
    maintained `deny.toml`: RustSec advisories; unmaintained/yanked packages set to
    warn or deny with justification; a license allowlist matching current
@@ -107,7 +120,11 @@ Implementation: [Dependabot](../.github/dependabot.yml),
 [requirements index](REQUIREMENTS.md). All checkout steps disable persisted
 credentials; zizmor uses plain CLI results without a write token on PRs.
 Actions version updates have a seven-day Dependabot cooldown to satisfy the
-workflow audit; the weekly cadence and five-PR limit still apply.
+workflow audit; the amended monthly cadence and two-PR limit apply to version
+updates. Both repository-defined PR workflows cancel superseded runs of the same
+workflow and PR; `lf-only` and zizmor have no bot skip condition. There are no
+expensive PR jobs here. Scorecard runs only on main/weekly; CodeQL is managed by
+GitHub default setup, with no checked-in workflow to amend.
 
 Before merge, inspect action SHA/tag correspondence, workflow syntax and token
 scope, local/remote links, rendered Markdown, LF-only text and `git diff --check`.
