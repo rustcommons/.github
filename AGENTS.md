@@ -63,3 +63,10 @@ human-authored record of intent; tool attribution belongs in tool logs, not hist
 
 - Pull before every push. Use `git pull --rebase` unless unpushed commits include a merge, in which case use `git pull --no-rebase`.
 - Never force push. Preserve concurrent work; if a push is rejected, pull again and retry. Stop for user input if a conflict cannot be resolved confidently.
+
+## Security baseline
+
+- Follow [docs/SECURITY-BASELINE.md](docs/SECURITY-BASELINE.md). All changes to `main` require a pull request; do not use the administrator bypass for routine work or push directly to `main`.
+- Pin all third-party actions (including GitHub-maintained actions) to full commit SHAs with trailing version-tag comments. Keep top-level workflow permissions read-only, elevate only per job, and disable checkout credential persistence unless justified.
+- Require green `lf-only` and `zizmor` checks before merge. Fix security findings or justify narrow suppressions inline. Review weekly Dependabot updates and Scorecard results; verify Scorecard publication and SARIF upload after its first default-branch run. Keep gaps explicit until that evidence exists.
+- This documentation repository has no Rust dependency graph, binary release or published crate: cargo-deny, SBOM/reproducibility/SLSA and Trusted Publishing gates are not applicable here. Do not invent release evidence or a license.
