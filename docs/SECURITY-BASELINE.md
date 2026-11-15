@@ -106,6 +106,8 @@ Implementation: [Dependabot](../.github/dependabot.yml),
 [README](../README.md), [AGENTS](../AGENTS.md), and
 [requirements index](REQUIREMENTS.md). All checkout steps disable persisted
 credentials; zizmor uses plain CLI results without a write token on PRs.
+Actions version updates have a seven-day Dependabot cooldown to satisfy the
+workflow audit; the weekly cadence and five-PR limit still apply.
 
 Before merge, inspect action SHA/tag correspondence, workflow syntax and token
 scope, local/remote links, rendered Markdown, LF-only text and `git diff --check`.
