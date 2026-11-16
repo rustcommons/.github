@@ -28,3 +28,8 @@ including user-facing changelogs, GitHub Releases and verification gates.
 
 Read the [security policy](SECURITY.md) to report vulnerabilities privately and
 verify releases; maintainers follow the [security baseline](docs/SECURITY-BASELINE.md).
+
+Security reviewers: read the [disconnected-network assurance report](docs/SECURITY-ASSURANCE.md)
+([PDF](docs/SECURITY-ASSURANCE.pdf)) and the
+[proposed Best Practices answers](docs/BEST-PRACTICES-ANSWERS.md).
+They distinguish released controls, bounded evidence and remaining gaps.
