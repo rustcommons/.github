@@ -1,0 +1,311 @@
+{
+  "observed_at": "2026-11-16T05:43:24.234810Z",
+  "public_response_window": {
+    "start_inclusive": "2026-09-16T05:43:24.234810Z",
+    "end_inclusive": "2026-11-16T05:43:24.234810Z",
+    "selection": "Trailing two calendar months, including recent reports; not the interval from twelve months ago to two months ago."
+  },
+  "private_vulnerability_window": {
+    "start_inclusive": "2026-05-16T05:43:24.234810Z",
+    "end_inclusive": "2026-11-16T05:43:24.234810Z"
+  },
+  "scope": "All-state public issues from nine named repositories, paginated; implementation PRs counted separately, not assumed to be reports. Private report receipt/response history is not proven by advisory API metadata.",
+  "repositories": [
+    {
+      "repository": ".github",
+      "created_at": "2026-10-31T19:10:54Z",
+      "source_revision": "a466abfe53a0431c574e5e52e60da29ccafedd6d",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/.github/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 11,
+      "pull_requests_excluded": 11,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/.github/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 11
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "cargo-libc",
+      "created_at": "2026-10-09T12:44:15Z",
+      "source_revision": "b49ebe50c0cccae7c01be60e3d1314235db5fe07",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/cargo-libc/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 36,
+      "pull_requests_excluded": 36,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/cargo-libc/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 32,
+        "dependency_or_other_automation": 4
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "linux-abi-tools",
+      "created_at": "2026-10-09T12:46:23Z",
+      "source_revision": "6dccf0630f6f9333cbd07963defc5a5d585cc59a",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/linux-abi-tools/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 23,
+      "pull_requests_excluded": 23,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/linux-abi-tools/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 21,
+        "dependency_or_other_automation": 2
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "glibc-abilists",
+      "created_at": "2026-10-10T21:15:37Z",
+      "source_revision": "77e21edc173ff08998e4defaf7bb2d85cecc14b0",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/glibc-abilists/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 12,
+      "pull_requests_excluded": 12,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/glibc-abilists/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 12
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "glibc-provider",
+      "created_at": "2026-10-11T21:28:26Z",
+      "source_revision": "f8bb7f9605b2b2e16993cd83cac113b9844b2a0a",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/glibc-provider/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 12,
+      "pull_requests_excluded": 12,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/glibc-provider/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 10,
+        "dependency_or_other_automation": 2
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "rust-musl-libc-compat-test",
+      "created_at": "2026-03-10T04:03:28Z",
+      "source_revision": "a49486b010409e219df5db974a85d44dbd0b0bea",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/rust-musl-libc-compat-test/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 10,
+      "pull_requests_excluded": 10,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/rust-musl-libc-compat-test/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 8,
+        "dependency_or_other_automation": 2
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "rust-mirror",
+      "created_at": "2025-12-11T11:47:32Z",
+      "source_revision": "6bead31e1e764d96dd218380281dce4ac81c2539",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/rust-mirror/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 65,
+      "pull_requests_excluded": 65,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/rust-mirror/security-advisories",
+      "advisory_records_returned": 1,
+      "advisories_created_in_trailing_six_months": 1,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 55,
+        "dependency_or_other_automation": 10
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "rust-mirror-gui",
+      "created_at": "2026-11-11T12:47:23Z",
+      "source_revision": "af94a31894d2e052c4044ed24a0506d854e14b2e",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/rust-mirror-gui/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 25,
+      "pull_requests_excluded": 25,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/rust-mirror-gui/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 23,
+        "dependency_or_other_automation": 2
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    },
+    {
+      "repository": "cargo-binpack",
+      "created_at": "2026-08-31T21:17:55Z",
+      "source_revision": "7bc1bdd728ccf645be24530db6652aeed4e4405f",
+      "issues_endpoint": "https://api.github.com/repos/rustcommons/cargo-binpack/issues?state=all&sort=created&direction=asc&per_page=100",
+      "pages_read": 1,
+      "total_returned_items_including_pull_requests": 5,
+      "pull_requests_excluded": 5,
+      "total_public_issues_all_dates": 0,
+      "trailing_two_month_public_issues": [],
+      "repository_contributing_overrides": [],
+      "advisories_endpoint": "https://api.github.com/repos/rustcommons/cargo-binpack/security-advisories",
+      "advisory_records_returned": 0,
+      "advisories_created_in_trailing_six_months": 0,
+      "advisory_response_time_evidence": "Creation/publication timestamps alone do not establish receipt/first-response timing or absence of other private reports.",
+      "pull_request_metadata_classification": {
+        "maintainer_change_proposals": 5
+      },
+      "unclassified_pull_requests": [],
+      "public_issue_classification": {
+        "bug_reports": 0,
+        "enhancement_requests": 0,
+        "other": 0,
+        "acknowledged_bug_reports": 0,
+        "responded_enhancement_requests": 0,
+        "response_rate": null
+      },
+      "visibility": "public",
+      "issues_enabled": true
+    }
+  ],
+  "limitations": [
+    "This audit covers currently API-visible public GitHub issue history and PR author/type metadata; deleted/transferred/off-platform reports and private discussions are not established.",
+    "No public issues exist in the returned history, so no issue bodies, response latencies or positive response-rate sample exists. Zero denominators are not reported as a 100 percent response rate.",
+    "PRs are categorized as maintainer change proposals or automation using author association/account type; their existence is not counted as public bug reports or feature requests.",
+    "The advisory list is not a private report receipt/first-response ledger. Private response timing remains unverified pending a sanitized six-month audit.",
+    "CONTRIBUTING override checks use pinned default-branch trees before this candidate default guide exists; inherited visibility is conditional on merging the public .github default."
+  ],
+  "contributing_override_method": "Checked root, .github and docs directories for case-insensitive CONTRIBUTING basename, with or without filename extension, at recorded default-branch Git trees.",
+  "public_response_summary": {
+    "repositories": 9,
+    "public_issues_all_dates": 0,
+    "public_bug_reports_in_window": 0,
+    "public_enhancement_requests_in_window": 0,
+    "public_other_issues_in_window": 0,
+    "maintainer_pull_requests_excluded": 177,
+    "automation_pull_requests_excluded": 22,
+    "unclassified_pull_request_actors": 0,
+    "response_rate": null
+  },
+  "community_settings_observed_at": "2026-11-16T05:55:20.176491+00:00"
+}
