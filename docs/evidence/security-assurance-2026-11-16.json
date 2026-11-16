@@ -1,0 +1,866 @@
+{
+  "observed_at": "2026-11-16T05:08:07.530928+00:00",
+  "scope": "Read-only provider/API observations; not a third-party audit",
+  "source_revisions": {
+    "rust-mirror": "b254027cd8a31ebadd92f712671ed0d76c28561a",
+    "rust-mirror-gui": "af94a31894d2e052c4044ed24a0506d854e14b2e"
+  },
+  "organization": {
+    "login": "rustcommons",
+    "two_factor_requirement_enabled": true
+  },
+  "repositories": {
+    "rust-mirror": {
+      "settings": {
+        "visibility": "public",
+        "archived": false,
+        "has_issues": true,
+        "security_and_analysis": {
+          "secret_scanning": {
+            "status": "enabled"
+          },
+          "secret_scanning_push_protection": {
+            "status": "enabled"
+          },
+          "dependabot_security_updates": {
+            "status": "enabled"
+          },
+          "secret_scanning_non_provider_patterns": {
+            "status": "disabled"
+          },
+          "secret_scanning_validity_checks": {
+            "status": "disabled"
+          }
+        }
+      },
+      "private_reporting": {
+        "enabled": true
+      },
+      "codeql": {
+        "state": "configured",
+        "languages": [
+          "actions",
+          "python",
+          "rust"
+        ],
+        "query_suite": "default",
+        "threat_model": "remote",
+        "updated_at": "2026-11-15T19:21:59Z",
+        "schedule": "weekly",
+        "runner_type": "standard",
+        "runner_label": ""
+      },
+      "rulesets": [
+        {
+          "name": "protect-main",
+          "enforcement": "active",
+          "target": "branch",
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "~DEFAULT_BRANCH"
+              ]
+            }
+          },
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "non_fast_forward"
+            },
+            {
+              "type": "pull_request",
+              "parameters": {
+                "required_approving_review_count": 0,
+                "dismiss_stale_reviews_on_push": false,
+                "required_reviewers": [],
+                "require_code_owner_review": false,
+                "dismissal_restriction": {
+                  "enabled": false,
+                  "allowed_actors": []
+                },
+                "require_last_push_approval": false,
+                "required_review_thread_resolution": false,
+                "require_extra_approval_for_unattributed_changes": true,
+                "allowed_merge_methods": [
+                  "merge",
+                  "squash"
+                ]
+              }
+            },
+            {
+              "type": "required_status_checks",
+              "parameters": {
+                "strict_required_status_checks_policy": false,
+                "do_not_enforce_on_create": false,
+                "required_status_checks": [
+                  {
+                    "context": "lf-only",
+                    "integration_id": 15368
+                  }
+                ]
+              }
+            }
+          ],
+          "bypass_actors": [
+            {
+              "actor_id": 5,
+              "actor_type": "RepositoryRole",
+              "bypass_mode": "always"
+            }
+          ]
+        },
+        {
+          "name": "protect-release-tags",
+          "enforcement": "active",
+          "target": "tag",
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "refs/tags/v*"
+              ]
+            }
+          },
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "update"
+            },
+            {
+              "type": "non_fast_forward"
+            }
+          ],
+          "bypass_actors": []
+        }
+      ],
+      "crates_io_environment": {
+        "protection_rules": [
+          {
+            "type": "required_reviewers",
+            "prevent_self_review": false,
+            "reviewer_count": 1
+          },
+          {
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      },
+      "latest_release": {
+        "html_url": "https://github.com/rustcommons/rust-mirror/releases/tag/v0.5.4",
+        "tag_name": "v0.5.4",
+        "target_commitish": "b254027cd8a31ebadd92f712671ed0d76c28561a",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-11-16T05:04:43Z"
+      },
+      "open_issues": []
+    },
+    "rust-mirror-gui": {
+      "settings": {
+        "visibility": "public",
+        "archived": false,
+        "has_issues": true,
+        "security_and_analysis": {
+          "secret_scanning": {
+            "status": "enabled"
+          },
+          "secret_scanning_push_protection": {
+            "status": "enabled"
+          },
+          "dependabot_security_updates": {
+            "status": "enabled"
+          },
+          "secret_scanning_non_provider_patterns": {
+            "status": "disabled"
+          },
+          "secret_scanning_validity_checks": {
+            "status": "disabled"
+          }
+        }
+      },
+      "private_reporting": {
+        "enabled": true
+      },
+      "codeql": {
+        "state": "configured",
+        "languages": [
+          "actions",
+          "python",
+          "rust"
+        ],
+        "query_suite": "default",
+        "threat_model": "remote",
+        "updated_at": "2026-11-15T19:24:34Z",
+        "schedule": "weekly",
+        "runner_type": "standard",
+        "runner_label": ""
+      },
+      "rulesets": [
+        {
+          "name": "protect-main",
+          "enforcement": "active",
+          "target": "branch",
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "~DEFAULT_BRANCH"
+              ]
+            }
+          },
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "non_fast_forward"
+            },
+            {
+              "type": "pull_request",
+              "parameters": {
+                "required_approving_review_count": 0,
+                "dismiss_stale_reviews_on_push": false,
+                "required_reviewers": [],
+                "require_code_owner_review": false,
+                "dismissal_restriction": {
+                  "enabled": false,
+                  "allowed_actors": []
+                },
+                "require_last_push_approval": false,
+                "required_review_thread_resolution": false,
+                "require_extra_approval_for_unattributed_changes": true,
+                "allowed_merge_methods": [
+                  "merge",
+                  "squash"
+                ]
+              }
+            },
+            {
+              "type": "required_status_checks",
+              "parameters": {
+                "strict_required_status_checks_policy": false,
+                "do_not_enforce_on_create": false,
+                "required_status_checks": [
+                  {
+                    "context": "lf-only",
+                    "integration_id": 15368
+                  }
+                ]
+              }
+            }
+          ],
+          "bypass_actors": [
+            {
+              "actor_id": 5,
+              "actor_type": "RepositoryRole",
+              "bypass_mode": "always"
+            }
+          ]
+        },
+        {
+          "name": "protect-release-tags",
+          "enforcement": "active",
+          "target": "tag",
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "refs/tags/v*"
+              ]
+            }
+          },
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "update"
+            },
+            {
+              "type": "non_fast_forward"
+            }
+          ],
+          "bypass_actors": []
+        }
+      ],
+      "crates_io_environment": {
+        "protection_rules": [
+          {
+            "type": "required_reviewers",
+            "prevent_self_review": false,
+            "reviewer_count": 1
+          },
+          {
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      },
+      "latest_release": {
+        "html_url": "https://github.com/rustcommons/rust-mirror-gui/releases/tag/v0.5.0",
+        "tag_name": "v0.5.0",
+        "target_commitish": "main",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-11-15T18:53:01Z"
+      },
+      "open_issues": []
+    }
+  },
+  "advisory": {
+    "ghsa_id": "GHSA-46c8-w6pp-97pw",
+    "state": "draft",
+    "updated_at": "2026-11-16T04:34:56Z",
+    "published_at": null
+  },
+  "rust_mirror_0_5_3_registry": {
+    "num": "0.5.3",
+    "checksum": "1add596eec357351f05138fa6ea534630346af28340cc3b06c136f19266f82be",
+    "created_at": "2026-11-16T01:50:20.730945Z",
+    "yanked": false,
+    "trustpub_data": {
+      "provider": "github",
+      "repository": "rustcommons/rust-mirror",
+      "run_id": "43782529509",
+      "sha": "e74f91b3f39f7ff78675f184b75c5602d681d377"
+    }
+  },
+  "runs": [
+    {
+      "repo": "rust-mirror",
+      "id": 43782529509,
+      "name": "Trusted crates.io publishing",
+      "path": ".github/workflows/trusted-publishing.yml",
+      "event": "push",
+      "head_sha": "e74f91b3f39f7ff78675f184b75c5602d681d377",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:48:17Z",
+      "updated_at": "2026-11-16T01:50:27Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43782529509"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43799962003,
+      "name": "Release binaries",
+      "path": ".github/workflows/release-binaries.yml",
+      "event": "workflow_dispatch",
+      "head_sha": "e74f91b3f39f7ff78675f184b75c5602d681d377",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-16T03:44:38Z",
+      "updated_at": "2026-11-16T03:56:05Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43799962003"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43799990830,
+      "name": "Published registry verification",
+      "path": ".github/workflows/registry-verification.yml",
+      "event": "workflow_dispatch",
+      "head_sha": "880f342c6c7c4e2f4ac5e5a88dac3f7a54e436cf",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T03:44:59Z",
+      "updated_at": "2026-11-16T03:48:33Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43799990830"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43801745311,
+      "name": "Reproducible binary measurements",
+      "path": ".github/workflows/reproducible-builds.yml",
+      "event": "pull_request",
+      "head_sha": "6d5605142f39e860eb6c8fc29e5143271bf281ff",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:03:30Z",
+      "updated_at": "2026-11-16T04:11:35Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43801745311"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43759286498,
+      "name": "Reproducible binary measurements",
+      "path": ".github/workflows/reproducible-builds.yml",
+      "event": "pull_request",
+      "head_sha": "5ed8a5ee3ca61dd1d1c057a01c1d7de0ed6104c9",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T20:39:18Z",
+      "updated_at": "2026-11-15T20:53:36Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43759286498"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43749243732,
+      "name": "Release binaries",
+      "path": ".github/workflows/release-binaries.yml",
+      "event": "push",
+      "head_sha": "3ac3b8978acb44752a341ebecde057cd50b1b88f",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T18:53:01Z",
+      "updated_at": "2026-11-15T19:11:16Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43749243732"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43751113750,
+      "name": "Verify release downloads",
+      "path": ".github/workflows/verify-release-download.yml",
+      "event": "pull_request",
+      "head_sha": "e7139f97f21bdc3bfbbd5b688172705d9eb81dcd",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T19:12:23Z",
+      "updated_at": "2026-11-15T19:13:10Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43751113750"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43756146177,
+      "name": "Reproducible build check",
+      "path": ".github/workflows/reproducible-build.yml",
+      "event": "pull_request",
+      "head_sha": "f70e5fe811fc93ba2de13be2e8fed5b29039712c",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T20:06:19Z",
+      "updated_at": "2026-11-15T20:26:20Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43756146177"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43774137822,
+      "name": "Reproducible build check",
+      "path": ".github/workflows/reproducible-build.yml",
+      "event": "pull_request",
+      "head_sha": "b66ac54eefa56b9ff64e0b2b5d0e5a17a3c068e8",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T23:18:57Z",
+      "updated_at": "2026-11-15T23:54:40Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43774137822"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43564858059,
+      "name": "Windows qualification",
+      "path": ".github/workflows/windows-qualification.yml",
+      "event": "pull_request",
+      "head_sha": "1bde7cf493c787dae5e3cec9b9f59f43283daf02",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-14T06:08:27Z",
+      "updated_at": "2026-11-14T06:18:58Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43564858059"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43676198817,
+      "name": "Remote Desktop qualification",
+      "path": ".github/workflows/remote-desktop.yml",
+      "event": "pull_request",
+      "head_sha": "2cd22cebed9679c39cfc6880b1a8c957722a1fce",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-15T04:18:42Z",
+      "updated_at": "2026-11-15T04:38:39Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43676198817"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43681749406,
+      "name": "Remote Desktop qualification",
+      "path": ".github/workflows/remote-desktop.yml",
+      "event": "pull_request",
+      "head_sha": "9b3114ee7ee88115ffb79b38ec9f1d4727b310e3",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T05:35:40Z",
+      "updated_at": "2026-11-15T06:01:08Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43681749406"
+    },
+    {
+      "repo": "rust-mirror-gui",
+      "id": 43740515744,
+      "name": "glibc experiments (CI only)",
+      "path": ".github/workflows/glibc-experiments.yml",
+      "event": "pull_request",
+      "head_sha": "36bfbdda9a0236ab60fc1eb11f9022ba33f17b41",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T17:20:07Z",
+      "updated_at": "2026-11-15T17:34:19Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/43740515744"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43778011880,
+      "name": "Security gates",
+      "path": ".github/workflows/security.yml",
+      "event": "pull_request",
+      "head_sha": "406ca37de815ccdb871a39572269a95d5e6cea6e",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:02:22Z",
+      "updated_at": "2026-11-16T00:14:45Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43778011880"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43778011836,
+      "name": "Crate mirroring MVP qualification",
+      "path": ".github/workflows/crates-mvp.yml",
+      "event": "pull_request",
+      "head_sha": "406ca37de815ccdb871a39572269a95d5e6cea6e",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:02:22Z",
+      "updated_at": "2026-11-16T00:15:50Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43778011836"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43778011908,
+      "name": "Cargo.lock import qualification",
+      "path": ".github/workflows/lock-import.yml",
+      "event": "pull_request",
+      "head_sha": "406ca37de815ccdb871a39572269a95d5e6cea6e",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:02:22Z",
+      "updated_at": "2026-11-16T00:14:46Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43778011908"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43778011991,
+      "name": "Native Windows Nexus qualification",
+      "path": ".github/workflows/nexus-windows.yml",
+      "event": "pull_request",
+      "head_sha": "406ca37de815ccdb871a39572269a95d5e6cea6e",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:02:22Z",
+      "updated_at": "2026-11-16T00:10:16Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43778011991"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43778011885,
+      "name": "Rustup lifecycle qualification",
+      "path": ".github/workflows/rustup-lifecycle.yml",
+      "event": "pull_request",
+      "head_sha": "406ca37de815ccdb871a39572269a95d5e6cea6e",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:02:22Z",
+      "updated_at": "2026-11-16T00:15:02Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43778011885"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43778011875,
+      "name": "Crate resolution Phase 0",
+      "path": ".github/workflows/crates-phase0.yml",
+      "event": "pull_request",
+      "head_sha": "406ca37de815ccdb871a39572269a95d5e6cea6e",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:02:22Z",
+      "updated_at": "2026-11-16T00:10:36Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43778011875"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43778011829,
+      "name": "Reproducible binary measurements",
+      "path": ".github/workflows/reproducible-builds.yml",
+      "event": "pull_request",
+      "head_sha": "406ca37de815ccdb871a39572269a95d5e6cea6e",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T00:02:22Z",
+      "updated_at": "2026-11-16T00:20:04Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43778011829"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43805637147,
+      "name": "Reproducible binary measurements",
+      "path": ".github/workflows/reproducible-builds.yml",
+      "event": "pull_request",
+      "head_sha": "8afa238ba13c7810e6c2829c7e34471c0b19d34a",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:41:48Z",
+      "updated_at": "2026-11-16T04:53:41Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43805637147"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43807377829,
+      "name": "Trusted crates.io publishing",
+      "path": ".github/workflows/trusted-publishing.yml",
+      "event": "push",
+      "head_sha": "b254027cd8a31ebadd92f712671ed0d76c28561a",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:59:42Z",
+      "updated_at": "2026-11-16T05:03:28Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43807377829"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43807377864,
+      "name": "Release binaries",
+      "path": ".github/workflows/release-binaries.yml",
+      "event": "push",
+      "head_sha": "b254027cd8a31ebadd92f712671ed0d76c28561a",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:59:42Z",
+      "updated_at": "2026-11-16T05:08:25Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43807377864"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43807954825,
+      "name": "Published registry verification",
+      "path": ".github/workflows/registry-verification.yml",
+      "event": "workflow_dispatch",
+      "head_sha": "b254027cd8a31ebadd92f712671ed0d76c28561a",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T05:05:15Z",
+      "updated_at": "2026-11-16T05:07:12Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43807954825"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43808394284,
+      "name": "Verify published binary downloads",
+      "path": ".github/workflows/verify-release-binaries.yml",
+      "event": "workflow_dispatch",
+      "head_sha": "b254027cd8a31ebadd92f712671ed0d76c28561a",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-16T05:09:29Z",
+      "updated_at": "2026-11-16T05:10:26Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43808394284"
+    },
+    {
+      "repo": "rust-mirror",
+      "id": 43808915816,
+      "name": "Verify published binary downloads",
+      "path": ".github/workflows/verify-release-binaries.yml",
+      "event": "workflow_dispatch",
+      "head_sha": "c9f2a807a9a433cf4e4a4c12d5014ecb07784ff5",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T05:14:23Z",
+      "updated_at": "2026-11-16T05:15:22Z",
+      "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/43808915816"
+    }
+  ],
+  "rust_mirror_0_5_4_live_verification": {
+    "observed_at": "2026-11-16T05:09:58.165750+00:00",
+    "source": "b254027cd8a31ebadd92f712671ed0d76c28561a",
+    "policy_flags": [
+      "--repo",
+      "rustcommons/rust-mirror",
+      "--signer-workflow",
+      "rustcommons/rust-mirror/.github/workflows/build-binaries.yml",
+      "--source-digest",
+      "b254027cd8a31ebadd92f712671ed0d76c28561a",
+      "--signer-digest",
+      "b254027cd8a31ebadd92f712671ed0d76c28561a",
+      "--source-ref",
+      "refs/tags/v0.5.4",
+      "--deny-self-hosted-runners"
+    ],
+    "checksum_entries": 6,
+    "public_files": 7,
+    "verification": [
+      {
+        "file": "rust-mirror-0.5.4-x86_64-apple-darwin.tar.gz",
+        "sha256": "08e6a62f2a7fc23426d95d655b2d29db510701eee364b3fd9b9abbd2c6a42a2a",
+        "predicate_type": "https://slsa.dev/provenance/v1",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": null
+      },
+      {
+        "file": "rust-mirror-0.5.4-aarch64-apple-darwin.tar.gz",
+        "sha256": "47093583da0179d09fd8c85342885e3dc5a6d32b0988bb509aac83b741ec0623",
+        "predicate_type": "https://slsa.dev/provenance/v1",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": null
+      },
+      {
+        "file": "rust-mirror-0.5.4-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "d1806bc1cbe8a95e125328f8f3cb3f053b2bdf8d8e4389a7ac843a42559b6228",
+        "predicate_type": "https://slsa.dev/provenance/v1",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": null
+      },
+      {
+        "file": "rust-mirror-0.5.4-x86_64-pc-windows-msvc.zip",
+        "sha256": "74f1ff5af14866c95c1cca86e1e04d93c8ef19ff1f93a325dae6730eb086ad1d",
+        "predicate_type": "https://slsa.dev/provenance/v1",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": null
+      },
+      {
+        "file": "rust-mirror-0.5.4-x86_64-unknown-linux-musl.tar.gz",
+        "sha256": "fd2476364b104bac1c9898e7d172f6cd5e3872f3874feab479b05cf9528cd74d",
+        "predicate_type": "https://slsa.dev/provenance/v1",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": null
+      },
+      {
+        "file": "rust-mirror-0.5.4.cdx.json",
+        "sha256": "2265bac32b1393d9c96208696c629544b5ea9055562548a787b3b45e6b16b670",
+        "predicate_type": "https://slsa.dev/provenance/v1",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": null
+      },
+      {
+        "file": "SHA256SUMS",
+        "sha256": "d0d39b2c8b21bee5d6fe50167752c7b7e80a2286dfcc820b87a81d05a9fab0af",
+        "predicate_type": "https://slsa.dev/provenance/v1",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": null
+      },
+      {
+        "file": "rust-mirror-0.5.4-x86_64-apple-darwin.tar.gz",
+        "sha256": "08e6a62f2a7fc23426d95d655b2d29db510701eee364b3fd9b9abbd2c6a42a2a",
+        "predicate_type": "https://cyclonedx.org/bom",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": true
+      },
+      {
+        "file": "rust-mirror-0.5.4-aarch64-apple-darwin.tar.gz",
+        "sha256": "47093583da0179d09fd8c85342885e3dc5a6d32b0988bb509aac83b741ec0623",
+        "predicate_type": "https://cyclonedx.org/bom",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": true
+      },
+      {
+        "file": "rust-mirror-0.5.4-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "d1806bc1cbe8a95e125328f8f3cb3f053b2bdf8d8e4389a7ac843a42559b6228",
+        "predicate_type": "https://cyclonedx.org/bom",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": true
+      },
+      {
+        "file": "rust-mirror-0.5.4-x86_64-pc-windows-msvc.zip",
+        "sha256": "74f1ff5af14866c95c1cca86e1e04d93c8ef19ff1f93a325dae6730eb086ad1d",
+        "predicate_type": "https://cyclonedx.org/bom",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": true
+      },
+      {
+        "file": "rust-mirror-0.5.4-x86_64-unknown-linux-musl.tar.gz",
+        "sha256": "fd2476364b104bac1c9898e7d172f6cd5e3872f3874feab479b05cf9528cd74d",
+        "predicate_type": "https://cyclonedx.org/bom",
+        "exit_code": 0,
+        "exact_published_sbom_predicate": true
+      }
+    ],
+    "sbom": {
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.5",
+      "serialNumber": "urn:uuid:3df37e76-61ee-563a-af05-3d15d2714597",
+      "components": 127,
+      "metadata_keys": [
+        "component",
+        "properties",
+        "timestamp",
+        "tools"
+      ],
+      "components_with_supplier": 0,
+      "components_with_purl": 127
+    },
+    "scope": "Downloaded bytes and GitHub attestations only; no binary execution, source rebuild, OS code signing or independent build-platform audit performed here.",
+    "github_asset_digests_match": true,
+    "statement_count_note": "Seven per-file provenance checks refer to a seven-subject signed statement; five archive bindings refer to a five-subject CycloneDX statement. These counts are verifications, not distinct signatures."
+  },
+  "supplemental_observed_at": "2026-11-16T05:25:26.391424+00:00",
+  "rust_mirror_0_5_4_public_assets": [
+    {
+      "name": "rust-mirror-0.5.4-aarch64-apple-darwin.tar.gz",
+      "size": 3541140,
+      "digest": "sha256:47093583da0179d09fd8c85342885e3dc5a6d32b0988bb509aac83b741ec0623",
+      "browser_download_url": "https://github.com/rustcommons/rust-mirror/releases/download/v0.5.4/rust-mirror-0.5.4-aarch64-apple-darwin.tar.gz"
+    },
+    {
+      "name": "rust-mirror-0.5.4-x86_64-apple-darwin.tar.gz",
+      "size": 3750355,
+      "digest": "sha256:08e6a62f2a7fc23426d95d655b2d29db510701eee364b3fd9b9abbd2c6a42a2a",
+      "browser_download_url": "https://github.com/rustcommons/rust-mirror/releases/download/v0.5.4/rust-mirror-0.5.4-x86_64-apple-darwin.tar.gz"
+    },
+    {
+      "name": "rust-mirror-0.5.4-x86_64-pc-windows-msvc.zip",
+      "size": 3493394,
+      "digest": "sha256:74f1ff5af14866c95c1cca86e1e04d93c8ef19ff1f93a325dae6730eb086ad1d",
+      "browser_download_url": "https://github.com/rustcommons/rust-mirror/releases/download/v0.5.4/rust-mirror-0.5.4-x86_64-pc-windows-msvc.zip"
+    },
+    {
+      "name": "rust-mirror-0.5.4-x86_64-unknown-linux-gnu.tar.gz",
+      "size": 3877968,
+      "digest": "sha256:d1806bc1cbe8a95e125328f8f3cb3f053b2bdf8d8e4389a7ac843a42559b6228",
+      "browser_download_url": "https://github.com/rustcommons/rust-mirror/releases/download/v0.5.4/rust-mirror-0.5.4-x86_64-unknown-linux-gnu.tar.gz"
+    },
+    {
+      "name": "rust-mirror-0.5.4-x86_64-unknown-linux-musl.tar.gz",
+      "size": 3992650,
+      "digest": "sha256:fd2476364b104bac1c9898e7d172f6cd5e3872f3874feab479b05cf9528cd74d",
+      "browser_download_url": "https://github.com/rustcommons/rust-mirror/releases/download/v0.5.4/rust-mirror-0.5.4-x86_64-unknown-linux-musl.tar.gz"
+    },
+    {
+      "name": "rust-mirror-0.5.4.cdx.json",
+      "size": 147347,
+      "digest": "sha256:2265bac32b1393d9c96208696c629544b5ea9055562548a787b3b45e6b16b670",
+      "browser_download_url": "https://github.com/rustcommons/rust-mirror/releases/download/v0.5.4/rust-mirror-0.5.4.cdx.json"
+    },
+    {
+      "name": "SHA256SUMS",
+      "size": 660,
+      "digest": "sha256:d0d39b2c8b21bee5d6fe50167752c7b7e80a2286dfcc820b87a81d05a9fab0af",
+      "browser_download_url": "https://github.com/rustcommons/rust-mirror/releases/download/v0.5.4/SHA256SUMS"
+    }
+  ],
+  "rust_mirror_0_5_4_registry": {
+    "num": "0.5.4",
+    "checksum": "a11f6b58f2004b6df41ea1c33720bed7762c9daff815ce2eb3c3195fbbe908f2",
+    "created_at": "2026-11-16T05:03:22.470151Z",
+    "yanked": false,
+    "trustpub_data": {
+      "provider": "github",
+      "repository": "rustcommons/rust-mirror",
+      "run_id": "43807377829",
+      "sha": "b254027cd8a31ebadd92f712671ed0d76c28561a"
+    }
+  },
+  "scope_notes": {
+    "staffing": "Single-maintainer concentration is owner-reported; this observation does not independently audit personnel or every user account.",
+    "no_independent_audit": "No independent third-party product audit supplied in the inspected repository records.",
+    "advisory": "Draft status is a dated observation, not a public advisory.",
+    "failed_runs": "43676198817 is an overall failed exploratory GUI RDP run; 43808394284 is the failed initial Windows read-only verifier. Do not label either as an overall pass."
+  },
+  "publication_record_review_revision": "5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25"
+}
