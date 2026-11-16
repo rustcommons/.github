@@ -23,7 +23,7 @@ engine 0.5.1), with newer maintainer/security files pinned at
  af94a31894d2e052c4044ed24a0506d854e14b2e. Main policy does not update an immutable
 published artifact. [Assurance report](SECURITY-ASSURANCE.md) and its
 [dated observations](evidence/security-assurance-2026-11-16.json) explain these
-boundaries, draft GHSA status, L3/SBOM limits and specific release evidence.
+boundaries, published GHSA status (with the earlier draft observation retained), L3/SBOM limits and specific release evidence.
 
 ## Registration review checklist
 
@@ -82,8 +82,8 @@ boundaries, draft GHSA status, L3/SBOM limits and specific release evidence.
 | `report_responses` | MUST | Unmet | Unmet | Open-issue snapshots alone do not measure majority responses over the specified 2–12 month window. [Observed open issue state](evidence/security-assurance-2026-11-16.json). Fix: audit the complete issue/PR history for bug/enhancement reports, classify responses and document counts or an empty applicable window. |
 | `enhancement_responses` | SHOULD | Unmet | Unmet | Open-issue snapshots alone do not measure majority responses over the specified 2–12 month window. [Observed open issue state](evidence/security-assurance-2026-11-16.json). Fix: audit the complete issue/PR history for bug/enhancement reports, classify responses and document counts or an empty applicable window. |
 | `report_archive` | MUST | Met | Met | Public GitHub issue and PR archives provide URL-addressable discussion/reporting: [CLI issues](https://github.com/rustcommons/rust-mirror/issues), [GUI issues](https://github.com/rustcommons/rust-mirror-gui/issues). Issues enabled in [provider observations](evidence/security-assurance-2026-11-16.json). |
-| `vulnerability_report_process` | MUST | Met | Met | [Inherited security policy](../SECURITY.md) documents private GitHub reporting; [API observations](evidence/security-assurance-2026-11-16.json) confirm enabled reporting in both repositories. No private draft contents are needed as evidence. |
-| `vulnerability_report_private` | MUST | Met | Met | [Inherited security policy](../SECURITY.md) documents private GitHub reporting; [API observations](evidence/security-assurance-2026-11-16.json) confirm enabled reporting in both repositories. No private draft contents are needed as evidence. |
+| `vulnerability_report_process` | MUST | Met | Met | [Inherited security policy](../SECURITY.md) documents private GitHub reporting; [API observations](evidence/security-assurance-2026-11-16.json) confirm enabled reporting in both repositories. No private report contents are needed as evidence. |
+| `vulnerability_report_private` | MUST | Met | Met | [Inherited security policy](../SECURITY.md) documents private GitHub reporting; [API observations](evidence/security-assurance-2026-11-16.json) confirm enabled reporting in both repositories. No private report contents are needed as evidence. |
 | `vulnerability_report_response` | MUST | Unmet | Unmet | [Three-business-day acknowledgment target](../SECURITY.md) is a policy, not a measured six-month response history. Fix: record a privacy-preserving report/first-response date audit or confirm no reports in the applicable window at review. |
 
 ## Quality

@@ -262,12 +262,13 @@ The locked fixes include rustls 0.23.35 → 0.23.46, rustls-webpki 0.103.8 →
 inspection narrows exposure; it does not establish that attacks on certificate
 validation are impossible. [E24] [E25] [E33]
 
-**GHSA-46c8-w6pp-97pw is draft and unpublished at the observation time**, not a
-publicly issued advisory. The report records only that status; the private draft
-URL is not presented as a public justification link. Publishing an advisory is
-outside this documentation task. GUI 0.5.0's separate lock/release needs its own
-upgrade decision; a current main policy or CLI crate fix does not change it.
-[E02] [E03] [E24] [E38]
+**[GHSA-46c8-w6pp-97pw][E54] was published on 2026-11-16 at 05:35:02 UTC.**
+It identifies affected rust-mirror versions `<= 0.5.2` and patched crate `0.5.3`;
+the first patched binary downloads are `0.5.4`. The observation record preserves
+the earlier draft status as history and records publication separately. No
+advisory was published by this documentation change. GUI 0.5.0's separate
+lock/release needs its own upgrade decision; a current main policy or CLI crate
+fix does not change it. [E02] [E03] [E24] [E38] [E54]
 
 ## 11. Customer verification guide
 
@@ -396,7 +397,7 @@ implementation. See the external references in section 15. [E26] [E27]
 | PW.8 Test | Negative integrity/TLS/client and resume/GUI tests; exact platforms and failed controls retained. [E12] [E14] [E21] [E22] |
 | PW.9 Defaults | Direct verified TLS, no redirect/implicit proxy, no-overwrite publication; site authorization still required. [E07] [E08] |
 | RV.1 Identify | RustSec/Dependabot/private reports; snapshot detection, not continuous proof of no vulnerabilities. [E24] [E38] [E39] |
-| RV.2 Assess/remediate | 0.5.3/0.5.4 fixes and bounded exposure; draft repository advisory not yet published. [E24] [E25] [E38] |
+| RV.2 Assess/remediate | 0.5.3/0.5.4 fixes and bounded exposure; published repository advisory identifies affected/patched ranges. [E24] [E25] [E38] [E54] |
 | RV.3 Root causes | SBOM serial/Windows decoding and CPU investigations record failures and corrections; no comprehensive root-cause program audit. [E22] [E25] [E38] |
 
 ### SLSA build track
@@ -421,7 +422,7 @@ implementation. See the external references in section 15. [E26] [E27]
 | Principle | Mapping / gap |
 | --- | --- |
 | Customer security outcomes | Verified defaults, refusal controls and offline admission guidance; customer server/SDK security is not solved by mirroring. [E07] [E11] [E16] |
-| Transparency/accountability | Versioned failures, limits, SBOM/provenance and draft-advisory status; no independent audit and old unsigned artifacts remain explicit. [E25] [E33] [E38] |
+| Transparency/accountability | Versioned failures, limits, SBOM/provenance and published advisory; no independent audit and old unsigned artifacts remain explicit. [E25] [E33] [E38] [E54] |
 | Leadership commitment | Owner-gated publication and baseline approval; no evidence here of a formal resourced security governance program. [E38] [E40] |
 
 ### NTIA 2021 SBOM minimum elements
@@ -516,6 +517,7 @@ the frameworks and commands; they do not establish a product control.
 | E51 | [GUI SBOM generation on main](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/.github/workflows/build-binaries-core.yml) |
 | E52 | [CLI 0.5.4 publication record (review revision)](https://github.com/rustcommons/rust-mirror/blob/5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25/docs/evals/2026-11-16-publication-0.5.4.md) |
 | E53 | [CLI 0.5.4 publication machine record (review revision)](https://github.com/rustcommons/rust-mirror/blob/5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25/docs/evals/publication-0.5.4.json) |
+| E54 | [Published rust-mirror security advisory](https://github.com/rustcommons/rust-mirror/security/advisories/GHSA-46c8-w6pp-97pw) |
 
 External interpretation references:
 
@@ -639,3 +641,5 @@ badge or authorizes publication.
 
 [E52]: https://github.com/rustcommons/rust-mirror/blob/5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25/docs/evals/2026-11-16-publication-0.5.4.md
 [E53]: https://github.com/rustcommons/rust-mirror/blob/5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25/docs/evals/publication-0.5.4.json
+
+[E54]: https://github.com/rustcommons/rust-mirror/security/advisories/GHSA-46c8-w6pp-97pw

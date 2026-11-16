@@ -859,8 +859,21 @@
   "scope_notes": {
     "staffing": "Single-maintainer concentration is owner-reported; this observation does not independently audit personnel or every user account.",
     "no_independent_audit": "No independent third-party product audit supplied in the inspected repository records.",
-    "advisory": "Draft status is a dated observation, not a public advisory.",
+    "advisory": "The original advisory entry is the draft status at observed_at. The later advisory_publication_observation records actual publication and supersedes that status.",
     "failed_runs": "43676198817 is an overall failed exploratory GUI RDP run; 43808394284 is the failed initial Windows read-only verifier. Do not label either as an overall pass."
   },
-  "publication_record_review_revision": "5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25"
+  "publication_record_review_revision": "5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25",
+  "advisory_publication_observation": {
+    "observed_at": "2026-11-16T05:38:52.684608+00:00",
+    "ghsa_id": "GHSA-46c8-w6pp-97pw",
+    "state": "published",
+    "published_at": "2026-11-16T05:35:02Z",
+    "updated_at": "2026-11-16T05:35:02Z",
+    "html_url": "https://github.com/rustcommons/rust-mirror/security/advisories/GHSA-46c8-w6pp-97pw",
+    "affected_package": "rust-mirror",
+    "affected_range": "<= 0.5.2",
+    "patched_crate": "0.5.3",
+    "first_patched_downloads": "0.5.4",
+    "history_note": "The original advisory entry remains the earlier draft observation; this later observation supersedes its publication status without rewriting that history."
+  }
 }
