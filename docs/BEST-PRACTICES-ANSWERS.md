@@ -11,6 +11,14 @@ Consult the [official passing form/details](https://www.bestpractices.dev/en/cri
 when entering answers; MUST/SHOULD/SUGGESTED differ, and some criteria restrict N/A.
 IDs below retain the form’s identifiers rather than paraphrasing its legal wording.
 
+This PR adds the [default CONTRIBUTING guide](../CONTRIBUTING.md), including the
+major-functionality test policy. Proposed Met answers based on this new default
+are **conditional on merging it into the public `.github` default branch** and on
+the audited absence of per-repository overrides. The
+[response-history audit](RESPONSE-HISTORY-AUDIT.md) records an empty public issue
+window for all nine repositories; it does not establish private-report response
+performance.
+
 **Met** means the linked evidence supports the proposed bounded answer.
 **Unmet** conservatively includes an actual missing practice **or evidence not yet
 established**; it is not an assertion that every such control is absent. Each such
@@ -20,15 +28,14 @@ scope and where the source permits it. Do not turn an unknown into N/A.
 Source boundaries: CLI release/source b254027cd8a31ebadd92f712671ed0d76c28561a
 (0.5.4); GUI release 3ac3b8978acb44752a341ebecde057cd50b1b88f (0.5.0,
 engine 0.5.1), with newer maintainer/security files pinned at
- af94a31894d2e052c4044ed24a0506d854e14b2e. Main policy does not update an immutable
+af94a31894d2e052c4044ed24a0506d854e14b2e. Main policy does not update an immutable
 published artifact. [Assurance report](SECURITY-ASSURANCE.md) and its
 [dated observations](evidence/security-assurance-2026-11-16.json) explain these
-boundaries, published GHSA status (with the earlier draft observation retained), L3/SBOM limits and specific release evidence.
+boundaries, published GHSA status (with the earlier pre-publication observation retained), L3/SBOM limits and specific release evidence.
 
 ## Registration review checklist
 
-- Review all Unmet rows; prioritize MUST evidence gaps (contributor path,
-  historical responses, developer knowledge, crypto configuration, vulnerability
+- Review all Unmet rows; prioritize MUST evidence gaps (private-response evidence, developer knowledge, crypto configuration, vulnerability
   age/severity inventory, clean secret history and analysis finding disposition).
 - Separate expected/target response times from actual response records. Review
   private report dates privately; publish only sanitized aggregates.
@@ -36,9 +43,9 @@ boundaries, published GHSA status (with the earlier draft observation retained),
   reuse CLI 0.5.4’s release evidence as GUI proof.
 - Add no badge to a README until the owner registers the correct project and the
   service awards that status. No account creation or submission occurred here.
-- Source repository pages, contribution instructions and public reporting paths
-  should be directly discoverable by new contributors; AGENTS is useful existing
-  evidence, not a replacement for a clear public contribution entry point.
+- After merge, verify GitHub surfaces the inherited contribution link on both
+  product repositories. This default is not copied into product source archives;
+  it does not rewrite published packages or prove private-report performance.
 
 
 ## Basics
@@ -46,9 +53,9 @@ boundaries, published GHSA status (with the earlier draft observation retained),
 | Criterion ID | Weight | CLI | GUI | Justification URL, limitation and proposed fix |
 | --- | --- | --- | --- | --- |
 | `description_good` | MUST | Met | Met | Purpose and scope are explicit: [CLI README](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/README.md), [GUI README](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/README.md). |
-| `interact` | MUST | Unmet | Unmet | Obtain/use instructions exist, and [CLI AGENTS](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/AGENTS.md) / [GUI AGENTS](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/AGENTS.md) describe maintainer PR rules. A clearly linked contributor-facing obtain/feedback/contribution path is not established. Fix: add and link CONTRIBUTING guidance, including public issue/PR routes. |
-| `contribution` | MUST | Unmet | Unmet | Obtain/use instructions exist, and [CLI AGENTS](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/AGENTS.md) / [GUI AGENTS](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/AGENTS.md) describe maintainer PR rules. A clearly linked contributor-facing obtain/feedback/contribution path is not established. Fix: add and link CONTRIBUTING guidance, including public issue/PR routes. |
-| `contribution_requirements` | SHOULD | Met | Met | [CLI AGENTS](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/AGENTS.md) and [GUI AGENTS](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/AGENTS.md) specify scope, commands, dependency approval and protected-main rules. Confirm these are presented as acceptable contribution requirements when adding the public contribution path. |
+| `interact` | MUST | Met | Met | [Default CONTRIBUTING](../CONTRIBUTING.md) explains obtaining products/source, public Issues for bugs/features, private security reporting and PR contributions. Proposed Met after this default merges and GitHub surfaces it; [override audit](RESPONSE-HISTORY-AUDIT.md#default-guide-applicability) found no local override in either repository. |
+| `contribution` | MUST | Met | Met | [Default PR process](../CONTRIBUTING.md#propose-and-validate-changes) documents topic branches, protected-main PRs, validation and maintainer merge/release authority. Proposed Met on merge of the default; per-repository AGENTS remains primary for commands/scope. |
+| `contribution_requirements` | SHOULD | Met | Met | [Default requirements](../CONTRIBUTING.md#propose-and-validate-changes) state test, formatting, documentation/traceability, security and dependency rules; repository-specific AGENTS supplies commands. New default visibility is conditional on merge. |
 | `floss_license` | MUST | Met | Met | Apache-2.0 declared with root license: [CLI LICENSE](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/LICENSE), [GUI LICENSE](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/LICENSE). GUI bundled-font terms are separately included; this answer does not relabel all dependencies Apache-2.0. |
 | `floss_license_osi` | SUGGESTED | Met | Met | Apache-2.0 declared with root license: [CLI LICENSE](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/LICENSE), [GUI LICENSE](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/LICENSE). GUI bundled-font terms are separately included; this answer does not relabel all dependencies Apache-2.0. |
 | `license_location` | MUST | Met | Met | Apache-2.0 declared with root license: [CLI LICENSE](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/LICENSE), [GUI LICENSE](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/LICENSE). GUI bundled-font terms are separately included; this answer does not relabel all dependencies Apache-2.0. |
@@ -79,12 +86,12 @@ boundaries, published GHSA status (with the earlier draft observation retained),
 | --- | --- | --- | --- | --- |
 | `report_process` | MUST | Met | Met | Public GitHub issue and PR archives provide URL-addressable discussion/reporting: [CLI issues](https://github.com/rustcommons/rust-mirror/issues), [GUI issues](https://github.com/rustcommons/rust-mirror-gui/issues). Issues enabled in [provider observations](evidence/security-assurance-2026-11-16.json). |
 | `report_tracker` | SHOULD | Met | Met | Public GitHub issue and PR archives provide URL-addressable discussion/reporting: [CLI issues](https://github.com/rustcommons/rust-mirror/issues), [GUI issues](https://github.com/rustcommons/rust-mirror-gui/issues). Issues enabled in [provider observations](evidence/security-assurance-2026-11-16.json). |
-| `report_responses` | MUST | Unmet | Unmet | Open-issue snapshots alone do not measure majority responses over the specified 2–12 month window. [Observed open issue state](evidence/security-assurance-2026-11-16.json). Fix: audit the complete issue/PR history for bug/enhancement reports, classify responses and document counts or an empty applicable window. |
-| `enhancement_responses` | SHOULD | Unmet | Unmet | Open-issue snapshots alone do not measure majority responses over the specified 2–12 month window. [Observed open issue state](evidence/security-assurance-2026-11-16.json). Fix: audit the complete issue/PR history for bug/enhancement reports, classify responses and document counts or an empty applicable window. |
+| `report_responses` | MUST | Met | Met | [Dated two-month public response audit](RESPONSE-HISTORY-AUDIT.md#public-issue-results): zero public issues/bug reports for either product, including closed history; no response-rate sample. Proposed Met for the empty observed GitHub issue window, not a 100% rate or off-platform/private-channel attestation; confirm no other eligible public report channel at submission. |
+| `enhancement_responses` | SHOULD | Met | Met | [Dated public request audit](RESPONSE-HISTORY-AUDIT.md#public-issue-results): zero enhancement Issues for either product. Maintainer implementation PRs/automation are counted separately; no unclassified PR actors. Proposed Met with this empty-window boundary, not proof of private/external-channel response performance. |
 | `report_archive` | MUST | Met | Met | Public GitHub issue and PR archives provide URL-addressable discussion/reporting: [CLI issues](https://github.com/rustcommons/rust-mirror/issues), [GUI issues](https://github.com/rustcommons/rust-mirror-gui/issues). Issues enabled in [provider observations](evidence/security-assurance-2026-11-16.json). |
 | `vulnerability_report_process` | MUST | Met | Met | [Inherited security policy](../SECURITY.md) documents private GitHub reporting; [API observations](evidence/security-assurance-2026-11-16.json) confirm enabled reporting in both repositories. No private report contents are needed as evidence. |
 | `vulnerability_report_private` | MUST | Met | Met | [Inherited security policy](../SECURITY.md) documents private GitHub reporting; [API observations](evidence/security-assurance-2026-11-16.json) confirm enabled reporting in both repositories. No private report contents are needed as evidence. |
-| `vulnerability_report_response` | MUST | Unmet | Unmet | [Three-business-day acknowledgment target](../SECURITY.md) is a policy, not a measured six-month response history. Fix: record a privacy-preserving report/first-response date audit or confirm no reports in the applicable window at review. |
+| `vulnerability_report_response` | MUST | Unmet | Unmet | [Six-month private response audit boundary](RESPONSE-HISTORY-AUDIT.md#private-vulnerability-response-window) remains unverified. Advisory publication and a three-business-day policy target do not establish receipt/first-response timing. Fix: a responsible maintainer supplies sanitized counts/dates or confirms zero applicable reports/channels/window; only then choose Met or permitted N/A. |
 
 ## Quality
 
@@ -97,9 +104,9 @@ boundaries, published GHSA status (with the earlier draft observation retained),
 | `test_invocation` | SHOULD | Met | Met | [CLI CI](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/.github/workflows/ci.yml), [GUI CI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/.github/workflows/ci.yml) invoke Cargo tests; test/fixture source is public under repository licensing. Named qualification results appear in [run observations](evidence/security-assurance-2026-11-16.json). |
 | `test_most` | SUGGESTED | Unmet | Unmet | [CLI functional corpus](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-13-crates-mvp.md) / [GUI test scope](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-v0.5.0-validation.md) do not establish measured branch/input coverage of most functionality. Fix: collect coverage and identify untested branches/platform input classes; do not infer coverage from test counts. |
 | `test_continuous_integration` | SUGGESTED | Met | Met | [CLI CI](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/.github/workflows/ci.yml), [GUI CI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/.github/workflows/ci.yml) invoke Cargo tests; test/fixture source is public under repository licensing. Named qualification results appear in [run observations](evidence/security-assurance-2026-11-16.json). |
-| `test_policy` | MUST | Unmet | Unmet | [CLI AGENTS](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/AGENTS.md) / [GUI AGENTS](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/AGENTS.md) require relevant checks, but a general documented policy to add automated tests for major new functionality is not established. Fix: state that policy in contributor instructions. |
+| `test_policy` | MUST | Met | Met | [Default test policy](../CONTRIBUTING.md#propose-and-validate-changes): “Major new functionality must include automated tests.” Proposed Met when the default merges; documentation-only validation and regression-test scope remain explicit. |
 | `tests_are_added` | MUST | Met | Met | [New crate feature tests](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-13-crates-mvp.md) and [New font/layout tests](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-v0.5.0-validation.md) document tests accompanying major changes, with source locations and outcomes. This is bounded change evidence, not a coverage claim. |
-| `tests_documented_added` | SUGGESTED | Unmet | Unmet | [CLI AGENTS](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/AGENTS.md) / [GUI AGENTS](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/AGENTS.md) are the current instructions. Fix: explicitly put the new-functionality test policy into the change-proposal/contribution instructions and link it. |
+| `tests_documented_added` | SUGGESTED | Met | Met | The new-functionality test policy is explicitly in [contribution/change-proposal instructions](../CONTRIBUTING.md#propose-and-validate-changes), with test command/results required in PRs. Proposed Met on merge, not evidence that all future features have already been tested. |
 | `warnings` | MUST | Met | Met | [CLI security/core checks](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/.github/workflows/security.yml) / [GUI CI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/.github/workflows/ci.yml) use Clippy with warnings denied; named validation [CLI](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-15-release-0.5.3.md) / [GUI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-v0.5.0-validation.md) records passed checks. Cargo dependency informational/duplicate warnings and approved exceptions are separate from compiler warnings. |
 | `warnings_fixed` | MUST | Met | Met | [CLI security/core checks](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/.github/workflows/security.yml) / [GUI CI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/.github/workflows/ci.yml) use Clippy with warnings denied; named validation [CLI](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-15-release-0.5.3.md) / [GUI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-v0.5.0-validation.md) records passed checks. Cargo dependency informational/duplicate warnings and approved exceptions are separate from compiler warnings. |
 | `warnings_strict` | SUGGESTED | Met | Met | [CLI security/core checks](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/.github/workflows/security.yml) / [GUI CI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/.github/workflows/ci.yml) use Clippy with warnings denied; named validation [CLI](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-15-release-0.5.3.md) / [GUI](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-v0.5.0-validation.md) records passed checks. Cargo dependency informational/duplicate warnings and approved exceptions are separate from compiler warnings. |
@@ -108,8 +115,8 @@ boundaries, published GHSA status (with the earlier draft observation retained),
 
 | Criterion ID | Weight | CLI | GUI | Justification URL, limitation and proposed fix |
 | --- | --- | --- | --- | --- |
-| `know_secure_design` | MUST | Unmet | Unmet | [CLI trust/privilege design](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/SECURITY-BASELINE.md) and [GUI worker design](https://github.com/rustcommons/rust-mirror-gui/blob/3ac3b8978acb44752a341ebecde057cd50b1b88f/src/job.rs) demonstrate controls, not a named primary developer competency attestation. Fix: document a primary developer’s secure-design/common-error knowledge against the criterion details; review evidence rather than infer knowledge from CI. |
-| `know_common_errors` | MUST | Unmet | Unmet | [CLI trust/privilege design](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/SECURITY-BASELINE.md) and [GUI worker design](https://github.com/rustcommons/rust-mirror-gui/blob/3ac3b8978acb44752a341ebecde057cd50b1b88f/src/job.rs) demonstrate controls, not a named primary developer competency attestation. Fix: document a primary developer’s secure-design/common-error knowledge against the criterion details; review evidence rather than infer knowledge from CI. |
+| `know_secure_design` | MUST | Unmet | Unmet | Owner-attestation item. Source/design controls do not certify a primary developer’s knowledge. Complete the [exact secure-design statement](#owner-attestations-still-required) truthfully, identifying the primary developer, projects, date, role and all ten required principles; keep this Unmet until reviewed. |
+| `know_common_errors` | MUST | Unmet | Unmet | Owner-attestation item. Complete the [exact common-error statement and mitigation list](#owner-attestations-still-required) truthfully for the named projects. The table supplies relevant error/mitigation examples; it is not a statement that the owner already knows them. Keep Unmet until reviewed. |
 | `crypto_published` | MUST | Met | Met | [CLI SHA-256 implementation](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/src/lib.rs), [network/TLS delegation](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/src/network.rs) and [GUI engine/lock](https://github.com/rustcommons/rust-mirror-gui/blob/3ac3b8978acb44752a341ebecde057cd50b1b88f/Cargo.lock) use established library cryptography rather than custom algorithms. The GUI release has its own older dependency/security boundary. |
 | `crypto_call` | SHOULD | Met | Met | [CLI SHA-256 implementation](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/src/lib.rs), [network/TLS delegation](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/src/network.rs) and [GUI engine/lock](https://github.com/rustcommons/rust-mirror-gui/blob/3ac3b8978acb44752a341ebecde057cd50b1b88f/Cargo.lock) use established library cryptography rather than custom algorithms. The GUI release has its own older dependency/security boundary. |
 | `crypto_floss` | MUST | Met | Met | [CLI SHA-256 implementation](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/src/lib.rs), [network/TLS delegation](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/src/network.rs) and [GUI engine/lock](https://github.com/rustcommons/rust-mirror-gui/blob/3ac3b8978acb44752a341ebecde057cd50b1b88f/Cargo.lock) use established library cryptography rather than custom algorithms. The GUI release has its own older dependency/security boundary. |
@@ -137,6 +144,66 @@ boundaries, published GHSA status (with the earlier draft observation retained),
 | `dynamic_analysis_unsafe` | SUGGESTED | Unmet | Unmet | [CLI runtime qualification](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-13-crates-mvp.md) and [GUI RDP qualification](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-remote-desktop.md) are functional tests, not evidence of instrumentation such as sanitizers, fuzzing or memory checkers. Fix: run and document suitable instrumented analysis, enabled checks and findings disposition; establish whether any N/A is allowed for the actual code scope before using it. |
 | `dynamic_analysis_enable_assertions` | SUGGESTED | Unmet | Unmet | [CLI runtime qualification](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-13-crates-mvp.md) and [GUI RDP qualification](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-remote-desktop.md) are functional tests, not evidence of instrumentation such as sanitizers, fuzzing or memory checkers. Fix: run and document suitable instrumented analysis, enabled checks and findings disposition; establish whether any N/A is allowed for the actual code scope before using it. |
 | `dynamic_analysis_fixed` | MUST | Unmet | Unmet | [CLI runtime qualification](https://github.com/rustcommons/rust-mirror/blob/b254027cd8a31ebadd92f712671ed0d76c28561a/docs/evals/2026-11-13-crates-mvp.md) and [GUI RDP qualification](https://github.com/rustcommons/rust-mirror-gui/blob/af94a31894d2e052c4044ed24a0506d854e14b2e/docs/evals/2026-11-15-remote-desktop.md) are functional tests, not evidence of instrumentation such as sanitizers, fuzzing or memory checkers. Fix: run and document suitable instrumented analysis, enabled checks and findings disposition; establish whether any N/A is allowed for the actual code scope before using it. |
+
+## Owner attestations still required
+
+`know_secure_design` and `know_common_errors` remain **Unmet — owner-attestation
+pending**. Code, a job title and green CI do not supply this attestation. The
+[official criterion details](https://www.bestpractices.dev/en/criteria/0?details=true&rationale=true)
+([pinned definitions](https://github.com/ossf/best-practices-badge/blob/31325acd7963e0c9203da0ff798802a766237517/config/locales/en.yml))
+require a primary developer who has the relevant knowledge. If the owner is not
+a primary developer of a listed project, obtain the statement from a person who
+is; do not attest to someone else's knowledge by assumption.
+
+At review the owner needs to provide **a real person's name or public handle,
+which project(s) they cover, why they are a primary developer, a UTC date, and
+the two truthful affirmations below**. Describe relevant experience or training
+as the basis; a course or certificate is not required by these criteria. Optional
+supporting URLs can identify role or experience. Publish a reviewed statement as
+the justification URL before marking these rows Met; do not submit this unfilled
+proposal as an already-made attestation.
+
+**Secure-design statement to fill and affirm:**
+
+> I, [name/handle], am a primary developer of [rust-mirror, rust-mirror-gui, or
+> both], because [role and familiarity with the code/change/release process]. As
+> of [UTC date], I personally know how to design secure software and understand
+> and can apply all ten principles listed below to the named projects. My basis
+> is [truthful relevant experience or training; optional supporting URL].
+
+The affirmation must cover every principle: economy of mechanism; fail-safe
+defaults; complete mediation; open design; separation of privilege; least
+privilege; least common mechanism; psychological acceptability; limited attack
+surface; and input validation using allowlists. The statement concerns the
+person's knowledge, not a claim that every project control is complete or every
+attack is prevented.
+
+**Common-error statement to fill and affirm:**
+
+> I, [same or another identified primary developer, with project/role and UTC
+> date], personally know the following project-relevant error categories and at
+> least one mitigation for each. I understand the error/mitigation pairs in the
+> table below [identify any additions or corrections needed for the actual
+> project scope]. My basis is [truthful experience or training]. I have reviewed
+> the assurance report's remaining limits and do not claim these examples
+> eliminate all vulnerabilities.
+
+| Relevant error category | At least one mitigation the developer must understand |
+| --- | --- |
+| Path traversal, unsafe file/link handling | Validate allowed paths, reject unexpected links/entries and verify closure; understand remaining hostile-filesystem/race limits. [Engine/publisher evidence](SECURITY-ASSURANCE.md#5-integrity-chain-end-to-end). |
+| Command/argument injection | Separate executable and argument arrays; avoid concatenating untrusted values into shell commands; validate accepted inputs. [Worker boundary](SECURITY-ASSURANCE.md#3-architecture-and-trust-boundaries). |
+| Missing authentication/authorization or SSRF | Restrict official upstream origins and explicit destinations, scope credentials, and validate each permitted operation; site authorization remains separate. [Threat model](SECURITY-ASSURANCE.md#4-threat-model). |
+| MITM/certificate-verification mistakes | Keep TLS identity/chain verification on and manage approved CA/proxy trust; no insecure validation bypass. [Network evidence](SECURITY-ASSURANCE.md#7-network-behavior-and-offline-evidence). |
+| Unchecked integrity, stale input and unsafe overwrite | Verify payload digests, freeze approved metadata, rehash resume state and refuse existing publication paths; understand that readback is not a global transaction. [Integrity chain](SECURITY-ASSURANCE.md#5-integrity-chain-end-to-end). |
+| Credential disclosure | Avoid secrets in argv/saved settings/logs; use private stdin or explicitly scoped process credentials and redaction; account for environment/memory exposure. [Credential handling](SECURITY-ASSURANCE.md#6-credential-and-secret-handling). |
+| Resource exhaustion and stalled work | Bound metadata, byte/file/event counts and retries; use cancellation/deadlines/stall warnings while recognizing resolver and CPU limits. [Residual risks](SECURITY-ASSURANCE.md#13-residual-risks-and-limitations). |
+| Memory/buffer/FFI mistakes | Use checked/owned Rust data and validate bounds; assess unsafe/dependency/native code rather than assuming all linked code is memory-safe. [Dependency and analysis scope](SECURITY-ASSURANCE.md#8-software-supply-chain). |
+
+These are suggested knowledge statements, not proof of the controls' execution
+or a request to invent training. The separate private response-history evidence
+needed for `vulnerability_report_response` is described in the
+[audit](RESPONSE-HISTORY-AUDIT.md#private-vulnerability-response-window); it is not
+closed by these developer attestations.
 
 ## Maintenance
 

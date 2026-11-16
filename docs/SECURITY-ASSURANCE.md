@@ -224,6 +224,14 @@ publication have separate job permissions, and tag-bound crate publishing waits
 for owner environment review. This is the implemented process, with the
 single-maintainer/no-required-review limitation retained. [E26] [E36] [E37] [E38] [E40]
 
+The default contribution guide introduced with this report documents obtaining
+software, Issues/private reporting and PR requirements, including **major new
+functionality must include automated tests**. Its inherited visibility is
+conditional on merge to the public `.github` default branch and absence of a
+repository override; the nine pinned baseline trees had no such override. This
+policy addition is not proof of historical feature-test completeness or a change
+to published packages. [E55] [E56] [E57]
+
 Patched CLI candidate 406ca37 ran security (43778011880), crate MVP
 (43778011836), lock import (43778011908), Windows Nexus (43778011991), Rustup/Linux
 Nexus lifecycle (43778011885) and Cargo oracle (43778011875). Their success supports
@@ -252,6 +260,13 @@ severity-based fix/advisory targets and coordinated disclosure. Those are target
 not measured response performance. Private reporting is enabled for both products.
 [E38] [E39]
 
+The dated trailing-two-month public issue audit found zero public issues across
+all nine repositories; 177 maintainer PRs and 22 automation PRs are counted
+separately. This is an empty public-channel sample, not a 100% response rate.
+Private report receipt/first-response history is not established by those counts
+or by advisory publication; the six-month private-response criterion remains an
+evidence gap. [E56] [E57]
+
 Worked example: CLI 0.5.3 updates the locked TLS/trust-store/filesystem graph for
 11 named RustSec advisories. Its release notes bound affected locked/prebuilt
 versions through 0.5.2, feature/source exposure, missing aliases and a 404 GHSA
@@ -265,7 +280,7 @@ validation are impossible. [E24] [E25] [E33]
 **[GHSA-46c8-w6pp-97pw][E54] was published on 2026-11-16 at 05:35:02 UTC.**
 It identifies affected rust-mirror versions `<= 0.5.2` and patched crate `0.5.3`;
 the first patched binary downloads are `0.5.4`. The observation record preserves
-the earlier draft status as history and records publication separately. No
+the earlier pre-publication status as history and records publication separately. No
 advisory was published by this documentation change. GUI 0.5.0's separate
 lock/release needs its own upgrade decision; a current main policy or CLI crate
 fix does not change it. [E02] [E03] [E24] [E38] [E54]
@@ -443,7 +458,9 @@ system inventory. [E28] [E38]
 
 ## 15. Evidence index and maintenance
 
-Repository evidence is pinned rather than linked to moving main. CLI source is
+Product source/eval evidence is pinned rather than linked to moving main. Central
+policy and audit links below describe this candidate or a dated observation, as
+identified in the text. CLI source is
 `b254027cd8a31ebadd92f712671ed0d76c28561a`; GUI main policy is
 `af94a31894d2e052c4044ed24a0506d854e14b2e`; GUI released source is
 `3ac3b8978acb44752a341ebecde057cd50b1b88f`. A file containing an older eval does
@@ -518,6 +535,9 @@ the frameworks and commands; they do not establish a product control.
 | E52 | [CLI 0.5.4 publication record (review revision)](https://github.com/rustcommons/rust-mirror/blob/5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25/docs/evals/2026-11-16-publication-0.5.4.md) |
 | E53 | [CLI 0.5.4 publication machine record (review revision)](https://github.com/rustcommons/rust-mirror/blob/5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25/docs/evals/publication-0.5.4.json) |
 | E54 | [Published rust-mirror security advisory](https://github.com/rustcommons/rust-mirror/security/advisories/GHSA-46c8-w6pp-97pw) |
+| E55 | [Default contribution guide and major-functionality test policy](../CONTRIBUTING.md) |
+| E56 | [Dated public/private response audit boundaries](RESPONSE-HISTORY-AUDIT.md) |
+| E57 | [Response audit API and override observations](evidence/response-history-2026-11-16.json) |
 
 External interpretation references:
 
@@ -643,3 +663,7 @@ badge or authorizes publication.
 [E53]: https://github.com/rustcommons/rust-mirror/blob/5ff245cdefe23d3a6f7f9c3d3e72251bce31cc25/docs/evals/publication-0.5.4.json
 
 [E54]: https://github.com/rustcommons/rust-mirror/security/advisories/GHSA-46c8-w6pp-97pw
+
+[E55]: ../CONTRIBUTING.md
+[E56]: RESPONSE-HISTORY-AUDIT.md
+[E57]: evidence/response-history-2026-11-16.json

@@ -33,3 +33,8 @@ Security reviewers: read the [disconnected-network assurance report](docs/SECURI
 ([PDF](docs/SECURITY-ASSURANCE.pdf)) and the
 [proposed Best Practices answers](docs/BEST-PRACTICES-ANSWERS.md).
 They distinguish released controls, bounded evidence and remaining gaps.
+
+Contributors: follow the [default contribution guide](CONTRIBUTING.md) for obtaining
+projects, public bug/feature requests, private vulnerability reporting, PR rules
+and the automated-test policy. The [dated response-history audit](docs/RESPONSE-HISTORY-AUDIT.md)
+records the observed public issue windows and remaining private-response evidence gap.
