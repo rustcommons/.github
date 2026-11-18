@@ -1,6 +1,7 @@
 # Rust Commons security baseline
 
-Owner-approved baseline, 2026-11-15; amended the same day for runner capacity.
+Owner-approved baseline, 2026-11-15; amended for runner capacity and the
+2026-11-17 CI coverage, installation-integrity and fuzzing decision.
 This is the shared maintainer reference for all Rust Commons repositories. Requirements below describe the required end state;
 they do not assert that every repository's workflow rollout or release
 qualification is complete. Keep repository-specific implementation and evidence
@@ -45,6 +46,15 @@ coordinator-reported rollout, not an independent settings audit in this document
    trailing comment. Keep workflow-level permissions read-only and grant writes
    only to the job needing them. Disable checkout credential persistence unless
    explicitly needed and justified. Review Dependabot pin updates before merge.
+   Pin workflow installations too: pip must use exact versions and hashes for
+   the complete requirements set (`--require-hashes`); Cargo tool installation
+   must use `cargo install --locked --version X.Y.Z`; container/job/service images
+   must use immutable digests. Review transitive action entrypoints as well as
+   direct `uses` lines. A SHA-pinned wrapper does not freeze a mutable runtime
+   image. Downloaded executables/scripts must have an immutable expected identity
+   and verified checksum/signature before execution; no unverified download-and-run.
+   Provider-managed hosted-runner labels are not container-image digest pins;
+   do not describe the overall environment as hermetic from action pins alone.
 3. **Workflow linting.** Run [zizmor](https://docs.zizmor.sh/integrations/) on PRs.
    Fix findings or justify narrowly scoped suppressions inline; do not turn off
    the gate to bypass findings. Use unprivileged PR execution, not privileged
@@ -54,7 +64,13 @@ coordinator-reported rollout, not an independent settings audit in this document
    For `dependabot[bot]` PRs keep core checks (fmt, clippy, test, cargo-deny,
    zizmor, lf-only and CodeQL, where applicable), and skip expensive matrices
    or qualification jobs with `if: github.actor != 'dependabot[bot]'` or an
-   explicit path/label gate. Required `lf-only` must still run. Inventory open
+   explicit path/label gate. Required `lf-only` must still run.
+   Never use `[skip ci]`, `[ci skip]`, other CI-skip message markers or skip
+   trailers in commits or merges, even for documentation-only changes. These can
+   suppress CodeQL/applicable CI and reduce observed Scorecard SAST/CI-Tests
+   coverage. Keep those checks running; control cost with scoped jobs and
+   cancellation, not a commit-message bypass. See
+   [GitHub's skip semantics](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs). Inventory open
    Dependabot PRs in the amendment PR: safe patch/minor or MAJOR needing work,
    with a risk note. Do not merge those PRs as part of this rollout.
 4. **Rust dependency policy.** Rust projects run `cargo-deny` in CI with a
@@ -103,13 +119,31 @@ coordinator-reported rollout, not an independent settings audit in this document
    Update requirements and trace links alongside controls. Record any exception
    explicitly with its scope, evidence and unresolved gap.
 
+
+## Fuzzing external input
+
+Repositories that implement parsers for external/untrusted product input must
+maintain relevant [ClusterFuzzLite](https://google.github.io/clusterfuzzlite/)
+targets, seed valid/invalid inputs and retain crash regressions. Run bounded PR
+fuzzing and use separately scoped/scheduled longer runs where configured, respecting
+the runner-budget and bot-PR policy above. Pin the fuzzing actions, tool installers
+and container images under the same rules; do not solve fuzzing setup by executing
+an unverified bootstrap script. Record actual target/input coverage and findings;
+a green run is not proof that a parser is safe. A repository without such a parser
+records Not applicable and its reason instead of adding a placeholder fuzz job.
+
+
 ## Applicability and validation for `.github`
 
 This repository contains documentation, branding and GitHub Actions; it has no
 Cargo project, published crate or binary release. Items 1, 2, 3, 5, 8 and 9 apply.
 Items 4, 6 and 7 are **Not applicable** here. No cargo-deny policy, SBOM,
 Trusted Publishing workflow, crate badges or SLSA badge is fabricated for it.
-No license file is currently declared; the README badge states this limitation.
+The owner authorized an Apache-2.0 [root LICENSE](../LICENSE) on 2026-11-17;
+the README badge now links it. Earlier no-license observations remain historical.
+The documentation-rendering helper reads maintainer-controlled repository content;
+this repository does not ship a product parser for external input. ClusterFuzzLite
+is **Not applicable** here, not an unrun fuzzing pass.
 Public profile text and branding assets are unchanged by this baseline.
 
 Implementation: [Dependabot](../.github/dependabot.yml),
@@ -129,7 +163,35 @@ GitHub default setup, with no checked-in workflow to amend.
 Before merge, inspect action SHA/tag correspondence, workflow syntax and token
 scope, local/remote links, rendered Markdown, LF-only text and `git diff --check`.
 Require green `lf-only` and `zizmor` PR runs. Scorecard runs only on `main` pushes
-and the weekly schedule; its first publication/SARIF upload remains a post-merge
-bootstrap check, not a claim supported by PR CI. Do not bypass the PR requirement
-for that bootstrap. Check results and retain real gaps before reporting rollout
-complete. Update this record and the requirements index when evidence changes.
+and the weekly schedule. Verify License results, publication and SARIF upload on
+the applicable post-merge main run; PR CI cannot establish those outcomes. Do not
+bypass the PR requirement or suppress CI for that check. Retain real gaps before
+reporting rollout complete, and update the requirements index when evidence changes.
+
+## Workflow-installation audit — 2026-11-18
+
+The three checked-in workflows have six direct action invocations using four
+SHA-pinned upstream action identities. There are no direct pip/Cargo installers,
+job/service containers or download-and-run shell installers in these workflows.
+No existing documentation recommended a CI-skip message convention; the new rules
+prohibit future use. Past commit messages and dated evidence are not rewritten.
+
+The zizmor action now explicitly selects 1.32.0. Its pinned
+[installer](https://github.com/zizmorcore/zizmor-action/blob/45d7276c9ca790aabd705e31ca99c6185c3e76dd/action.sh)
+uses pip download with `--require-hashes`, `--no-deps` and `--only-binary`, against
+its [versioned wheel lock](https://github.com/zizmorcore/zizmor-action/blob/45d7276c9ca790aabd705e31ca99c6185c3e76dd/support/locks/zizmor-1.32.0.txt).
+That lock matches this action revision's former default lock; making the selector
+explicit does not change the verified tool version or bypass hash checking.
+
+**Remaining transitive pinning gap:** the official SHA-pinned Scorecard v2.5.0
+[action metadata](https://github.com/ossf/scorecard-action/blob/fa7117db83c52d787ae5a89f350999701505d78e/action.yaml)
+selects `docker://ghcr.io/ossf/scorecard-action:v2.5.0`, a mutable image tag.
+The current upstream publication
+[validator](https://github.com/ossf/scorecard-infra/blob/6cbe75a7c647ca59294477dd803666a19463ccc5/api/app/server/verify_workflow.go)
+parses an `@digest` Docker reference as an unapproved step name, so replacing
+this step with a direct digest reference is not a verified way to preserve
+`publish_results: true`. The existing official publication path is retained;
+this is an unresolved upstream constraint, not an exception that makes the
+strict image-pinning requirement satisfied. Resolve it through a supported
+immutable entrypoint/publication path before claiming every transitive runtime
+is pinned. PR CI cannot prove a main-only Scorecard publication outcome.

@@ -48,6 +48,9 @@ PR. The policy defines private reporting, response targets and disclosure.
 - All changes to `main` require a PR. Work on a topic branch; do not push directly
   to main, force-push or use an administrator bypass for routine
   work. Preserve concurrent changes and never move existing release tags.
+- Never put CI-skip directives in commit or merge messages, even for documentation.
+  Keep CodeQL and applicable checks running; scope jobs and cancel superseded PR
+  runs to reduce load instead.
 - Read `AGENTS.md` before editing. Use the repository's formatting, lint and test
   commands, dependency policy and requirements index. Obtain approval for new
   dependencies; pin third-party Actions to full commits with version comments and

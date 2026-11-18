@@ -64,6 +64,8 @@ human-authored record of intent; tool attribution belongs in tool logs, not hist
 - Pull before every push. Use `git pull --rebase` unless unpushed commits include a merge, in which case use `git pull --no-rebase`.
 - Never force push. Preserve concurrent work; if a push is rejected, pull again and retry. Stop for user input if a conflict cannot be resolved confidently.
 
+- Never use CI-skip directives in commit or merge messages, including `[skip ci]`, `[ci skip]` or equivalent markers/trailers. Documentation-only changes still need CodeQL and applicable CI; use job scope and per-PR concurrency to control cost.
+
 ## Security baseline
 
 - Follow [docs/SECURITY-BASELINE.md](docs/SECURITY-BASELINE.md). All changes to `main` require a pull request; do not use the administrator bypass for routine work or push directly to `main`.
@@ -71,3 +73,5 @@ human-authored record of intent; tool attribution belongs in tool logs, not hist
 - Require green `lf-only` and `zizmor` checks before merge. Fix security findings or justify narrow suppressions inline. Review monthly Dependabot version updates and weekly Scorecard results; verify Scorecard publication and SARIF upload after its first default-branch run. Keep gaps explicit until that evidence exists.
 - This documentation repository has no Rust dependency graph, binary release or published crate: cargo-deny, SBOM/reproducibility/SLSA and Trusted Publishing gates are not applicable here. Do not invent release evidence or a license.
 - Give each repository-defined PR workflow a workflow-specific, per-PR concurrency group with `cancel-in-progress: true`. Keep core checks active for Dependabot; gate expensive qualification/matrix jobs for bot PRs as described in the security baseline.
+- Pin workflow-installed tools and images as well as action source: pip requirements must have exact versions and hashes, Cargo tools need `cargo install --locked --version` with an exact version, and container images need digests. Verify immutable downloaded artifacts before executing them; record unresolved transitive action-runtime gaps explicitly.
+- This repository's authored material is licensed under the root Apache-2.0 `LICENSE`. ClusterFuzzLite is Not applicable here because it ships no product parser for external input; reassess that boundary if the scope changes.
