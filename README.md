@@ -3,7 +3,7 @@
 [![CI](https://github.com/rustcommons/.github/actions/workflows/line-endings.yml/badge.svg)](https://github.com/rustcommons/.github/actions/workflows/line-endings.yml)
 [![Security CI](https://github.com/rustcommons/.github/actions/workflows/security.yml/badge.svg)](https://github.com/rustcommons/.github/actions/workflows/security.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/rustcommons/.github/badge)](https://scorecard.dev/viewer/?uri=github.com/rustcommons/.github)
-[![License: not declared](https://img.shields.io/badge/license-not_declared-lightgrey)](docs/SECURITY-BASELINE.md#applicability-and-validation-for-github)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 <img src="assets/rust-commons.svg" width="160" height="160" alt="Rust Commons: an orange crab with a crate-shaped shell">
 
