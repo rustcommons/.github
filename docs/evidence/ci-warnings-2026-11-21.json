@@ -1,0 +1,198 @@
+{
+  "observed_at": "2026-11-21T04:27:46.251224+00:00",
+  "main_revision": "658d12682f8073313c29c8eb2ae55a0ac156597d",
+  "before": [
+    {
+      "run_id": 44236809983,
+      "jobs": [
+        {
+          "job": "Scorecard analysis",
+          "annotations": [
+            {
+              "path": ".github",
+              "blob_href": "https://github.com/rustcommons/.github/blob/658d12682f8073313c29c8eb2ae55a0ac156597d/.github",
+              "start_line": 1,
+              "start_column": null,
+              "end_line": 1,
+              "end_column": null,
+              "annotation_level": "notice",
+              "title": "",
+              "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+              "raw_details": ""
+            }
+          ],
+          "check_run_id": "134574811863"
+        }
+      ]
+    },
+    {
+      "run_id": 44236809857,
+      "jobs": [
+        {
+          "job": "Analyze (actions)",
+          "annotations": [
+            {
+              "path": ".github",
+              "blob_href": "https://github.com/rustcommons/.github/blob/658d12682f8073313c29c8eb2ae55a0ac156597d/.github",
+              "start_line": 1,
+              "start_column": null,
+              "end_line": 1,
+              "end_column": null,
+              "annotation_level": "notice",
+              "title": "",
+              "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+              "raw_details": ""
+            }
+          ],
+          "check_run_id": "134574817101"
+        }
+      ]
+    },
+    {
+      "run_id": 44236809894,
+      "jobs": [
+        {
+          "job": "lf-only",
+          "annotations": [
+            {
+              "path": ".github",
+              "blob_href": "https://github.com/rustcommons/.github/blob/658d12682f8073313c29c8eb2ae55a0ac156597d/.github",
+              "start_line": 1,
+              "start_column": null,
+              "end_line": 1,
+              "end_column": null,
+              "annotation_level": "notice",
+              "title": "",
+              "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+              "raw_details": ""
+            }
+          ],
+          "check_run_id": "134574811731"
+        }
+      ]
+    },
+    {
+      "run_id": 44236809921,
+      "jobs": [
+        {
+          "job": "zizmor",
+          "annotations": [
+            {
+              "path": ".github",
+              "blob_href": "https://github.com/rustcommons/.github/blob/658d12682f8073313c29c8eb2ae55a0ac156597d/.github",
+              "start_line": 1,
+              "start_column": null,
+              "end_line": 1,
+              "end_column": null,
+              "annotation_level": "notice",
+              "title": "",
+              "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+              "raw_details": ""
+            }
+          ],
+          "check_run_id": "134574811473"
+        }
+      ]
+    }
+  ],
+  "before_counts": {
+    "notice": 4,
+    "warning": 0,
+    "failure": 0,
+    "node20_deprecation": 0
+  },
+  "after": "Pending completed PR annotations; to be reported in the PR without polling or a premature zero-warning claim.",
+  "default_setup": {
+    "state": "configured",
+    "languages": [
+      "actions"
+    ],
+    "query_suite": "default",
+    "threat_model": "remote",
+    "updated_at": "2026-11-15T19:19:11Z",
+    "schedule": "weekly",
+    "runner_type": "standard",
+    "runner_label": ""
+  },
+  "runtime_audit": [
+    {
+      "action": "actions/checkout",
+      "ref": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "version": "v7.0.1",
+      "runtime": "node24",
+      "metadata_url": "https://github.com/actions/checkout/blob/3d3c42e5aac5ba805825da76410c181273ba90b1/action.yml"
+    },
+    {
+      "action": "github/codeql-action/upload-sarif",
+      "ref": "33d7b85da1a04171e211befe2c739303b9a4c066",
+      "version": "v4.39.3",
+      "runtime": "node24",
+      "metadata_url": "https://github.com/github/codeql-action/blob/33d7b85da1a04171e211befe2c739303b9a4c066/upload-sarif/action.yml"
+    },
+    {
+      "action": "zizmorcore/zizmor-action",
+      "ref": "45d7276c9ca790aabd705e31ca99c6185c3e76dd",
+      "version": "v0.8.1",
+      "runtime": "composite",
+      "nested_action": "github/codeql-action/upload-sarif",
+      "nested_ref": "9b3254085494b55a0f7c4c2b3d2d52cc712ce370",
+      "nested_version": "v4.39.1",
+      "nested_runtime": "node24",
+      "metadata_url": "https://github.com/zizmorcore/zizmor-action/blob/45d7276c9ca790aabd705e31ca99c6185c3e76dd/action.yml",
+      "nested_metadata_url": "https://github.com/github/codeql-action/blob/9b3254085494b55a0f7c4c2b3d2d52cc712ce370/upload-sarif/action.yml"
+    },
+    {
+      "action": "ossf/scorecard-action",
+      "ref": "fa7117db83c52d787ae5a89f350999701505d78e",
+      "version": "v2.5.0",
+      "runtime": "docker",
+      "metadata_url": "https://github.com/ossf/scorecard-action/blob/fa7117db83c52d787ae5a89f350999701505d78e/action.yaml"
+    }
+  ],
+  "release_notes_reviewed": [
+    {
+      "repo": "actions/checkout",
+      "tag": "v7.0.1",
+      "url": "https://github.com/actions/checkout/releases/tag/v7.0.1"
+    },
+    {
+      "repo": "github/codeql-action",
+      "tag": "v4.39.3",
+      "url": "https://github.com/github/codeql-action/releases/tag/v4.39.3"
+    },
+    {
+      "repo": "github/codeql-action",
+      "tag": "v4.39.1",
+      "url": "https://github.com/github/codeql-action/releases/tag/v4.39.1"
+    },
+    {
+      "repo": "ossf/scorecard-action",
+      "tag": "v2.5.0",
+      "url": "https://github.com/ossf/scorecard-action/releases/tag/v2.5.0"
+    },
+    {
+      "repo": "zizmorcore/zizmor-action",
+      "tag": "v0.8.1",
+      "url": "https://github.com/zizmorcore/zizmor-action/releases/tag/v0.8.1"
+    },
+    {
+      "repo": "actions/checkout",
+      "tag": "v6.0.0",
+      "url": "https://github.com/actions/checkout/releases/tag/v6.0.0"
+    },
+    {
+      "repo": "actions/checkout",
+      "tag": "v7.0.0",
+      "url": "https://github.com/actions/checkout/releases/tag/v7.0.0"
+    }
+  ],
+  "compatibility_notes": {
+    "checkout": "Credential persistence remains explicitly false; no pull_request_target/workflow_run event is used.",
+    "artifact_actions": "No upload-artifact/download-artifact use.",
+    "rust": "No dtolnay/rust-toolchain or Rust jobs; no prior mismatched Rust version to report.",
+    "releases": "No release or release-dry-run workflows; dry-run qualification not applicable.",
+    "dependabot": "No open PRs at inventory time; none superseded.",
+    "runner": "Three repository-defined ubuntu-latest labels replaced with ubuntu-24.04; other workflow content unchanged. Managed default CodeQL runner remains service-controlled; no settings changes.",
+    "scope": "No code builds or background CI watch; after-annotation review waits for coordinator results."
+  }
+}
