@@ -144,7 +144,7 @@ the qualified GNU userland checks.
 | glibc-abilists | `dry-run`, `publish` | Adopted: glibc-abilists#16 |
 | linux-abi-tools | `dry-run`, `publish` (five crates) | Adopted: linux-abi-tools#28 |
 | rust-mirror | `qualify`, `publish` | Adopted: rust-mirror#75 |
-| rust-mirror-gui | `check`, `publish`, `verify` | In progress after 0.5.2 (published 2026-11-21) |
+| rust-mirror-gui | `check`, `publish`, `verify` | Adopted: rust-mirror-gui#32 |
 | rust-musl-libc-compat-test, cargo-binpack, .github | publish nothing | Not applicable until a crate ships |
 
 Each adoption is one pull request whose dry run passes before merge. The first
