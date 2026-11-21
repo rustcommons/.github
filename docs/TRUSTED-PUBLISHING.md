@@ -68,9 +68,14 @@ as `<repo>-<version>.crates.intoto.jsonl` in the release artifact.
 The only job with the `crates-io` environment: the owner's approval click.
 
 - Re-checks the downloaded files against `SHA256SUMS`.
-- Obtains a short-lived token from the pinned `rust-lang/crates-io-auth-action`.
-- Runs `cargo publish --locked` for each release crate in dependency order,
-  using the same toolchain as `build`. It skips a version crates.io already has,
+- With **no token present**, runs `cargo package --locked` for each release
+  crate and `cmp`s it against the attested `.crate`. Packaging runs dependency
+  build scripts and proc macros, so the token must not be in their environment.
+- Only then obtains a short-lived token from the pinned
+  `rust-lang/crates-io-auth-action`, and runs `cargo publish --locked
+  --no-verify` for each release crate in dependency order, with
+  `CARGO_REGISTRY_TOKEN` set on that step alone. `build` has already proved
+  each package builds. It skips a version crates.io already has,
   so a re-run after a partial failure is safe.
 
 ### 5. GitHub release
