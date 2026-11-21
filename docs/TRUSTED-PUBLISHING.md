@@ -107,17 +107,34 @@ files and never replaces an existing asset.
 
 ## Repositories that also ship binaries
 
-rust-mirror and rust-mirror-gui keep their separate `release-binaries.yml` for
-now. Their `github-release` job creates the release, and the binary workflow
-attaches its archives, its own `SHA256SUMS` and its `<repo>-<version>.intoto.jsonl`
-bundle to it. To avoid a name clash, the crate checksum file in these two
-repositories is `SHA256SUMS-crates`.
+rust-mirror and rust-mirror-gui ship prebuilt binaries. The owner approved
+phase 2 on 2026-11-21: one pipeline builds, signs and publishes everything,
+replacing the separate `release-binaries.yml`.
 
-**Phase 2 (planned, not approved for implementation yet):** fold the binary
-builds into this pipeline as part of `build` and `attest`, with one
-`SHA256SUMS`, keeping every existing qualification gate unchanged. This is
-deliberately separate from adopting the standard, because those builds carry
-the qualified GNU userland checks.
+They use a **binary variant** of the standard, because SLSA Build L3 needs the
+build and the signature in the same isolated reusable workflow:
+
+- `build` is `uses: ./.github/workflows/build-binaries.yml`. That reusable
+  workflow builds every binary target through the read-only
+  `build-binaries-core.yml` with all qualification gates, packages the
+  `.crate`, generates the SBOMs and one `SHA256SUMS`, and then, only on a `v*`
+  tag push it re-verifies, signs its **own** output in its nested job
+  "Checksums and attestations". The caller cannot choose what is signed.
+- There is no top-level `attest` job. The caller's `build` job grants
+  `id-token: write` and `attestations: write`, which the nested signer alone
+  uses; PR and manual dry runs build everything but never sign.
+- Building and signing finish **before** the owner's `crates-io` approval, so
+  approval timing does not matter.
+- `github-release` creates the release as a draft, checks its tag, title, body
+  and state against the committed notes, uploads every asset, checks each by
+  name, size and digest, then publishes and checks again. A re-run resumes a
+  draft and never modifies a published release.
+- Assets: the `.crate`, every binary archive, the SBOM, one `SHA256SUMS` and one
+  `<repo>-<version>.intoto.jsonl` bundle covering every signed file.
+- Verifiers keep accepting earlier releases' layouts exactly, and require the new
+  layout only for later versions.
+
+Rollout: rust-mirror pilot (rust-mirror#76), then rust-mirror-gui.
 
 ## Lessons from the rollout
 
@@ -127,11 +144,11 @@ the qualified GNU userland checks.
   `conclusion == 'success'` (cargo-libc#44).
 - **Fuzz workspace locks:** a version bump must also update `fuzz/Cargo.lock`
   (and any exact `=X.Y.Z` pin in `fuzz/Cargo.toml`), or the locked fuzz build fails.
-- **Binary repositories:** the binary uploader and public verifier accept exactly
-  the four crate files the pipeline attaches and refuse anything else
-  (rust-mirror#75). The binary collector still waits only 600 seconds for the
-  release, which now appears after owner approval, so a slow approval still needs
-  the exact-tag recovery dispatch until phase 2.
+- **Binary repositories:** signing must stay in the reusable workflow that
+  built the files; a signer that signs a caller-supplied artifact no longer
+  proves the qualified build made it (rust-mirror#76 review). A killed
+  `gh release create` leaves a draft that the tags API cannot see, so create
+  drafts deliberately and resume them through the releases list.
 - **Smoke tests:** don't pipe a program's output into `head` under `pipefail`;
   write it to a file first.
 
