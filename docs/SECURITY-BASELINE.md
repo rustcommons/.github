@@ -55,6 +55,15 @@ coordinator-reported rollout, not an independent settings audit in this document
    and verified checksum/signature before execution; no unverified download-and-run.
    Provider-managed hosted-runner labels are not container-image digest pins;
    do not describe the overall environment as hermetic from action pins alone.
+   Use explicit hosted-runner OS versions in repository workflows. This
+   repository’s checked-in workflows use `ubuntu-24.04`; moving to Ubuntu 26.04 is a deliberate,
+   reviewed change with fresh validation, not an automatic label migration.
+   An OS-version label still does not freeze GitHub's image patch revision.
+   Audit JavaScript action runtimes (including nested actions) before upgrading:
+   use a supported Node-24 action major with a full SHA/version comment, read
+   release notes and preserve artifact naming/path and credential behavior.
+   When Rust toolchain actions apply, use the exact toolchain branch's SHA without
+   an ignored `toolchain` input, and confirm `rustc --version` in CI logs.
 3. **Workflow linting.** Run [zizmor](https://docs.zizmor.sh/integrations/) on PRs.
    Fix findings or justify narrowly scoped suppressions inline; do not turn off
    the gate to bypass findings. Use unprivileged PR execution, not privileged
@@ -195,3 +204,37 @@ this is an unresolved upstream constraint, not an exception that makes the
 strict image-pinning requirement satisfied. Resolve it through a supported
 immutable entrypoint/publication path before claiming every transitive runtime
 is pinned. PR CI cannot prove a main-only Scorecard publication outcome.
+
+## CI annotation audit — 2026-11-21
+
+Latest completed main runs at `658d12682f8073313c29c8eb2ae55a0ac156597d`:
+Scorecard [44236809983](https://github.com/rustcommons/.github/actions/runs/44236809983),
+managed CodeQL [44236809857](https://github.com/rustcommons/.github/actions/runs/44236809857),
+LF [44236809894](https://github.com/rustcommons/.github/actions/runs/44236809894), and
+zizmor [44236809921](https://github.com/rustcommons/.github/actions/runs/44236809921).
+Each had one Ubuntu 26 migration **notice** and no warning/failure annotations.
+No Node 20 deprecation was present. The
+[observation record](evidence/ci-warnings-2026-11-21.json) preserves those annotations,
+action runtime identities and release-note references. PR-after counts belong to
+the completed PR check annotations; no green or zero-warning result is inferred
+before execution.
+
+All checked-in JavaScript action uses already run Node 24: checkout v7.0.1 and
+CodeQL upload-sarif v4.39.3; zizmor's pinned composite also references Node-24
+upload-sarif v4.39.1. Scorecard is a Docker action. Existing SHA/version pins stay
+unchanged because no Node-20 action upgrade is needed. Checkout explicitly keeps
+`persist-credentials: false`, including after its credential-storage changes;
+there are no artifact upload/download actions to migrate as a pair.
+
+All three repository-defined jobs now select Ubuntu 24.04. The managed CodeQL
+default setup separately reports `runner_type: standard`, `runner_label: ""`.
+Its generated `Analyze (actions)` workflow is not a checked-in workflow, so its
+provider-generated migration notice is not changed by this PR. No repository or
+organization settings are changed. Report that remaining managed notice separately
+rather than count it as fixed by a YAML edit.
+
+There is no Rust toolchain action, Rust job or release/dry-run workflow in this
+documentation repository. Rust version-log comparison and a release dry run are
+Not applicable; no dummy Rust build or release qualification was added. Scorecard
+still runs only on main/schedule; its changed runner needs a post-merge main run.
+The open-PR inventory was empty, so no Dependabot PR was superseded or closed.
