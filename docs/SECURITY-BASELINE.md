@@ -115,6 +115,8 @@ coordinator-reported rollout, not an independent settings audit in this document
    filename and environment `crates-io`, for owner entry on crates.io. Review and
    environment approval remain required; this baseline is not publication
    authorization. See [Trusted Publishing action guidance](https://github.com/rust-lang/crates-io-auth-action#usage).
+   The org-wide job layout, gate, attestations and release automation are fixed
+   by the [standard release pipeline](TRUSTED-PUBLISHING.md).
 8. **README badges.** Put CI, OpenSSF Scorecard, and license badges near the top
    of the root README. Use
    `https://api.scorecard.dev/projects/github.com/rustcommons/REPO/badge`.
