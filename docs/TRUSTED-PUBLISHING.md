@@ -68,9 +68,11 @@ as `<repo>-<version>.crates.intoto.jsonl` in the release artifact.
 The only job with the `crates-io` environment: the owner's approval click.
 
 - Re-checks the downloaded files against `SHA256SUMS`.
-- With **no token present**, runs `cargo package --locked` for each release
-  crate and `cmp`s it against the attested `.crate`. Packaging runs dependency
-  build scripts and proc macros, so the token must not be in their environment.
+- **Nothing compiles in this job.** It holds `id-token: write`, so any code it
+  runs could request its own OIDC token with the claims Trusted Publishing
+  trusts. It runs `cargo package --locked --no-verify` for each release crate
+  and `cmp`s the result against the attested `.crate`; `build` already built
+  the packaged source.
 - Only then obtains a short-lived token from the pinned
   `rust-lang/crates-io-auth-action`, and runs `cargo publish --locked
   --no-verify` for each release crate in dependency order, with
