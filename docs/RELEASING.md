@@ -27,7 +27,9 @@ with the version and user outcome, then include these sections:
 - Links: immutable source tag/commit, applicable crates.io/docs.rs pages,
   changelog and detailed release evidence.
 
-GitHub Release bodies come from those reviewed files. Titles identify the version
+GitHub Release bodies come from those reviewed files; the
+[standard release pipeline](TRUSTED-PUBLISHING.md) creates the release from them
+and refuses a version without its dated changelog entry. Titles identify the version
 and outcome. Link detailed qualification records rather than pasting CI logs.
 The README links changelog, GitHub Releases and maintained release policy.
 Preserve installation-first READMEs; detailed usage belongs in maintained guides.

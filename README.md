@@ -23,6 +23,7 @@ Use the maintained [current release matrix](docs/RELEASE-STATUS.md) for delivere
 versions, consumer adoption and outstanding release stages; the adoption record
 remains historical.
 
+Crate-publishing projects use the [standard release pipeline](docs/TRUSTED-PUBLISHING.md).
 Release-bearing projects follow the [release documentation convention](docs/RELEASING.md),
 including user-facing changelogs, GitHub Releases and verification gates.
 
