@@ -119,16 +119,32 @@ builds into this pipeline as part of `build` and `attest`, with one
 deliberately separate from adopting the standard, because those builds carry
 the qualified GNU userland checks.
 
+## Lessons from the rollout
+
+- **Gate CI lookup:** GitHub's `status=success` filter on workflow runs can
+  return no runs for a commit whose CI succeeded. Read every run for the
+  commit (`?head_sha=SHA&per_page=100`) and require one with
+  `conclusion == 'success'` (cargo-libc#44).
+- **Fuzz workspace locks:** a version bump must also update `fuzz/Cargo.lock`
+  (and any exact `=X.Y.Z` pin in `fuzz/Cargo.toml`), or the locked fuzz build fails.
+- **Binary repositories:** the binary uploader and public verifier accept exactly
+  the four crate files the pipeline attaches and refuse anything else
+  (rust-mirror#75). The binary collector still waits only 600 seconds for the
+  release, which now appears after owner approval, so a slow approval still needs
+  the exact-tag recovery dispatch until phase 2.
+- **Smoke tests:** don't pipe a program's output into `head` under `pipefail`;
+  write it to a file first.
+
 ## Rollout tracker
 
 | Repository | Before | Adoption |
 |---|---|---|
-| cargo-libc | `publish` only | Pilot: PR open (cargo-libc#43) |
-| glibc-provider | `publish` only | Planned after the pilot |
-| glibc-abilists | `dry-run`, `publish` | Planned after the pilot |
-| linux-abi-tools | `dry-run`, `publish` (five crates) | Planned after the pilot |
-| rust-mirror | `qualify`, `publish` | Planned after its 0.6.0 release closes |
-| rust-mirror-gui | `check`, `publish`, `verify` | Planned after its 0.5.2 release closes |
+| cargo-libc | `publish` only | Adopted: cargo-libc#43 (pilot), gate fix #44 |
+| glibc-provider | `publish` only | Adopted: glibc-provider#18 |
+| glibc-abilists | `dry-run`, `publish` | Adopted: glibc-abilists#16 |
+| linux-abi-tools | `dry-run`, `publish` (five crates) | Adopted: linux-abi-tools#28 |
+| rust-mirror | `qualify`, `publish` | Adopted: rust-mirror#75 |
+| rust-mirror-gui | `check`, `publish`, `verify` | In progress after 0.5.2 (published 2026-11-21) |
 | rust-musl-libc-compat-test, cargo-binpack, .github | publish nothing | Not applicable until a crate ships |
 
 Each adoption is one pull request whose dry run passes before merge. The first
