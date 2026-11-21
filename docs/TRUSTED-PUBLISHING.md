@@ -23,9 +23,11 @@ Workflow `name: Trusted publishing`.
 | 5 | `github-release` | GitHub release | tag runs | Create the release from committed notes and attach the files. | `contents: write` |
 | 6 | `verify` | Verify publication | tag runs | Prove that what crates.io serves is what was built and signed. | none |
 
-`needs`: `build` needs `gate`; `attest` needs `build`; `publish` needs `gate`,
-`build` and `attest`; `github-release` needs `publish`; `verify` needs
-`github-release`. Jobs 3 to 6 run only when `needs.gate.outputs.publish == 'true'`.
+`needs`: `build` needs `gate`; `attest` needs `gate` and `build`; `publish`
+needs `gate`, `build` and `attest`; `github-release` needs `gate` and `publish`;
+`verify` needs `gate` and `github-release`. Jobs 3 to 6 run only when
+`needs.gate.outputs.publish == 'true'`; each lists `gate` directly because a job
+can read outputs only from the jobs it names in `needs`.
 
 ### 1. Release gate
 
@@ -121,7 +123,7 @@ the qualified GNU userland checks.
 
 | Repository | Before | Adoption |
 |---|---|---|
-| cargo-libc | `publish` only | Pilot: planned |
+| cargo-libc | `publish` only | Pilot: PR open (cargo-libc#43) |
 | glibc-provider | `publish` only | Planned after the pilot |
 | glibc-abilists | `dry-run`, `publish` | Planned after the pilot |
 | linux-abi-tools | `dry-run`, `publish` (five crates) | Planned after the pilot |
