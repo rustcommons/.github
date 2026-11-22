@@ -1,0 +1,2107 @@
+{
+  "observed_at": "2026-11-22T21:58:30.758576+00:00",
+  "scope": "Read-only GitHub API snapshot, selected source/log review; no settings or alert dispositions changed. Not exhaustive runtime certification.",
+  "release_sources": {
+    "rust-mirror": "3c11d914bce9a06cb92ef7f39179e3a42f98cab0",
+    "rust-mirror-gui": "06927ece4f1fadc59f2ef015d7c21bf950da0630"
+  },
+  "repositories": {
+    "rust-mirror": {
+      "main": {
+        "endpoint": "repos/rustcommons/rust-mirror/commits/main",
+        "result": {
+          "sha": "b14ca618ee6d043eac979a7d50b3f9fa6d4701ab"
+        }
+      },
+      "settings": {
+        "endpoint": "repos/rustcommons/rust-mirror",
+        "result": {
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "enabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "visibility": "public"
+        }
+      },
+      "codeql": {
+        "endpoint": "repos/rustcommons/rust-mirror/code-scanning/default-setup",
+        "result": {
+          "state": "configured",
+          "languages": [
+            "actions",
+            "python",
+            "rust"
+          ],
+          "query_suite": "default",
+          "threat_model": "remote",
+          "updated_at": "2026-11-15T19:21:59Z",
+          "schedule": "weekly",
+          "runner_type": "standard",
+          "runner_label": ""
+        }
+      },
+      "secrets": {
+        "endpoint": "repos/rustcommons/rust-mirror/secret-scanning/alerts?state=open&per_page=100",
+        "result": {
+          "open_count": 0,
+          "note": "No secret values retained"
+        }
+      },
+      "dependabot": {
+        "endpoint": "repos/rustcommons/rust-mirror/dependabot/alerts?state=open&per_page=100",
+        "result": []
+      },
+      "advisories": {
+        "endpoint": "repos/rustcommons/rust-mirror/security-advisories?per_page=100",
+        "result": [
+          {
+            "ghsa_id": "GHSA-46c8-w6pp-97pw",
+            "summary": "Locked rust-mirror releases through 0.5.2 include security-affected TLS, trust-store and filesystem dependencies",
+            "state": "published",
+            "created_at": "2026-11-15T23:10:41Z",
+            "published_at": "2026-11-16T05:35:02Z",
+            "updated_at": "2026-11-16T05:35:02Z",
+            "vulnerabilities": [
+              {
+                "package": {
+                  "ecosystem": "rust",
+                  "name": "rust-mirror"
+                },
+                "vulnerable_version_range": "<= 0.5.2",
+                "patched_versions": "0.5.3",
+                "vulnerable_functions": []
+              }
+            ],
+            "html_url": "https://github.com/rustcommons/rust-mirror/security/advisories/GHSA-46c8-w6pp-97pw"
+          }
+        ]
+      },
+      "code_scanning": {
+        "endpoint": "repos/rustcommons/rust-mirror/code-scanning/alerts?state=open&per_page=100",
+        "alerts": [
+          {
+            "number": 31,
+            "tool": "Scorecard",
+            "severity": "low",
+            "rule": "CIIBestPracticesID",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/31",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:scorecard"
+          },
+          {
+            "number": 30,
+            "tool": "Scorecard",
+            "severity": "high",
+            "rule": "CodeReviewID",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/30",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:scorecard"
+          },
+          {
+            "number": 27,
+            "tool": "Scorecard",
+            "severity": "high",
+            "rule": "BranchProtectionID",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/27",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:scorecard"
+          },
+          {
+            "number": 17,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/17",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 165,
+              "end_line": 165,
+              "start_column": 9,
+              "end_column": 11
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 16,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/16",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 146,
+              "end_line": 146,
+              "start_column": 9,
+              "end_column": 50
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 15,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/15",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 73,
+              "end_line": 73,
+              "start_column": 47,
+              "end_column": 49
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 14,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/14",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 649,
+              "end_line": 649,
+              "start_column": 39,
+              "end_column": 43
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 13,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/13",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 648,
+              "end_line": 648,
+              "start_column": 39,
+              "end_column": 42
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 12,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/12",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 645,
+              "end_line": 645,
+              "start_column": 38,
+              "end_column": 51
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 11,
+            "tool": "CodeQL",
+            "severity": "high",
+            "rule": "py/path-injection",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/11",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 103,
+              "end_line": 103,
+              "start_column": 26,
+              "end_column": 30
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 10,
+            "tool": "CodeQL",
+            "severity": "high",
+            "rule": "py/path-injection",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/10",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 101,
+              "end_line": 101,
+              "start_column": 17,
+              "end_column": 28
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 9,
+            "tool": "CodeQL",
+            "severity": "high",
+            "rule": "py/insecure-protocol",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/9",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/test_rustup_tls.py",
+              "start_line": 31,
+              "end_line": 31,
+              "start_column": 29,
+              "end_column": 43
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 8,
+            "tool": "CodeQL",
+            "severity": "high",
+            "rule": "py/insecure-protocol",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/8",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 384,
+              "end_line": 384,
+              "start_column": 23,
+              "end_column": 30
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 7,
+            "tool": "CodeQL",
+            "severity": "high",
+            "rule": "py/weak-sensitive-data-hashing",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/7",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 307,
+              "end_line": 307,
+              "start_column": 38,
+              "end_column": 41
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 6,
+            "tool": "CodeQL",
+            "severity": "high",
+            "rule": "py/weak-sensitive-data-hashing",
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/6",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "scripts/prove_nexus_windows_crates.py",
+              "start_line": 293,
+              "end_line": 293,
+              "start_column": 26,
+              "end_column": 29
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          }
+        ],
+        "severity_counts_by_tool": {
+          "Scorecard": {
+            "low": 1,
+            "high": 2
+          },
+          "CodeQL": {
+            "critical": 6,
+            "high": 6
+          }
+        }
+      },
+      "release": {
+        "endpoint": "repos/rustcommons/rust-mirror/releases/latest",
+        "tag": "v0.6.1",
+        "published_at": "2026-11-22T13:48:40Z",
+        "assets": [
+          {
+            "name": "rust-mirror-0.6.1-aarch64-apple-darwin.tar.gz",
+            "digest": "sha256:6371f76baa02a0ee2dc54dcb5453b69a05d87b8e5447a443d89b8f29c989da44",
+            "size": 3507600
+          },
+          {
+            "name": "rust-mirror-0.6.1-x86_64-apple-darwin.tar.gz",
+            "digest": "sha256:d12d7648c8d7dff15bbb37de130733e6d4c3ef633ccca667f93d6f59e631b237",
+            "size": 3747049
+          },
+          {
+            "name": "rust-mirror-0.6.1-x86_64-pc-windows-msvc.zip",
+            "digest": "sha256:9cbba7a524f754b89b466d2871511028e1e15084c5c36397831c1750d0b0de35",
+            "size": 3467527
+          },
+          {
+            "name": "rust-mirror-0.6.1-x86_64-unknown-linux-gnu.tar.gz",
+            "digest": "sha256:2ab3827678ec89d4a8ca93d1d4ca90491c781f71342bc9b6aadb9a3854daf902",
+            "size": 3871173
+          },
+          {
+            "name": "rust-mirror-0.6.1-x86_64-unknown-linux-musl.tar.gz",
+            "digest": "sha256:57a9c16025d855a1073aa862f97ec398f56735544442880c1abb6cfacb583e53",
+            "size": 3980406
+          },
+          {
+            "name": "rust-mirror-0.6.1.cdx.json",
+            "digest": "sha256:16e45db7e54f1651116ea24d53b4e67c2a48c58c9fb9e035f8e9f36a663e15db",
+            "size": 147368
+          },
+          {
+            "name": "rust-mirror-0.6.1.crate",
+            "digest": "sha256:6a658865f500d18ca6e41c244425c09008c03025a6ac5a90db7622d3c20f6d70",
+            "size": 178826
+          },
+          {
+            "name": "rust-mirror-0.6.1.intoto.jsonl",
+            "digest": "sha256:2919261a6c80cb489c81983e6b18d6aeb508c2da590b0f7cbbfa6e3ab8bcb8b4",
+            "size": 12263
+          },
+          {
+            "name": "SHA256SUMS",
+            "digest": "sha256:78dbb0ea9f80f0d0cbfaef2a06baa60c96fc401c067ca80aab8b253624dff294",
+            "size": 750
+          }
+        ]
+      },
+      "fuzz": {
+        "cflite_pr.yml": {
+          "endpoint": "repos/rustcommons/rust-mirror/actions/workflows/cflite_pr.yml/runs?per_page=100",
+          "total_count": 20,
+          "outcomes": {
+            "success": 8,
+            "cancelled": 7,
+            "failure": 4,
+            "skipped": 1
+          },
+          "runs": [
+            {
+              "id": 45033592562,
+              "head_sha": "9e69567d9fb67787438adcb23977c10d48d32983",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/45033592562"
+            },
+            {
+              "id": 44988751574,
+              "head_sha": "641242b7f878deb1665215cfbee0a19055b76bb7",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44988751574"
+            },
+            {
+              "id": 44986174465,
+              "head_sha": "3951688e1734b37344291fd5695234ff48fb5788",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44986174465"
+            },
+            {
+              "id": 44984053351,
+              "head_sha": "cca1f0f9cd6ddc00bc3302b5b5c2bee2426a60c5",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44984053351"
+            },
+            {
+              "id": 44983566740,
+              "head_sha": "ebc535e33d68567a23356e3a8c1fab2b1c4ff49f",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44983566740"
+            },
+            {
+              "id": 44983139026,
+              "head_sha": "5be755aab245c026906b25b0ed7c7927c8c6711e",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44983139026"
+            },
+            {
+              "id": 44905598865,
+              "head_sha": "03ce7ec9fab6463c1f6a5ff19da2e7dd327696ee",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44905598865"
+            },
+            {
+              "id": 44905496550,
+              "head_sha": "48e686a56dbd4c2b2f75f31cd9dd783d23c1d102",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44905496550"
+            },
+            {
+              "id": 44904451990,
+              "head_sha": "0c077ff5864d1cd15ef54771a2360b41d0ea8d47",
+              "event": "pull_request",
+              "conclusion": "failure",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44904451990"
+            },
+            {
+              "id": 44902370077,
+              "head_sha": "1ea3fb21c5bcd24d4f961b05589b6c188017e6e3",
+              "event": "pull_request",
+              "conclusion": "failure",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44902370077"
+            },
+            {
+              "id": 44900244439,
+              "head_sha": "f523fcbe8f78d6aa3cbd7bbf985a13a5a7e2ffc1",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44900244439"
+            },
+            {
+              "id": 44898438103,
+              "head_sha": "765c0b46fb61c24ca458c7b867caca1e8e7b2e02",
+              "event": "pull_request",
+              "conclusion": "failure",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44898438103"
+            },
+            {
+              "id": 44867032978,
+              "head_sha": "e85a624df061086937ea25b00024caaeecef450b",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44867032978"
+            },
+            {
+              "id": 44866156979,
+              "head_sha": "39e1c1e1f8d4769cfb774a064901861a66deb4e1",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44866156979"
+            },
+            {
+              "id": 44239169792,
+              "head_sha": "69252994b141629ee6e34de19d1d02e8de156a1b",
+              "event": "pull_request",
+              "conclusion": "skipped",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44239169792"
+            },
+            {
+              "id": 44237078150,
+              "head_sha": "2859b58c07cff1a9466a32841aba3cf32393d6a1",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44237078150"
+            },
+            {
+              "id": 44236826226,
+              "head_sha": "0c7ea53b78527834bcad2ef82b27c01e7c746d15",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44236826226"
+            },
+            {
+              "id": 44236408394,
+              "head_sha": "51ed38e72342d38bf6cb574806d373259f3348c8",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44236408394"
+            },
+            {
+              "id": 44236329467,
+              "head_sha": "a20cf52b10d159aab71e5beec6763dc14756bad3",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44236329467"
+            },
+            {
+              "id": 44236153835,
+              "head_sha": "e6e5df8f2660475096d1248bc7f25ed797c591d8",
+              "event": "pull_request",
+              "conclusion": "failure",
+              "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44236153835"
+            }
+          ]
+        },
+        "cflite_batch.yml": {
+          "endpoint": "repos/rustcommons/rust-mirror/actions/workflows/cflite_batch.yml/runs?per_page=100",
+          "total_count": 0,
+          "outcomes": {},
+          "runs": []
+        }
+      },
+      "fuzz_log_receipts": [
+        {
+          "run_id": 45033592562,
+          "command": "gh run view 45033592562 --repo rustcommons/rust-mirror --log",
+          "sha256": "3ce58ddbb9e681769b5838aed9c0dd3454368fcf5a4a528990efdd0517e134f4",
+          "selected_outcomes": [
+            "2026-11-22T14:46:07.6615088Z 2026-11-22 14:46:07,578 - root - INFO - Fuzzer sparse_index finished with no crashes discovered.",
+            "2026-11-22T14:46:55.3080012Z 2026-11-22 14:46:55,231 - root - INFO - Fuzzer events finished with no crashes discovered.",
+            "2026-11-22T14:47:42.8849408Z 2026-11-22 14:47:42,881 - root - INFO - Fuzzer lockfile finished with no crashes discovered.",
+            "2026-11-22T14:48:30.5782153Z 2026-11-22 14:48:30,554 - root - INFO - Fuzzer inventory finished with no crashes discovered.",
+            "2026-11-22T14:49:18.0761828Z 2026-11-22 14:49:17,992 - root - INFO - Fuzzer channel_manifest finished with no crashes discovered.",
+            "2026-11-22T14:50:05.5847243Z 2026-11-22 14:50:05,577 - root - INFO - Fuzzer catalog finished with no crashes discovered.",
+            "2026-11-22T14:50:53.2436564Z 2026-11-22 14:50:53,190 - root - INFO - Fuzzer network finished with no crashes discovered."
+          ]
+        },
+        {
+          "run_id": 44904451990,
+          "command": "gh run view 44904451990 --repo rustcommons/rust-mirror --log",
+          "sha256": "e5663273af311dfb1ff0e689c30144ba1a82d9451633367cce8b365a4f15d21f",
+          "selected_outcomes": [
+            "2026-11-21T12:34:01.1091345Z error: the lock file /src/rust-mirror/fuzz/Cargo.lock needs to be updated but --locked was passed to prevent this"
+          ]
+        },
+        {
+          "run_id": 44902370077,
+          "command": "gh run view 44902370077 --repo rustcommons/rust-mirror --log",
+          "sha256": "73018db1c264c06898c4bfa3e099900fd7f49d6248d72c43fc4fccf70a57d0ed",
+          "selected_outcomes": [
+            "2026-11-21T12:08:51.9453874Z error: the lock file /src/rust-mirror/fuzz/Cargo.lock needs to be updated but --locked was passed to prevent this"
+          ]
+        },
+        {
+          "run_id": 44898438103,
+          "command": "gh run view 44898438103 --repo rustcommons/rust-mirror --log",
+          "sha256": "2246dfd594d5581f4f8780ff82684eaf3e054db2b5881006492aa4c4a9f436c1",
+          "selected_outcomes": [
+            "2026-11-21T11:22:16.5260830Z error: the lock file /src/rust-mirror/fuzz/Cargo.lock needs to be updated but --locked was passed to prevent this"
+          ]
+        },
+        {
+          "run_id": 44236153835,
+          "command": "gh run view 44236153835 --repo rustcommons/rust-mirror --log",
+          "sha256": "06520189254e6f05fb17d7b9c615c8a73faf2edeff347c1044919f19d38b2e7a",
+          "selected_outcomes": [
+            "2026-11-18T04:17:42.0702316Z bash: /src/build.sh: No such file or directory"
+          ]
+        }
+      ],
+      "url_lock_commits": [
+        {
+          "sha": "9e69567d9fb67787438adcb23977c10d48d32983",
+          "date": "2026-11-22T14:34:29Z",
+          "subject": "Update locked URL dependency and document advisory exposure"
+        },
+        {
+          "sha": "5be755aab245c026906b25b0ed7c7927c8c6711e",
+          "date": "2026-11-22T03:59:18Z",
+          "subject": "Fix transfer progress and retained metadata for 0.6.1"
+        },
+        {
+          "sha": "0c077ff5864d1cd15ef54771a2360b41d0ea8d47",
+          "date": "2026-11-21T12:31:02Z",
+          "subject": "release: version 0.6.0 for the toml 1 public-type change"
+        },
+        {
+          "sha": "d4bf0a6f7a7ba88ac2b357ecb789979c92b9e720",
+          "date": "2026-11-21T12:03:55Z",
+          "subject": "release: prepare 0.5.5 dependency patch with attached provenance bundle"
+        },
+        {
+          "sha": "765c0b46fb61c24ca458c7b867caca1e8e7b2e02",
+          "date": "2026-11-21T11:17:53Z",
+          "subject": "Update dependencies from the November Dependabot batch"
+        },
+        {
+          "sha": "8afa238ba13c7810e6c2829c7e34471c0b19d34a",
+          "date": "2026-11-16T04:39:39Z",
+          "subject": "release: prepare 0.5.4 patched downloads with deterministic SBOM serial"
+        },
+        {
+          "sha": "826cc1f22e5267d0c88dfc721ef7cfdbf67f8ebd",
+          "date": "2026-11-15T23:20:09Z",
+          "subject": "Prepare 0.5.3 security release through Trusted Publishing"
+        },
+        {
+          "sha": "cd821ea4138c8e7a8d86bde29235e2cd551e1188",
+          "date": "2026-11-15T20:09:26Z",
+          "subject": "Apply repository security gates and isolate future release provenance"
+        }
+      ],
+      "issues": {
+        "endpoint": "repos/rustcommons/rust-mirror/issues?state=all&per_page=100",
+        "pages": 1,
+        "issues_excluding_prs": [
+          {
+            "number": 67,
+            "title": "Sync lock fixture assumes drop releases a fork-inherited Linux flock",
+            "created_at": "2026-11-16T12:33:48Z",
+            "closed_at": "2026-11-16T12:48:11Z",
+            "html_url": "https://github.com/rustcommons/rust-mirror/issues/67"
+          }
+        ],
+        "first_follow_up": {
+          "created_at": "2026-11-16T12:41:58Z",
+          "html_url": "https://github.com/rustcommons/rust-mirror/issues/67#issuecomment-6916716086",
+          "author_association": "MEMBER"
+        },
+        "classification": "One maintainer-filed fixture bug; PRs excluded; no claim about off-platform or private reports."
+      },
+      "private_response_history": "Unverified: no sanitized receipt/response or zero-applicable-report attestation; API advisory dates are not private receipt dates.",
+      "source_files": {
+        "src/network.rs": {
+          "release_blob": "9cb583408936b451484770aea23f01cdf30c54fb",
+          "main_blob": "9cb583408936b451484770aea23f01cdf30c54fb",
+          "identical": true
+        },
+        "src/lib.rs": {
+          "release_blob": "ab7008f83c3114da74aea3bfc118f2389e5f1bac",
+          "main_blob": "ab7008f83c3114da74aea3bfc118f2389e5f1bac",
+          "identical": true
+        }
+      },
+      "community_profile": {
+        "endpoint": "repos/rustcommons/rust-mirror/community/profile",
+        "contributing": {
+          "url": "https://api.github.com/repos/rustcommons/rust-mirror/contents/CONTRIBUTING.md",
+          "html_url": "https://github.com/rustcommons/.github/blob/main/CONTRIBUTING.md"
+        }
+      },
+      "release_pipeline": {
+        "id": 44992707987,
+        "head_sha": "3c11d914bce9a06cb92ef7f39179e3a42f98cab0",
+        "event": "push",
+        "conclusion": "success",
+        "html_url": "https://github.com/rustcommons/rust-mirror/actions/runs/44992707987",
+        "run_attempt": 2
+      }
+    },
+    "rust-mirror-gui": {
+      "main": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/commits/main",
+        "result": {
+          "sha": "06927ece4f1fadc59f2ef015d7c21bf950da0630"
+        }
+      },
+      "settings": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui",
+        "result": {
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "enabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "visibility": "public"
+        }
+      },
+      "codeql": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/code-scanning/default-setup",
+        "result": {
+          "state": "configured",
+          "languages": [
+            "actions",
+            "python",
+            "rust"
+          ],
+          "query_suite": "default",
+          "threat_model": "remote",
+          "updated_at": "2026-11-15T19:24:34Z",
+          "schedule": "weekly",
+          "runner_type": "standard",
+          "runner_label": ""
+        }
+      },
+      "secrets": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/secret-scanning/alerts?state=open&per_page=100",
+        "result": {
+          "open_count": 0,
+          "note": "No secret values retained"
+        }
+      },
+      "dependabot": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/dependabot/alerts?state=open&per_page=100",
+        "result": []
+      },
+      "advisories": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/security-advisories?per_page=100",
+        "result": []
+      },
+      "code_scanning": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/code-scanning/alerts?state=open&per_page=100",
+        "alerts": [
+          {
+            "number": 26,
+            "tool": "Scorecard",
+            "severity": "low",
+            "rule": "CIIBestPracticesID",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/26",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:analysis"
+          },
+          {
+            "number": 25,
+            "tool": "Scorecard",
+            "severity": "high",
+            "rule": "MaintainedID",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/25",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:analysis"
+          },
+          {
+            "number": 24,
+            "tool": "Scorecard",
+            "severity": "high",
+            "rule": "CodeReviewID",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/24",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:analysis"
+          },
+          {
+            "number": 22,
+            "tool": "Scorecard",
+            "severity": "high",
+            "rule": "VulnerabilitiesID",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/22",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:analysis"
+          },
+          {
+            "number": 19,
+            "tool": "Scorecard",
+            "severity": "high",
+            "rule": "BranchProtectionID",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/19",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": ".github/workflows/scorecard.yml:analysis"
+          },
+          {
+            "number": 18,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/18",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 350,
+              "end_line": 350,
+              "start_column": 9,
+              "end_column": 11
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 17,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/17",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 295,
+              "end_line": 295,
+              "start_column": 50,
+              "end_column": 58
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 16,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/16",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 268,
+              "end_line": 268,
+              "start_column": 57,
+              "end_column": 59
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 15,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/15",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "tests/windows_qualification.rs",
+              "start_line": 41,
+              "end_line": 41,
+              "start_column": 58,
+              "end_column": 60
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 14,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/14",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 716,
+              "end_line": 716,
+              "start_column": 79,
+              "end_column": 83
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 13,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/13",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 713,
+              "end_line": 713,
+              "start_column": 80,
+              "end_column": 84
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 12,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/12",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 700,
+              "end_line": 700,
+              "start_column": 13,
+              "end_column": 16
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 11,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/11",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 691,
+              "end_line": 691,
+              "start_column": 72,
+              "end_column": 81
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 10,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/10",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 669,
+              "end_line": 669,
+              "start_column": 44,
+              "end_column": 53
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 9,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/9",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 640,
+              "end_line": 640,
+              "start_column": 67,
+              "end_column": 69
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 8,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/8",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 637,
+              "end_line": 637,
+              "start_column": 68,
+              "end_column": 74
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 7,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/7",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/app.rs",
+              "start_line": 684,
+              "end_line": 684,
+              "start_column": 21,
+              "end_column": 23
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          },
+          {
+            "number": 6,
+            "tool": "CodeQL",
+            "severity": "critical",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/6",
+            "state": "open",
+            "dismissed_reason": null,
+            "location": {
+              "path": "src/bin/fake-rust-mirror.rs",
+              "start_line": 91,
+              "end_line": 91,
+              "start_column": 33,
+              "end_column": 38
+            },
+            "ref": "refs/heads/main",
+            "analysis_key": "dynamic/github-code-scanning/codeql:analyze"
+          }
+        ],
+        "severity_counts_by_tool": {
+          "Scorecard": {
+            "low": 1,
+            "high": 4
+          },
+          "CodeQL": {
+            "critical": 13
+          }
+        }
+      },
+      "release": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/releases/latest",
+        "tag": "v0.5.4",
+        "published_at": "2026-11-22T21:33:52Z",
+        "assets": [
+          {
+            "name": "rust-mirror-gui-0.5.4-aarch64-apple-darwin.tar.gz",
+            "digest": "sha256:28a719d76ae5cf3420bc34dfc92ae59af6653db6c55d7126a56a5c70d78e451f",
+            "size": 9649045
+          },
+          {
+            "name": "rust-mirror-gui-0.5.4-x86_64-apple-darwin.tar.gz",
+            "digest": "sha256:50ac92dd4d32029a708eb615789701d73d6df30a21e7d35662f51ffe54d9f463",
+            "size": 10376185
+          },
+          {
+            "name": "rust-mirror-gui-0.5.4-x86_64-pc-windows-msvc.zip",
+            "digest": "sha256:4a4837ebd88d7b5cadd36dd56c76e9212e1a7a0ac90a9c9d6f62a15156b4a16a",
+            "size": 10198056
+          },
+          {
+            "name": "rust-mirror-gui-0.5.4-x86_64-unknown-linux-gnu.tar.gz",
+            "digest": "sha256:c117abfd737aff87bc5692af5c955f27754b3cb5a22fe830f94c464567d4673c",
+            "size": 14085683
+          },
+          {
+            "name": "rust-mirror-gui-0.5.4.cdx.json",
+            "digest": "sha256:28223254117036c6198778bdfb3696ebb48f125e24d778a8c6361595b767e0e8",
+            "size": 612672
+          },
+          {
+            "name": "rust-mirror-gui-0.5.4.crate",
+            "digest": "sha256:21fe4a8b07db67156130367787c316b412c8adbf6b0bb91c5ac655722109a4a8",
+            "size": 551345
+          },
+          {
+            "name": "rust-mirror-gui-0.5.4.intoto.jsonl",
+            "digest": "sha256:9ac6208e0c8138f9444dfbaa38fac788fd3bc64a05f70f847220708b2f6e6709",
+            "size": 11937
+          },
+          {
+            "name": "SHA256SUMS",
+            "digest": "sha256:f288b7236d1718bdb544c8f7c2012c1419598da6546d201075e73a20a78d462a",
+            "size": 657
+          }
+        ]
+      },
+      "fuzz": {
+        "cflite_pr.yml": {
+          "endpoint": "repos/rustcommons/rust-mirror-gui/actions/workflows/cflite_pr.yml/runs?per_page=100",
+          "total_count": 13,
+          "outcomes": {
+            "success": 9,
+            "cancelled": 3,
+            "failure": 1
+          },
+          "runs": [
+            {
+              "id": 45067906584,
+              "head_sha": "5377990544f4956718c2f588d9c7522a53728e54",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45067906584"
+            },
+            {
+              "id": 45063566152,
+              "head_sha": "d864fe4d96a3d291851fec39f3c6b9fcff96290d",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45063566152"
+            },
+            {
+              "id": 45063481858,
+              "head_sha": "85db5d51280d15d61aebc20a29c71f05ad3de73d",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45063481858"
+            },
+            {
+              "id": 45045221791,
+              "head_sha": "4501176e72ac9c20993ba6282623ae8c8108395b",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45045221791"
+            },
+            {
+              "id": 45044572226,
+              "head_sha": "af22af5b5e5645a02d36e5a7e93f829c68e0b4c3",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45044572226"
+            },
+            {
+              "id": 45033932653,
+              "head_sha": "4c3a8f433b85d933f2a0eb13c70d7a476b9a3f5a",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45033932653"
+            },
+            {
+              "id": 45033026282,
+              "head_sha": "32b1763a48f65b2cbdacf01f53fd352ed89c3172",
+              "event": "pull_request",
+              "conclusion": "cancelled",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45033026282"
+            },
+            {
+              "id": 45030811302,
+              "head_sha": "9086496f879cfa1f9267d0caa99a780825702dda",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45030811302"
+            },
+            {
+              "id": 44915729694,
+              "head_sha": "e4487b9ffb51a0425eccff870b63c3ed6e0dd5b0",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/44915729694"
+            },
+            {
+              "id": 44880698821,
+              "head_sha": "8a6ab448f5d0930c7f933f0f20b1924670492214",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/44880698821"
+            },
+            {
+              "id": 44866116345,
+              "head_sha": "b5de1e383d5bdf5cd3eec811a0e06235863296ac",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/44866116345"
+            },
+            {
+              "id": 44239796349,
+              "head_sha": "2f49301d6cd46ab2b58ff9731d5268bf9e68e865",
+              "event": "pull_request",
+              "conclusion": "success",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/44239796349"
+            },
+            {
+              "id": 44238348594,
+              "head_sha": "9458c0081e01bf09ab6d0597bbf5e26e3744db3d",
+              "event": "pull_request",
+              "conclusion": "failure",
+              "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/44238348594"
+            }
+          ]
+        },
+        "cflite_batch.yml": {
+          "endpoint": "repos/rustcommons/rust-mirror-gui/actions/workflows/cflite_batch.yml/runs?per_page=100",
+          "total_count": 0,
+          "outcomes": {},
+          "runs": []
+        }
+      },
+      "fuzz_log_receipts": [
+        {
+          "run_id": 45067906584,
+          "command": "gh run view 45067906584 --repo rustcommons/rust-mirror-gui --log",
+          "sha256": "ad0c1f01741c76d0db8f75f65098ce8b27f81e9fdc870f7033d3e076aa86dc92",
+          "selected_outcomes": [
+            "2026-11-22T20:51:42.7558914Z 2026-11-22 20:51:42,621 - root - INFO - Fuzzer event_line finished with no crashes discovered.",
+            "2026-11-22T20:53:01.0521099Z 2026-11-22 20:53:00,972 - root - INFO - Fuzzer event_stream finished with no crashes discovered.",
+            "2026-11-22T20:54:19.5039404Z 2026-11-22 20:54:19,389 - root - INFO - Fuzzer ca_file finished with no crashes discovered.",
+            "2026-11-22T20:55:37.8425773Z 2026-11-22 20:55:37,761 - root - INFO - Fuzzer settings finished with no crashes discovered."
+          ]
+        },
+        {
+          "run_id": 44238348594,
+          "command": "gh run view 44238348594 --repo rustcommons/rust-mirror-gui --log",
+          "sha256": "edef9ee50af47d3501fd72021c36e8b9e33883ddca3ed89bce64fa4d61ac047f",
+          "selected_outcomes": [
+            "2026-11-18T04:36:20.4784359Z error: rustc 1.91.0-nightly is not supported by the following packages:"
+          ]
+        }
+      ],
+      "url_lock_commits": [
+        {
+          "sha": "8403cbd86fc2c8e04512fd3302b56d46a57b03f3",
+          "date": "2026-11-22T20:40:39Z",
+          "subject": "Prepare rust-mirror-gui 0.5.4 release with clearer crate previews"
+        },
+        {
+          "sha": "b0f9a7445764fa05cea2bc941af16733022498e8",
+          "date": "2026-11-22T14:28:21Z",
+          "subject": "Release 0.5.3 with rust-mirror 0.6.1 and crate metadata warnings"
+        },
+        {
+          "sha": "9086496f879cfa1f9267d0caa99a780825702dda",
+          "date": "2026-11-22T14:04:21Z",
+          "subject": "fix: update locked url to address RUSTSEC-2026-0592"
+        },
+        {
+          "sha": "7fb2c8cb67dfc33b776c1d8ce3a6ffd24618c418",
+          "date": "2026-11-21T14:40:48Z",
+          "subject": "0.5.2: rust-mirror 0.6 (0.6.0; toml 1.x in Error.report, no source change), refresh Cargo.lock and the fuzz lock"
+        },
+        {
+          "sha": "10d935aec0df4ef31a0ba07c139fcacef1d52d1f",
+          "date": "2026-11-16T12:10:58Z",
+          "subject": "0.5.1: rust-mirror 0.5.4 (rustls-webpki 0.103.17), version, changelog, release notes, validation record; Trusted Publishing is the only publish route (RELEASING, AGENTS, workflow header); README status and verification commands"
+        },
+        {
+          "sha": "13b6f8936661e48d5d9c1c1c23bea5c5c3df969e",
+          "date": "2026-11-15T17:38:21Z",
+          "subject": "0.5.0: version, changelog, release notes, validation record, glibc measurements record (JSON, Debian 9 screenshot), README status; AGENTS authorization"
+        },
+        {
+          "sha": "8dcb4cdb5c4f2b26144394421c71a2bf0b89a0b9",
+          "date": "2026-11-15T14:14:41Z",
+          "subject": "0.4.3: fit wgpu limits to the adapter (never below egui's minimum; clear error otherwise); first release with prebuilt downloads; PR dry runs build the PR's own code"
+        },
+        {
+          "sha": "8aae2b0d43ca1b6e4ae7dda0c148fcf27c2b9c55",
+          "date": "2026-11-15T03:03:09Z",
+          "subject": "Version 0.4.2 (draft notes); harness: 10-minute preview wait, record executable hash and frame-log presence"
+        }
+      ],
+      "issues": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/issues?state=all&per_page=100",
+        "pages": 1,
+        "issues_excluding_prs": []
+      },
+      "private_response_history": "Unverified: no sanitized receipt/response or zero-applicable-report attestation; API advisory dates are not private receipt dates.",
+      "source_files": {
+        "src/ops.rs": {
+          "release_blob": "d765345927c0bf1a978e4cf76e206cfcad8dc385",
+          "main_blob": "d765345927c0bf1a978e4cf76e206cfcad8dc385",
+          "identical": true
+        },
+        "Cargo.lock": {
+          "release_blob": "025930ec87742ad72fa04549f565a30a2316fbf1",
+          "main_blob": "025930ec87742ad72fa04549f565a30a2316fbf1",
+          "identical": true
+        }
+      },
+      "community_profile": {
+        "endpoint": "repos/rustcommons/rust-mirror-gui/community/profile",
+        "contributing": {
+          "url": "https://api.github.com/repos/rustcommons/rust-mirror-gui/contents/CONTRIBUTING.md",
+          "html_url": "https://github.com/rustcommons/.github/blob/main/CONTRIBUTING.md"
+        }
+      },
+      "release_pipeline": {
+        "id": 45070738820,
+        "head_sha": "06927ece4f1fadc59f2ef015d7c21bf950da0630",
+        "event": "push",
+        "conclusion": "success",
+        "html_url": "https://github.com/rustcommons/rust-mirror-gui/actions/runs/45070738820",
+        "run_attempt": 1
+      }
+    }
+  },
+  "ring_source_check": {
+    "archive": "https://static.crates.io/crates/ring/ring-0.17.14.crate",
+    "sha256": "a4689e6c2294d81e88dc6261c768b63bc4fcdb852be6d1352498b114f61383b7",
+    "matches_product_lock_checksums": true,
+    "vcs_sha": "2723abbca9e83347d82b056d5b239c6604f786df",
+    "vcs_dirty": true,
+    "checked_file": "src/rand.rs",
+    "file_matches_gh_api_contents_at_vcs_sha": true,
+    "whole_archive_git_match_claimed": false
+  },
+  "collection_completed_at": "2026-11-22T22:05:18.267695+00:00",
+  "public_response_window": {
+    "start": "2026-09-22T21:58:30.758576Z",
+    "end": "2026-11-22T21:58:30.758576+00:00"
+  },
+  "private_response_window": {
+    "start": "2026-05-22T21:58:30.758576Z",
+    "end": "2026-11-22T21:58:30.758576+00:00",
+    "gap": "Receipt/response timing and zero-report confirmation unavailable; leave Unmet."
+  },
+  "source_references": {
+    "rustls_version": "0.23.46",
+    "rustls_commit": "f04804fa13341a9b1dc02b5d1dd8a746f2c4b7fb",
+    "rustls_paths": [
+      "rustls/src/crypto/ring/mod.rs",
+      "rustls/src/versions.rs"
+    ],
+    "rustsec_revision": "8b75c83c3c9142dd18e93d75b8d895a13d285861",
+    "rustsec_path": "crates/url/RUSTSEC-2026-0592.md",
+    "rustsec_date": "2026-11-20",
+    "ring_method": "SHA256 of official static.crates.io archive matched Cargo.lock; tar read only src/rand.rs and .cargo_vcs_info.json; cmp of rand.rs against read-only gh contents at VCS SHA."
+  },
+  "static_analysis_followup": {
+    "observed_at": "2026-11-22T22:09:26.334257+00:00",
+    "method": "Read-only gh api; paginated open inventories and individual previously observed CodeQL alerts",
+    "repositories": {
+      "rust-mirror": {
+        "open_endpoint": "repos/rustcommons/rust-mirror/code-scanning/alerts?state=open&per_page=100",
+        "open_alerts": [
+          {
+            "number": 31,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/31",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CIIBestPracticesID",
+            "security_severity": "low",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 30,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/30",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CodeReviewID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 27,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/27",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "BranchProtectionID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 11,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/11",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 103,
+              "end_line": 103,
+              "start_column": 26,
+              "end_column": 30
+            }
+          },
+          {
+            "number": 10,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/10",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 101,
+              "end_line": 101,
+              "start_column": 17,
+              "end_column": 28
+            }
+          },
+          {
+            "number": 9,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/9",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "tests/test_rustup_tls.py",
+              "start_line": 31,
+              "end_line": 31,
+              "start_column": 29,
+              "end_column": 43
+            }
+          },
+          {
+            "number": 8,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/8",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 384,
+              "end_line": 384,
+              "start_column": 23,
+              "end_column": 30
+            }
+          }
+        ],
+        "previous_codeql_alerts": [
+          {
+            "number": 6,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/6",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "py/weak-sensitive-data-hashing",
+            "security_severity": "high",
+            "dismissed_at": "2026-11-22T22:08:33Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "SHA-1 computes an X.509 certificate thumbprint, the identifier required by macOS security and Windows certutil to locate and remove a disposable test CA. Not used to protect data. Proof harness only.",
+            "location": {
+              "path": "scripts/prove_nexus_windows_crates.py",
+              "start_line": 293,
+              "end_line": 293,
+              "start_column": 26,
+              "end_column": 29
+            }
+          },
+          {
+            "number": 7,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/7",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "py/weak-sensitive-data-hashing",
+            "security_severity": "high",
+            "dismissed_at": "2026-11-22T22:08:35Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "SHA-1 computes an X.509 certificate thumbprint, the identifier required by macOS security and Windows certutil to locate and remove a disposable test CA. Not used to protect data. Proof harness only.",
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 307,
+              "end_line": 307,
+              "start_column": 38,
+              "end_column": 41
+            }
+          },
+          {
+            "number": 8,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/8",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 384,
+              "end_line": 384,
+              "start_column": 23,
+              "end_column": 30
+            }
+          },
+          {
+            "number": 9,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/9",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "tests/test_rustup_tls.py",
+              "start_line": 31,
+              "end_line": 31,
+              "start_column": 29,
+              "end_column": 43
+            }
+          },
+          {
+            "number": 10,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/10",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 101,
+              "end_line": 101,
+              "start_column": 17,
+              "end_column": 28
+            }
+          },
+          {
+            "number": 11,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/11",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 103,
+              "end_line": 103,
+              "start_column": 26,
+              "end_column": 30
+            }
+          },
+          {
+            "number": 12,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/12",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:22Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)] basic_auth_known_vectors: RFC 7617 example credentials (Aladdin/open sesame) and dummy u/p values verify encoding. Not used at runtime.",
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 645,
+              "end_line": 645,
+              "start_column": 38,
+              "end_column": 51
+            }
+          },
+          {
+            "number": 13,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/13",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:24Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)] basic_auth_known_vectors: RFC 7617 example credentials (Aladdin/open sesame) and dummy u/p values verify encoding. Not used at runtime.",
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 648,
+              "end_line": 648,
+              "start_column": 39,
+              "end_column": 42
+            }
+          },
+          {
+            "number": 14,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/14",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:26Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)] basic_auth_known_vectors: RFC 7617 example credentials (Aladdin/open sesame) and dummy u/p values verify encoding. Not used at runtime.",
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 649,
+              "end_line": 649,
+              "start_column": 39,
+              "end_column": 43
+            }
+          },
+          {
+            "number": 15,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/15",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:28Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test fixture with dummy credentials for a local test server; not shipped or used at runtime.",
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 73,
+              "end_line": 73,
+              "start_column": 47,
+              "end_column": 49
+            }
+          },
+          {
+            "number": 16,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/16",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:30Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test fixture with dummy credentials for a local test server; not shipped or used at runtime.",
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 146,
+              "end_line": 146,
+              "start_column": 9,
+              "end_column": 50
+            }
+          },
+          {
+            "number": 17,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/17",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:32Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test fixture with dummy credentials for a local test server; not shipped or used at runtime.",
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 165,
+              "end_line": 165,
+              "start_column": 9,
+              "end_column": 11
+            }
+          }
+        ],
+        "fix_pr_query": {
+          "endpoint": "repos/rustcommons/rust-mirror/pulls?state=open",
+          "result": [],
+          "gap": "Fix PR and merged revision not yet available at observation; path containment and minimum TLS 1.2 work pending."
+        },
+        "criterion_scope": "Only CodeQL/source static-analysis findings; Scorecard posture checks excluded from static_analysis_fixed."
+      },
+      "rust-mirror-gui": {
+        "open_endpoint": "repos/rustcommons/rust-mirror-gui/code-scanning/alerts?state=open&per_page=100",
+        "open_alerts": [
+          {
+            "number": 26,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/26",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CIIBestPracticesID",
+            "security_severity": "low",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 25,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/25",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "MaintainedID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 24,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/24",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CodeReviewID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 22,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/22",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "VulnerabilitiesID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 19,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/19",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "BranchProtectionID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          }
+        ],
+        "previous_codeql_alerts": [
+          {
+            "number": 6,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/6",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:59Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "src/bin/fake-rust-mirror.rs is a test-only stand-in (fake-backend feature) that emits scripted events; never shipped or used with real credentials.",
+            "location": {
+              "path": "src/bin/fake-rust-mirror.rs",
+              "start_line": 91,
+              "end_line": 91,
+              "start_column": 33,
+              "end_column": 38
+            }
+          },
+          {
+            "number": 7,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/7",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:57Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "Passes an empty password (no credential) for an offline release-list operation; no secret is hard-coded.",
+            "location": {
+              "path": "src/app.rs",
+              "start_line": 684,
+              "end_line": 684,
+              "start_column": 21,
+              "end_column": 23
+            }
+          },
+          {
+            "number": 8,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/8",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:37Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 637,
+              "end_line": 637,
+              "start_column": 68,
+              "end_column": 74
+            }
+          },
+          {
+            "number": 9,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/9",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:39Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 640,
+              "end_line": 640,
+              "start_column": 67,
+              "end_column": 69
+            }
+          },
+          {
+            "number": 10,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/10",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:41Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 669,
+              "end_line": 669,
+              "start_column": 44,
+              "end_column": 53
+            }
+          },
+          {
+            "number": 11,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/11",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:42Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 691,
+              "end_line": 691,
+              "start_column": 72,
+              "end_column": 81
+            }
+          },
+          {
+            "number": 12,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/12",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:45Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 700,
+              "end_line": 700,
+              "start_column": 13,
+              "end_column": 16
+            }
+          },
+          {
+            "number": 13,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/13",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:47Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 713,
+              "end_line": 713,
+              "start_column": 80,
+              "end_column": 84
+            }
+          },
+          {
+            "number": 14,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/14",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:48Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 716,
+              "end_line": 716,
+              "start_column": 79,
+              "end_column": 83
+            }
+          },
+          {
+            "number": 15,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/15",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:50Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "tests/windows_qualification.rs",
+              "start_line": 41,
+              "end_line": 41,
+              "start_column": 58,
+              "end_column": 60
+            }
+          },
+          {
+            "number": 16,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/16",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:52Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 268,
+              "end_line": 268,
+              "start_column": 57,
+              "end_column": 59
+            }
+          },
+          {
+            "number": 17,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/17",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:54Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 295,
+              "end_line": 295,
+              "start_column": 50,
+              "end_column": 58
+            }
+          },
+          {
+            "number": 18,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/18",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:56Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test with dummy credentials; not shipped.",
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 350,
+              "end_line": 350,
+              "start_column": 9,
+              "end_column": 11
+            }
+          }
+        ],
+        "criterion_scope": "Only CodeQL/source static-analysis findings; Scorecard posture checks excluded from static_analysis_fixed."
+      }
+    }
+  }
+}
