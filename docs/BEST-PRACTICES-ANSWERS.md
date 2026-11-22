@@ -107,7 +107,8 @@ does not prove absence of all crypto defects or independent upstream authenticat
 
 ### Alerts and static-analysis disposition
 
-Read-only paginated `secret-scanning/alerts?state=open`,
+Initial inventory (historical; the CodeQL follow-up below supersedes its open
+CodeQL counts): read-only paginated `secret-scanning/alerts?state=open`,
 `code-scanning/alerts?state=open` and `dependabot/alerts?state=open` inventories:
 
 | Repository | Secret scanning / push protection | Open secret alerts | Open CodeQL (critical / high / medium / low) | Open Scorecard (critical / high / medium / low) | Open Dependabot / older than 60 days |
@@ -123,21 +124,55 @@ proof of a clean history for all secret types, deleted history or external syste
 Non-provider patterns and validity checks are disabled in the observed settings.
 No secret values or private report contents were collected or published.
 
-**Every open medium-or-higher finding remains pending disposition**, so
-`static_analysis_fixed` remains Unmet for both projects. The JSON lists every
-alert URL, rule and source location; no alert was dismissed here:
+#### CodeQL disposition follow-up — 2026-11-22
 
-- CLI CodeQL [#12–17](https://github.com/rustcommons/rust-mirror/security/code-scanning)
-  flags hard-coded crypto values in `tests/collection.rs` and `src/publish.rs`; #6–11 flags Python path/protocol/hash operations.
-  Fixture usage is context for review, not an accepted false-positive disposition.
-- GUI CodeQL [#6–18](https://github.com/rustcommons/rust-mirror-gui/security/code-scanning)
-  flags Rust hard-coded values in UI/worker and fake-worker source. Verify the
-  exact location/context and record non-exploitability or a fix before closing this gap.
-- CLI Scorecard #27/#30: Branch-Protection/Code-Review. GUI #19/#22/#24/#25:
-  Branch-Protection/Vulnerabilities/Code-Review/Maintained. These are open high-risk
-  process/dependency signals, not automatically confirmed exploitable product bugs;
-  record current-setting evidence and criterion-acceptable dispositions. No policy
-  or settings change is authorized by this documentation refresh.
+The [follow-up API receipts](evidence/best-practices-2026-11-22.json) retain the
+initial inventory above and add live open inventories plus the state, reason,
+written comment and dismissal timestamp of every previously open CodeQL alert.
+The responsible maintainer triaged these findings; this documentation change
+only reads those dispositions and does not dismiss alerts.
+
+| Repository | Current open CodeQL (critical / high / medium / low) | Disposition and remaining work |
+| --- | --- | --- |
+| rust-mirror | 0 / 4 / 0 / 0 | #6, #7 and #12–17 dismissed with written reasons; #8–11 pending code fixes and merge. |
+| rust-mirror-gui | 0 / 0 / 0 / 0 | #6–18 dismissed with written reasons; no remaining open CodeQL finding in this snapshot. |
+
+- CLI [#6](https://github.com/rustcommons/rust-mirror/security/code-scanning/6)
+  and [#7](https://github.com/rustcommons/rust-mirror/security/code-scanning/7):
+  false positives; SHA-1 computes certificate thumbprints required by macOS
+  `security` / Windows `certutil` for disposable test CA lookup/removal, not data
+  protection.
+- CLI [#12–14](https://github.com/rustcommons/rust-mirror/security/code-scanning/12):
+  `#[cfg(test)]` RFC 7617 encoding vectors and dummy values. [#15–17](https://github.com/rustcommons/rust-mirror/security/code-scanning/15):
+  local-server integration-test dummy credentials. All are dismissed as used in tests.
+- GUI [#6](https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/6):
+  test-only fake backend; [#7](https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/7):
+  an empty password for an offline release-list operation, not a secret.
+  [#8–17](https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/8):
+  test-only dummy proxy/publish passwords used to verify argv exclusion/stdin
+  handling; [#18](https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/18):
+  integration-test dummy credentials. The API receipts contain every individual
+  alert URL and written reason rather than treating a range link as all evidence.
+- CLI [#10](https://github.com/rustcommons/rust-mirror/security/code-scanning/10)
+  and [#11](https://github.com/rustcommons/rust-mirror/security/code-scanning/11)
+  remain open: path containment in the `prove_offline.py` test upload server.
+  [#8](https://github.com/rustcommons/rust-mirror/security/code-scanning/8) and
+  [#9](https://github.com/rustcommons/rust-mirror/security/code-scanning/9) remain
+  open: enforce TLS 1.2 minimum on test TLS servers. The fixes are pending;
+  the read-only open-PR query returned no PR to pin at observation. Record the
+  actual reviewed fix PR/merged revision and verification before closing the gap.
+
+`static_analysis_fixed` is **pending until those CLI fixes merge**. GUI CodeQL
+triage is complete in the observed inventory; the final proposed Met update is
+held until the pending fix merge and verification are recorded. No claim of
+merged remediation follows from a planned fix or a dismissed unrelated alert.
+
+The remaining Scorecard alerts are **posture checks, excluded from
+`static_analysis_fixed`**: CLI #27/#30/#31 (Branch-Protection, Code-Review,
+CII-Best-Practices), GUI #19/#22/#24/#25/#26 (Branch-Protection, Vulnerabilities,
+Code-Review, Maintained, CII-Best-Practices). They remain visible in the separate
+inventory; they are not source static-analysis findings and this criterion does
+not certify their resolution or the repositories' overall security posture.
 
 ### Dynamic analysis and failure history
 
@@ -277,7 +312,7 @@ the criterion permits as N/A). Do not publish private report contents.
 | `delivery_mitm` | MUST | Met | Met | [Current phase 2 release evidence](#source-boundaries-and-dated-history) includes HTTPS, SHA256SUMS, attached provenance bundles and SBOM bindings with strict reusable-signer/source-digest verification. No OS code-signing, OpenPGP or independent certification claim. |
 | `delivery_unsigned` | MUST | Met | Met | [Current phase 2 release evidence](#source-boundaries-and-dated-history) includes HTTPS, SHA256SUMS, attached provenance bundles and SBOM bindings with strict reusable-signer/source-digest verification. No OS code-signing, OpenPGP or independent certification claim. |
 | `vulnerabilities_fixed_60_days` | MUST | Met | Met | [Advisory chronology, exposure assessment and alert age inventory](#vulnerability-age-and-public-response-evidence): published GHSA patched; URL advisory handled within two calendar days, GUI shipped fix and released CLI assessed unreachable; 0 open Dependabot alerts/0 older than 60 days each. Bounded known inventory, not all-finding or all-runtime certification. |
-| `vulnerabilities_critical_fixed` | SHOULD | Unmet | Unmet | [Open findings](#alerts-and-static-analysis-disposition) still require exploitability and severity disposition. Known dependency patches and empty Dependabot inventory alone do not establish timely resolution of every critical finding. Document dispositions/fixes and dates. |
+| `vulnerabilities_critical_fixed` | SHOULD | Unmet | Unmet | [Current dispositions](#codeql-disposition-follow-up--2026-11-22) close the former critical CodeQL alerts with written reasons; remaining CLI findings are high, not critical. A complete timing assessment for all confirmed critical vulnerabilities is still not established by this alert snapshot. Retain Unmet pending that separate assessment. |
 | `no_leaked_credentials` | MUST | Met | Met | [Dated paginated API inventory](#alerts-and-static-analysis-disposition): secret scanning and push protection enabled; 0 open secret alerts each. Bounded to detected provider patterns/current API-visible alerts, not a universal absence-of-secrets or rotation-history attestation. |
 
 ## Analysis
@@ -286,7 +321,7 @@ the criterion permits as N/A). Do not publish private report contents.
 | --- | --- | --- | --- | --- |
 | `static_analysis` | MUST | Met | Met | [CLI zizmor/cargo-deny](https://github.com/rustcommons/rust-mirror/blob/3c11d914bce9a06cb92ef7f39179e3a42f98cab0/.github/workflows/security.yml) / [GUI Clippy/cargo-deny](https://github.com/rustcommons/rust-mirror-gui/blob/06927ece4f1fadc59f2ef015d7c21bf950da0630/.github/workflows/ci.yml) plus [Current CodeQL settings and findings](#alerts-and-static-analysis-disposition) show regular source/workflow/security analysis. Detection is bounded by tool/rule/graph versions. |
 | `static_analysis_common_vulnerabilities` | SUGGESTED | Met | Met | [CLI zizmor/cargo-deny](https://github.com/rustcommons/rust-mirror/blob/3c11d914bce9a06cb92ef7f39179e3a42f98cab0/.github/workflows/security.yml) / [GUI Clippy/cargo-deny](https://github.com/rustcommons/rust-mirror-gui/blob/06927ece4f1fadc59f2ef015d7c21bf950da0630/.github/workflows/ci.yml) plus [Current CodeQL settings and findings](#alerts-and-static-analysis-disposition) show regular source/workflow/security analysis. Detection is bounded by tool/rule/graph versions. |
-| `static_analysis_fixed` | MUST | Unmet | Unmet | [Full open severity inventory and pending dispositions](#alerts-and-static-analysis-disposition): CLI CodeQL 6 critical/6 high; GUI 13 critical; Scorecard CLI 2 high and GUI 4 high. Inspect and fix confirmed exploitable findings or record acceptable non-exploitability dispositions; neither green CI nor fixture location alone closes this gap. |
+| `static_analysis_fixed` | MUST | Unmet | Unmet | [Live CodeQL dispositions](#codeql-disposition-follow-up--2026-11-22): CLI #6/#7/#12–17 and GUI #6–18 dismissed with written test/false-positive reasons; CLI #8–11 (four high findings) still need path-containment/TLS-minimum fixes. Pending until the fix PR merges and merged revision/verification are recorded; GUI triage is complete, with the final Met update held for that follow-up. Scorecard posture checks are excluded from this criterion. |
 | `static_analysis_often` | SUGGESTED | Met | Met | [CLI zizmor/cargo-deny](https://github.com/rustcommons/rust-mirror/blob/3c11d914bce9a06cb92ef7f39179e3a42f98cab0/.github/workflows/security.yml) / [GUI Clippy/cargo-deny](https://github.com/rustcommons/rust-mirror-gui/blob/06927ece4f1fadc59f2ef015d7c21bf950da0630/.github/workflows/ci.yml) plus [Current CodeQL settings and findings](#alerts-and-static-analysis-disposition) show regular source/workflow/security analysis. Detection is bounded by tool/rule/graph versions. |
 | `dynamic_analysis` | SUGGESTED | Met | Met | [ClusterFuzzLite AddressSanitizer PR execution](#dynamic-analysis-and-failure-history), 300-second shared budgets and bounded documented targets. Weekly configuration is present, with zero completed weekly runs at observation. |
 | `dynamic_analysis_unsafe` | SUGGESTED | Unmet | Unmet | [Current ASan scope](#dynamic-analysis-and-failure-history) does not establish analysis of all unsafe/native/dependency code. Map unsafe paths to exercised targets and instrument any uncovered relevant paths before asserting coverage. |

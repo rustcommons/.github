@@ -1410,5 +1410,698 @@
     "rustsec_path": "crates/url/RUSTSEC-2026-0592.md",
     "rustsec_date": "2026-11-20",
     "ring_method": "SHA256 of official static.crates.io archive matched Cargo.lock; tar read only src/rand.rs and .cargo_vcs_info.json; cmp of rand.rs against read-only gh contents at VCS SHA."
+  },
+  "static_analysis_followup": {
+    "observed_at": "2026-11-22T22:09:26.334257+00:00",
+    "method": "Read-only gh api; paginated open inventories and individual previously observed CodeQL alerts",
+    "repositories": {
+      "rust-mirror": {
+        "open_endpoint": "repos/rustcommons/rust-mirror/code-scanning/alerts?state=open&per_page=100",
+        "open_alerts": [
+          {
+            "number": 31,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/31",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CIIBestPracticesID",
+            "security_severity": "low",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 30,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/30",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CodeReviewID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 27,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/27",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "BranchProtectionID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 11,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/11",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 103,
+              "end_line": 103,
+              "start_column": 26,
+              "end_column": 30
+            }
+          },
+          {
+            "number": 10,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/10",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 101,
+              "end_line": 101,
+              "start_column": 17,
+              "end_column": 28
+            }
+          },
+          {
+            "number": 9,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/9",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "tests/test_rustup_tls.py",
+              "start_line": 31,
+              "end_line": 31,
+              "start_column": 29,
+              "end_column": 43
+            }
+          },
+          {
+            "number": 8,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/8",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 384,
+              "end_line": 384,
+              "start_column": 23,
+              "end_column": 30
+            }
+          }
+        ],
+        "previous_codeql_alerts": [
+          {
+            "number": 6,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/6",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "py/weak-sensitive-data-hashing",
+            "security_severity": "high",
+            "dismissed_at": "2026-11-22T22:08:33Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "SHA-1 computes an X.509 certificate thumbprint, the identifier required by macOS security and Windows certutil to locate and remove a disposable test CA. Not used to protect data. Proof harness only.",
+            "location": {
+              "path": "scripts/prove_nexus_windows_crates.py",
+              "start_line": 293,
+              "end_line": 293,
+              "start_column": 26,
+              "end_column": 29
+            }
+          },
+          {
+            "number": 7,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/7",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "py/weak-sensitive-data-hashing",
+            "security_severity": "high",
+            "dismissed_at": "2026-11-22T22:08:35Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "SHA-1 computes an X.509 certificate thumbprint, the identifier required by macOS security and Windows certutil to locate and remove a disposable test CA. Not used to protect data. Proof harness only.",
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 307,
+              "end_line": 307,
+              "start_column": 38,
+              "end_column": 41
+            }
+          },
+          {
+            "number": 8,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/8",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_rustup_lifecycle.py",
+              "start_line": 384,
+              "end_line": 384,
+              "start_column": 23,
+              "end_column": 30
+            }
+          },
+          {
+            "number": 9,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/9",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/insecure-protocol",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "tests/test_rustup_tls.py",
+              "start_line": 31,
+              "end_line": 31,
+              "start_column": 29,
+              "end_column": 43
+            }
+          },
+          {
+            "number": 10,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/10",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 101,
+              "end_line": 101,
+              "start_column": 17,
+              "end_column": 28
+            }
+          },
+          {
+            "number": 11,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/11",
+            "state": "open",
+            "tool": "CodeQL",
+            "rule": "py/path-injection",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "scripts/prove_offline.py",
+              "start_line": 103,
+              "end_line": 103,
+              "start_column": 26,
+              "end_column": 30
+            }
+          },
+          {
+            "number": 12,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/12",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:22Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)] basic_auth_known_vectors: RFC 7617 example credentials (Aladdin/open sesame) and dummy u/p values verify encoding. Not used at runtime.",
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 645,
+              "end_line": 645,
+              "start_column": 38,
+              "end_column": 51
+            }
+          },
+          {
+            "number": 13,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/13",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:24Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)] basic_auth_known_vectors: RFC 7617 example credentials (Aladdin/open sesame) and dummy u/p values verify encoding. Not used at runtime.",
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 648,
+              "end_line": 648,
+              "start_column": 39,
+              "end_column": 42
+            }
+          },
+          {
+            "number": 14,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/14",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:26Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)] basic_auth_known_vectors: RFC 7617 example credentials (Aladdin/open sesame) and dummy u/p values verify encoding. Not used at runtime.",
+            "location": {
+              "path": "src/publish.rs",
+              "start_line": 649,
+              "end_line": 649,
+              "start_column": 39,
+              "end_column": 43
+            }
+          },
+          {
+            "number": 15,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/15",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:28Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test fixture with dummy credentials for a local test server; not shipped or used at runtime.",
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 73,
+              "end_line": 73,
+              "start_column": 47,
+              "end_column": 49
+            }
+          },
+          {
+            "number": 16,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/16",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:30Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test fixture with dummy credentials for a local test server; not shipped or used at runtime.",
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 146,
+              "end_line": 146,
+              "start_column": 9,
+              "end_column": 50
+            }
+          },
+          {
+            "number": 17,
+            "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/17",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:32Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test fixture with dummy credentials for a local test server; not shipped or used at runtime.",
+            "location": {
+              "path": "tests/collection.rs",
+              "start_line": 165,
+              "end_line": 165,
+              "start_column": 9,
+              "end_column": 11
+            }
+          }
+        ],
+        "fix_pr_query": {
+          "endpoint": "repos/rustcommons/rust-mirror/pulls?state=open",
+          "result": [],
+          "gap": "Fix PR and merged revision not yet available at observation; path containment and minimum TLS 1.2 work pending."
+        },
+        "criterion_scope": "Only CodeQL/source static-analysis findings; Scorecard posture checks excluded from static_analysis_fixed."
+      },
+      "rust-mirror-gui": {
+        "open_endpoint": "repos/rustcommons/rust-mirror-gui/code-scanning/alerts?state=open&per_page=100",
+        "open_alerts": [
+          {
+            "number": 26,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/26",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CIIBestPracticesID",
+            "security_severity": "low",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 25,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/25",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "MaintainedID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 24,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/24",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "CodeReviewID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 22,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/22",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "VulnerabilitiesID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          },
+          {
+            "number": 19,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/19",
+            "state": "open",
+            "tool": "Scorecard",
+            "rule": "BranchProtectionID",
+            "security_severity": "high",
+            "dismissed_at": null,
+            "dismissed_reason": null,
+            "dismissed_comment": null,
+            "location": {
+              "path": "no file associated with this alert",
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 1,
+              "end_column": 0
+            }
+          }
+        ],
+        "previous_codeql_alerts": [
+          {
+            "number": 6,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/6",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:59Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "src/bin/fake-rust-mirror.rs is a test-only stand-in (fake-backend feature) that emits scripted events; never shipped or used with real credentials.",
+            "location": {
+              "path": "src/bin/fake-rust-mirror.rs",
+              "start_line": 91,
+              "end_line": 91,
+              "start_column": 33,
+              "end_column": 38
+            }
+          },
+          {
+            "number": 7,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/7",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:57Z",
+            "dismissed_reason": "false positive",
+            "dismissed_comment": "Passes an empty password (no credential) for an offline release-list operation; no secret is hard-coded.",
+            "location": {
+              "path": "src/app.rs",
+              "start_line": 684,
+              "end_line": 684,
+              "start_column": 21,
+              "end_column": 23
+            }
+          },
+          {
+            "number": 8,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/8",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:37Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 637,
+              "end_line": 637,
+              "start_column": 68,
+              "end_column": 74
+            }
+          },
+          {
+            "number": 9,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/9",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:39Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 640,
+              "end_line": 640,
+              "start_column": 67,
+              "end_column": 69
+            }
+          },
+          {
+            "number": 10,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/10",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:41Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 669,
+              "end_line": 669,
+              "start_column": 44,
+              "end_column": 53
+            }
+          },
+          {
+            "number": 11,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/11",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:42Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 691,
+              "end_line": 691,
+              "start_column": 72,
+              "end_column": 81
+            }
+          },
+          {
+            "number": 12,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/12",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:45Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 700,
+              "end_line": 700,
+              "start_column": 13,
+              "end_column": 16
+            }
+          },
+          {
+            "number": 13,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/13",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:47Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 713,
+              "end_line": 713,
+              "start_column": 80,
+              "end_column": 84
+            }
+          },
+          {
+            "number": 14,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/14",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:48Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "src/ops.rs",
+              "start_line": 716,
+              "end_line": 716,
+              "start_column": 79,
+              "end_column": 83
+            }
+          },
+          {
+            "number": 15,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/15",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:50Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "tests/windows_qualification.rs",
+              "start_line": 41,
+              "end_line": 41,
+              "start_column": 58,
+              "end_column": 60
+            }
+          },
+          {
+            "number": 16,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/16",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:52Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 268,
+              "end_line": 268,
+              "start_column": 57,
+              "end_column": 59
+            }
+          },
+          {
+            "number": 17,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/17",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:54Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Inside #[cfg(test)]/tests: dummy proxy and publish passwords used to assert that secrets stay out of argv and are passed on stdin only. Not used at runtime.",
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 295,
+              "end_line": 295,
+              "start_column": 50,
+              "end_column": 58
+            }
+          },
+          {
+            "number": 18,
+            "url": "https://github.com/rustcommons/rust-mirror-gui/security/code-scanning/18",
+            "state": "dismissed",
+            "tool": "CodeQL",
+            "rule": "rust/hard-coded-cryptographic-value",
+            "security_severity": "critical",
+            "dismissed_at": "2026-11-22T22:08:56Z",
+            "dismissed_reason": "used in tests",
+            "dismissed_comment": "Integration test with dummy credentials; not shipped.",
+            "location": {
+              "path": "tests/backend.rs",
+              "start_line": 350,
+              "end_line": 350,
+              "start_column": 9,
+              "end_column": 11
+            }
+          }
+        ],
+        "criterion_scope": "Only CodeQL/source static-analysis findings; Scorecard posture checks excluded from static_analysis_fixed."
+      }
+    }
   }
 }
