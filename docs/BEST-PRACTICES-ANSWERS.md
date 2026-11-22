@@ -126,6 +126,9 @@ No secret values or private report contents were collected or published.
 
 #### CodeQL disposition follow-up — 2026-11-22
 
+Historical triage snapshot: the later CLI closure below supersedes its pending
+CLI fix status and four-open-alert count.
+
 The [follow-up API receipts](evidence/best-practices-2026-11-22.json) retain the
 initial inventory above and add live open inventories plus the state, reason,
 written comment and dismissal timestamp of every previously open CodeQL alert.
@@ -162,10 +165,10 @@ only reads those dispositions and does not dismiss alerts.
   the read-only open-PR query returned no PR to pin at observation. Record the
   actual reviewed fix PR/merged revision and verification before closing the gap.
 
-`static_analysis_fixed` is **pending until those CLI fixes merge**. GUI CodeQL
-triage is complete in the observed inventory; the final proposed Met update is
-held until the pending fix merge and verification are recorded. No claim of
-merged remediation follows from a planned fix or a dismissed unrelated alert.
+At that snapshot, `static_analysis_fixed` was **pending until those CLI fixes
+merged**. GUI CodeQL triage was complete in the observed inventory. The CLI
+closure below now records the merge and live fixed states; the GUI proposed
+answer is left unchanged by this CLI-only verification.
 
 The remaining Scorecard alerts are **posture checks, excluded from
 `static_analysis_fixed`**: CLI #27/#30/#31 (Branch-Protection, Code-Review,
@@ -173,6 +176,34 @@ CII-Best-Practices), GUI #19/#22/#24/#25/#26 (Branch-Protection, Vulnerabilities
 Code-Review, Maintained, CII-Best-Practices). They remain visible in the separate
 inventory; they are not source static-analysis findings and this criterion does
 not certify their resolution or the repositories' overall security posture.
+
+#### CLI CodeQL fix closure — 2026-11-22
+
+[PR #82](https://github.com/rustcommons/rust-mirror/pull/82) merged at
+[`8d3a15c55e10c69f134d04c5cfa5800ca460922c`](https://github.com/rustcommons/rust-mirror/commit/8d3a15c55e10c69f134d04c5cfa5800ca460922c)
+on 2026-11-22T22:24:34Z. It adds path containment to the
+[`prove_offline.py` upload fixture](https://github.com/rustcommons/rust-mirror/blob/8d3a15c55e10c69f134d04c5cfa5800ca460922c/scripts/prove_offline.py),
+a TLS 1.2 minimum to the
+[test TLS servers](https://github.com/rustcommons/rust-mirror/blob/8d3a15c55e10c69f134d04c5cfa5800ca460922c/scripts/prove_rustup_lifecycle.py),
+and regression tests. These are code fixes, not alert dismissals.
+
+The [read-only closure receipts](evidence/codeql-fixes-2026-11-22.json) confirm
+alerts [#8](https://github.com/rustcommons/rust-mirror/security/code-scanning/8),
+[#9](https://github.com/rustcommons/rust-mirror/security/code-scanning/9),
+[#10](https://github.com/rustcommons/rust-mirror/security/code-scanning/10) and
+[#11](https://github.com/rustcommons/rust-mirror/security/code-scanning/11) each have
+`state: fixed`, `fixed_at: 2026-11-22T22:25:16Z`, and no dismissal timestamp.
+Main's CodeQL Python analysis **2225647618** is at that exact merge commit and
+time, with no analysis error or warning. Its two raw results are not an open-alert
+count: earlier written dismissals remain part of the analysis history.
+
+The new paginated open-alert query returns **zero open CodeQL alerts** for the CLI.
+Only three Scorecard posture checks remain open; these stay excluded from
+`static_analysis_fixed`. Together with the earlier written dispositions, the
+confirmed code-fix closure supports **Met for rust-mirror** for this criterion.
+This does not certify the absence of all vulnerabilities, update an immutable
+release, or close the separate owner-attestation/private-response gaps. The GUI
+answer is not changed by this CLI-only follow-up.
 
 ### Dynamic analysis and failure history
 
@@ -321,7 +352,7 @@ the criterion permits as N/A). Do not publish private report contents.
 | --- | --- | --- | --- | --- |
 | `static_analysis` | MUST | Met | Met | [CLI zizmor/cargo-deny](https://github.com/rustcommons/rust-mirror/blob/3c11d914bce9a06cb92ef7f39179e3a42f98cab0/.github/workflows/security.yml) / [GUI Clippy/cargo-deny](https://github.com/rustcommons/rust-mirror-gui/blob/06927ece4f1fadc59f2ef015d7c21bf950da0630/.github/workflows/ci.yml) plus [Current CodeQL settings and findings](#alerts-and-static-analysis-disposition) show regular source/workflow/security analysis. Detection is bounded by tool/rule/graph versions. |
 | `static_analysis_common_vulnerabilities` | SUGGESTED | Met | Met | [CLI zizmor/cargo-deny](https://github.com/rustcommons/rust-mirror/blob/3c11d914bce9a06cb92ef7f39179e3a42f98cab0/.github/workflows/security.yml) / [GUI Clippy/cargo-deny](https://github.com/rustcommons/rust-mirror-gui/blob/06927ece4f1fadc59f2ef015d7c21bf950da0630/.github/workflows/ci.yml) plus [Current CodeQL settings and findings](#alerts-and-static-analysis-disposition) show regular source/workflow/security analysis. Detection is bounded by tool/rule/graph versions. |
-| `static_analysis_fixed` | MUST | Unmet | Unmet | [Live CodeQL dispositions](#codeql-disposition-follow-up--2026-11-22): CLI #6/#7/#12–17 and GUI #6–18 dismissed with written test/false-positive reasons; CLI #8–11 (four high findings) still need path-containment/TLS-minimum fixes. Pending until the fix PR merges and merged revision/verification are recorded; GUI triage is complete, with the final Met update held for that follow-up. Scorecard posture checks are excluded from this criterion. |
+| `static_analysis_fixed` | MUST | Met | Unmet | [CLI closure](#cli-codeql-fix-closure--2026-11-22): PR #82 merged at 8d3a15c; main CodeQL confirms #8–11 fixed at 2026-11-22T22:25:16Z, with zero open CLI CodeQL alerts. Earlier written dismissals are preserved; Scorecard posture checks are excluded. GUI retains its earlier proposed-answer state pending a separate final registration review; this follow-up verifies CLI only. |
 | `static_analysis_often` | SUGGESTED | Met | Met | [CLI zizmor/cargo-deny](https://github.com/rustcommons/rust-mirror/blob/3c11d914bce9a06cb92ef7f39179e3a42f98cab0/.github/workflows/security.yml) / [GUI Clippy/cargo-deny](https://github.com/rustcommons/rust-mirror-gui/blob/06927ece4f1fadc59f2ef015d7c21bf950da0630/.github/workflows/ci.yml) plus [Current CodeQL settings and findings](#alerts-and-static-analysis-disposition) show regular source/workflow/security analysis. Detection is bounded by tool/rule/graph versions. |
 | `dynamic_analysis` | SUGGESTED | Met | Met | [ClusterFuzzLite AddressSanitizer PR execution](#dynamic-analysis-and-failure-history), 300-second shared budgets and bounded documented targets. Weekly configuration is present, with zero completed weekly runs at observation. |
 | `dynamic_analysis_unsafe` | SUGGESTED | Unmet | Unmet | [Current ASan scope](#dynamic-analysis-and-failure-history) does not establish analysis of all unsafe/native/dependency code. Map unsafe paths to exercised targets and instrument any uncovered relevant paths before asserting coverage. |

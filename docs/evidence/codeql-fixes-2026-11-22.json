@@ -1,0 +1,212 @@
+{
+  "observed_at": "2026-11-22T22:31:32.513534+00:00",
+  "method": "Read-only gh api; individual alert states, paginated open alerts, merged PR and main analyses",
+  "fix_pr": {
+    "headRefOid": "3b99a64e149c253ae72df5a0181bbf38c1d3b217",
+    "mergeCommit": {
+      "oid": "8d3a15c55e10c69f134d04c5cfa5800ca460922c"
+    },
+    "mergedAt": "2026-11-22T22:24:34Z",
+    "state": "MERGED",
+    "url": "https://github.com/rustcommons/rust-mirror/pull/82"
+  },
+  "alerts": [
+    {
+      "number": 8,
+      "html_url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/8",
+      "state": "fixed",
+      "fixed_at": "2026-11-22T22:25:16Z",
+      "dismissed_at": null,
+      "dismissed_reason": null,
+      "most_recent_instance": {
+        "ref": "refs/heads/main",
+        "analysis_key": "dynamic/github-code-scanning/codeql:analyze",
+        "environment": "{\"build-mode\":\"none\",\"category\":\"/language:python\",\"language\":\"python\",\"runner\":\"[\\\"ubuntu-latest\\\"]\"}",
+        "category": "/language:python",
+        "state": "fixed",
+        "commit_sha": "b14ca618ee6d043eac979a7d50b3f9fa6d4701ab",
+        "message": {
+          "text": "Insecure SSL/TLS protocol version TLSv1 allowed by call to ssl.SSLContext.\nInsecure SSL/TLS protocol version TLSv1_1 allowed by call to ssl.SSLContext.",
+          "markdown": "Insecure SSL/TLS protocol version TLSv1 allowed by [call to ssl.SSLContext](scripts/prove_rustup_lifecycle.py#L287C13-L287C52).\nInsecure SSL/TLS protocol version TLSv1_1 allowed by [call to ssl.SSLContext](scripts/prove_rustup_lifecycle.py#L287C13-L287C52)."
+        },
+        "location": {
+          "path": "scripts/prove_rustup_lifecycle.py",
+          "start_line": 384,
+          "end_line": 384,
+          "start_column": 23,
+          "end_column": 30
+        },
+        "classifications": []
+      }
+    },
+    {
+      "number": 9,
+      "html_url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/9",
+      "state": "fixed",
+      "fixed_at": "2026-11-22T22:25:16Z",
+      "dismissed_at": null,
+      "dismissed_reason": null,
+      "most_recent_instance": {
+        "ref": "refs/heads/main",
+        "analysis_key": "dynamic/github-code-scanning/codeql:analyze",
+        "environment": "{\"build-mode\":\"none\",\"category\":\"/language:python\",\"language\":\"python\",\"runner\":\"[\\\"ubuntu-latest\\\"]\"}",
+        "category": "/language:python",
+        "state": "fixed",
+        "commit_sha": "b14ca618ee6d043eac979a7d50b3f9fa6d4701ab",
+        "message": {
+          "text": "Insecure SSL/TLS protocol version TLSv1 allowed by call to ssl.SSLContext.\nInsecure SSL/TLS protocol version TLSv1_1 allowed by call to ssl.SSLContext.",
+          "markdown": "Insecure SSL/TLS protocol version TLSv1 allowed by [call to ssl.SSLContext](scripts/prove_rustup_lifecycle.py#L287C13-L287C52).\nInsecure SSL/TLS protocol version TLSv1_1 allowed by [call to ssl.SSLContext](scripts/prove_rustup_lifecycle.py#L287C13-L287C52)."
+        },
+        "location": {
+          "path": "tests/test_rustup_tls.py",
+          "start_line": 31,
+          "end_line": 31,
+          "start_column": 29,
+          "end_column": 43
+        },
+        "classifications": [
+          "test"
+        ]
+      }
+    },
+    {
+      "number": 10,
+      "html_url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/10",
+      "state": "fixed",
+      "fixed_at": "2026-11-22T22:25:16Z",
+      "dismissed_at": null,
+      "dismissed_reason": null,
+      "most_recent_instance": {
+        "ref": "refs/heads/main",
+        "analysis_key": "dynamic/github-code-scanning/codeql:analyze",
+        "environment": "{\"build-mode\":\"none\",\"category\":\"/language:python\",\"language\":\"python\",\"runner\":\"[\\\"ubuntu-latest\\\"]\"}",
+        "category": "/language:python",
+        "state": "fixed",
+        "commit_sha": "b14ca618ee6d043eac979a7d50b3f9fa6d4701ab",
+        "message": {
+          "text": "This path depends on a user-provided value.",
+          "markdown": "This path depends on a [user-provided value](scripts/prove_offline.py#L91C24-L91C28)."
+        },
+        "location": {
+          "path": "scripts/prove_offline.py",
+          "start_line": 101,
+          "end_line": 101,
+          "start_column": 17,
+          "end_column": 28
+        },
+        "classifications": []
+      }
+    },
+    {
+      "number": 11,
+      "html_url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/11",
+      "state": "fixed",
+      "fixed_at": "2026-11-22T22:25:16Z",
+      "dismissed_at": null,
+      "dismissed_reason": null,
+      "most_recent_instance": {
+        "ref": "refs/heads/main",
+        "analysis_key": "dynamic/github-code-scanning/codeql:analyze",
+        "environment": "{\"build-mode\":\"none\",\"category\":\"/language:python\",\"language\":\"python\",\"runner\":\"[\\\"ubuntu-latest\\\"]\"}",
+        "category": "/language:python",
+        "state": "fixed",
+        "commit_sha": "b14ca618ee6d043eac979a7d50b3f9fa6d4701ab",
+        "message": {
+          "text": "This path depends on a user-provided value.",
+          "markdown": "This path depends on a [user-provided value](scripts/prove_offline.py#L91C24-L91C28)."
+        },
+        "location": {
+          "path": "scripts/prove_offline.py",
+          "start_line": 103,
+          "end_line": 103,
+          "start_column": 26,
+          "end_column": 30
+        },
+        "classifications": []
+      }
+    }
+  ],
+  "open_alerts": [
+    {
+      "number": 31,
+      "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/31",
+      "tool": "Scorecard",
+      "rule": "CIIBestPracticesID",
+      "severity": "low"
+    },
+    {
+      "number": 30,
+      "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/30",
+      "tool": "Scorecard",
+      "rule": "CodeReviewID",
+      "severity": "high"
+    },
+    {
+      "number": 27,
+      "url": "https://github.com/rustcommons/rust-mirror/security/code-scanning/27",
+      "tool": "Scorecard",
+      "rule": "BranchProtectionID",
+      "severity": "high"
+    }
+  ],
+  "analyses": [
+    {
+      "id": 2225658033,
+      "url": "https://api.github.com/repos/rustcommons/rust-mirror/code-scanning/analyses/2225658033",
+      "created_at": "2026-11-22T22:29:01Z",
+      "ref": "refs/heads/main",
+      "commit_sha": "8d3a15c55e10c69f134d04c5cfa5800ca460922c",
+      "analysis_key": "dynamic/github-code-scanning/codeql:analyze",
+      "category": "/language:rust",
+      "tool": {
+        "name": "CodeQL",
+        "guid": null,
+        "version": "2.27.5"
+      },
+      "error": "",
+      "warning": "",
+      "results_count": 6
+    },
+    {
+      "id": 2225647618,
+      "url": "https://api.github.com/repos/rustcommons/rust-mirror/code-scanning/analyses/2225647618",
+      "created_at": "2026-11-22T22:25:16Z",
+      "ref": "refs/heads/main",
+      "commit_sha": "8d3a15c55e10c69f134d04c5cfa5800ca460922c",
+      "analysis_key": "dynamic/github-code-scanning/codeql:analyze",
+      "category": "/language:python",
+      "tool": {
+        "name": "CodeQL",
+        "guid": null,
+        "version": "2.27.5"
+      },
+      "error": "",
+      "warning": "",
+      "results_count": 2
+    },
+    {
+      "id": 2225647385,
+      "url": "https://api.github.com/repos/rustcommons/rust-mirror/code-scanning/analyses/2225647385",
+      "created_at": "2026-11-22T22:25:11Z",
+      "ref": "refs/heads/main",
+      "commit_sha": "8d3a15c55e10c69f134d04c5cfa5800ca460922c",
+      "analysis_key": "dynamic/github-code-scanning/codeql:analyze",
+      "category": "/language:actions",
+      "tool": {
+        "name": "CodeQL",
+        "guid": null,
+        "version": "2.27.5"
+      },
+      "error": "",
+      "warning": "",
+      "results_count": 0
+    }
+  ],
+  "endpoints": [
+    "repos/rustcommons/rust-mirror/pulls/82",
+    "repos/rustcommons/rust-mirror/code-scanning/alerts/{8,9,10,11}",
+    "repos/rustcommons/rust-mirror/code-scanning/alerts?state=open&per_page=100 (paginated)",
+    "repos/rustcommons/rust-mirror/code-scanning/analyses?ref=refs/heads/main&per_page=10"
+  ],
+  "scope": "CLI static_analysis_fixed only: code fixes confirmed on main, earlier dismissals preserved separately; Scorecard posture checks excluded. No claim that raw results_count equals open alerts or that immutable releases changed."
+}
