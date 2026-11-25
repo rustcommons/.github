@@ -28,7 +28,7 @@ STATUS=$(gpg --batch --status-fd 1 --verify "$SIG" "$FILE" 2>/dev/null || true)
 # only for signatures made before it expired, so older releases stay verifiable.
 BAD=$(printf '%s\n' "$STATUS" | awk '$1=="[GNUPG:]" && $2 ~ /^(REVKEYSIG|KEYREVOKED|EXPSIG|BADSIG|ERRSIG|NO_PUBKEY)$/ {print $2}' | sort -u | tr '\n' ' ')
 [ -z "$BAD" ] || { echo "Signature on $FILE refused: $BAD"; exit 1; }
-if printf '%s\n' "$STATUS" | awk '$1=="[GNUPG:]" && ($2=="EXPKEYSIG" || $2=="KEYEXPIRED")' | grep -q .; then
+if printf '%s\n' "$STATUS" | awk '$1=="[GNUPG:]" && $2=="EXPKEYSIG"' | grep -q .; then
   SIGKEY=$(printf '%s\n' "$STATUS" | awk '$1=="[GNUPG:]" && $2=="VALIDSIG"{print $3; exit}')
   SIGTIME=$(printf '%s\n' "$STATUS" | awk '$1=="[GNUPG:]" && $2=="VALIDSIG"{print $5; exit}')
   KEYEXP=$(gpg --batch --with-colons --list-keys | awk -F: -v k="$SIGKEY" '($1=="pub"||$1=="sub"){e=$7} $1=="fpr" && $10==k {print e; exit}')

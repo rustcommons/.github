@@ -135,6 +135,10 @@ every signature from a revoked key, including those on older releases. For a
 routine rotation, let the old subkey expire instead. Signatures it made before
 expiry stay valid.
 
+Rotation replaces the CI secrets with the new subkey. Never keep a retired subkey
+in CI: the signer chooses a signature's timestamp, so whoever holds an expired
+but unrevoked subkey could backdate a signature that verifiers accept.
+
 Then republish the new public key file everywhere a copy is pinned, update the
 subkey fingerprint passed to `ci-sign.sh`, and replace your offline backup with
 the new one. The primary fingerprint stays the same, so verifiers keep working.
