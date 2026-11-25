@@ -74,6 +74,31 @@ against its expected repository (replace both placeholders):
 gh attestation verify ./ARTIFACT --repo rustcommons/REPOSITORY
 ```
 
+### OpenPGP signature
+
+Releases published after 2026-11-25 also attach `SHA256SUMS.asc`, an OpenPGP
+signature of `SHA256SUMS` made with the Rust Commons release-signing key:
+
+- Identity: `Rust Commons Release Signing`
+- Primary key fingerprint: **`B281 C301 0A76 A117 37B4  D066 C739 6F6E A764 7CC6`**
+- Public key: [docs/RELEASE-SIGNING-KEY.asc](docs/RELEASE-SIGNING-KEY.asc)
+
+Import the key once, confirm the fingerprint matches exactly, then verify:
+
+```sh
+gpg --import RELEASE-SIGNING-KEY.asc
+gpg --fingerprint B281C3010A76A11737B4D066C7396F6EA7647CC6
+gpg --verify SHA256SUMS.asc SHA256SUMS
+sha256sum --check SHA256SUMS
+```
+
+`SHA256SUMS` lists every release file, so one valid signature plus a passing
+checksum check covers them all. The signing subkey is held only by the release
+pipeline behind the owner's approval; the primary key is kept offline. Earlier
+releases have no `.asc`: verify those with checksums and GitHub attestations.
+
+### GitHub attestation
+
 Check the reported source commit, workflow identity and artifact digest against
 the intended release. Follow [GitHub CLI verification guidance](https://cli.github.com/manual/gh_attestation_verify)
 for additional identity constraints. Missing checksums or attestations are a
