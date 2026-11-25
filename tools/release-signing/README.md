@@ -109,9 +109,16 @@ gpg --verify SHA256SUMS.asc SHA256SUMS
 sha256sum --check SHA256SUMS
 ```
 
-`ci-verify.sh` accepts a signature only if gpg reports `VALIDSIG` for a key whose
-**primary** fingerprint equals the pin, and only if the key file itself has that
-fingerprint. A signature by any other key, or a changed file, is refused.
+`ci-verify.sh` accepts a signature only when all of these hold:
+
+- the key file's primary fingerprint equals the pin;
+- there is exactly one good signature, and gpg's `VALIDSIG` names that primary key;
+- the signing key is **not revoked**. gpg still prints `VALIDSIG` for a revoked
+  key, so the script checks every status line;
+- if the signing subkey has **expired**, the signature was made **before** the
+  expiry. That keeps older releases verifiable after a routine rotation.
+
+A signature by any other key, a revoked key or a changed file is refused.
 
 ## 6. Rotate the signing subkey
 
@@ -122,6 +129,11 @@ exposed:
 bash rotate-subkey.sh --backup /path/to/OFFLINE-BACKUP-secret-key.asc \
   --owner example-org --repos "repo-a repo-b" --env release [--revoke-old]
 ```
+
+Use `--revoke-old` **only** if the old subkey may have been exposed: verifiers refuse
+every signature from a revoked key, including those on older releases. For a
+routine rotation, let the old subkey expire instead. Signatures it made before
+expiry stay valid.
 
 Then republish the new public key file everywhere a copy is pinned, update the
 subkey fingerprint passed to `ci-sign.sh`, and replace your offline backup with
