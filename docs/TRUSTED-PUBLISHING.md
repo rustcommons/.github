@@ -116,6 +116,8 @@ files and never replaces an existing asset.
   fingerprint `B281C3010A76A11737B4D066C7396F6EA7647CC6` (RSA-4096, certify only,
   expires 2031-11-24). Signing subkey `248DFD639B75D1EFF2A87289D7C7DE7BBCCF35EC`
   (RSA-4096, sign only, expires 2028-11-24).
+- Key creation, CI signing and verification, and subkey rotation use the
+  reusable [release signing kit](../tools/release-signing/README.md).
 - Each repository commits a copy of the public key and pins the primary
   fingerprint; its tests fail if the copy's fingerprint differs.
 - CI holds only the signing subkey (`RELEASE_SIGNING_KEY`) and its passphrase
