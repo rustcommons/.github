@@ -73,6 +73,14 @@ The only job with the `crates-io` environment: the owner's approval click.
   trusts. It runs `cargo package --locked --no-verify` for each release crate
   and `cmp`s the result against the attested `.crate`; `build` already built
   the packaged source.
+- Signs `SHA256SUMS` with the Rust Commons release-signing subkey, producing
+  `SHA256SUMS.asc` (owner-approved 2026-11-25). The key and its passphrase are
+  `crates-io` environment secrets, so only this approved job can read them. Sign
+  in a temporary GnuPG home with loopback pinentry, verify the signature
+  immediately against the repository's pinned public key and fingerprint, then
+  delete the home. Do this **before** anything irreversible: a signing failure
+  stops the release before publishing. Hand `SHA256SUMS.asc` to `github-release`
+  as an artifact.
 - Only then obtains a short-lived token from the pinned
   `rust-lang/crates-io-auth-action`, and runs `cargo publish --locked
   --no-verify` for each release crate in dependency order, with
@@ -85,7 +93,7 @@ The only job with the `crates-io` environment: the owner's approval click.
 Creates release `vX.Y.Z` with `--verify-tag` from the committed
 `docs/releases/vX.Y.Z.md`, so the published body equals the reviewed file. The
 title is that file's first heading. Attaches the `.crate` files, the SBOM,
-`SHA256SUMS` and the provenance bundle. On a re-run it uploads only missing
+`SHA256SUMS`, `SHA256SUMS.asc` and the provenance bundle. On a re-run it uploads only missing
 files and never replaces an existing asset.
 
 ### 6. Verify publication
@@ -94,10 +102,29 @@ files and never replaces an existing asset.
   file's SHA-256.
 - `gh attestation verify` succeeds for every attached file against this
   repository and this workflow.
+- `SHA256SUMS.asc` verifies against the repository's pinned public key, whose
+  primary fingerprint must equal `B281C3010A76A11737B4D066C7396F6EA7647CC6`, and
+  the downloaded `SHA256SUMS` passes `sha256sum --check` for every listed asset.
 - docs.rs reports a successful build. A queue that is still pending after the
   bounded wait is reported as pending, not as a pass.
 - Crates that ship executables pass a clean `cargo install --locked` into an
   empty root and report the release version.
+
+## Release signing key
+
+- Public key: [RELEASE-SIGNING-KEY.asc](RELEASE-SIGNING-KEY.asc); primary
+  fingerprint `B281C3010A76A11737B4D066C7396F6EA7647CC6` (RSA-4096, certify only,
+  expires 2031-11-24). Signing subkey `248DFD639B75D1EFF2A87289D7C7DE7BBCCF35EC`
+  (RSA-4096, sign only, expires 2028-11-24).
+- Each repository commits a copy of the public key and pins the primary
+  fingerprint; its tests fail if the copy's fingerprint differs.
+- CI holds only the signing subkey (`RELEASE_SIGNING_KEY`) and its passphrase
+  (`RELEASE_SIGNING_PASSPHRASE`) as `crates-io` environment secrets. The primary
+  key and the revocation certificate are offline with the owner.
+- Before the subkey expires, or if it is ever exposed, the owner adds a new
+  subkey with the offline primary (revoking the old one if exposed), republishes
+  the public key and updates the environment secrets. The primary fingerprint does
+  not change, so verifiers keep working.
 
 ## Common settings
 
