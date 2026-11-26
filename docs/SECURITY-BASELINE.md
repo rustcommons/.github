@@ -20,6 +20,11 @@ not proof of a completed analysis or runtime security.
   or branch deletion; an administrator bypass exists. Routine work must still
   use a PR, including administrator work. No direct pushes to `main`.
 - `protect-release-tags`: `v*` tags cannot be updated or deleted; no bypass actors.
+- `restrict-release-tag-creation` (added 2026-11-25, owner-approved): only repository
+  admins may create `v*` tags. It is a separate ruleset so the admin bypass never
+  applies to updating or deleting release tags. A release tag starts the pipeline that
+  can request the `crates-io` environment's signing secrets, so tag creation is
+  limited to the owner; the owner's environment approval remains the final gate.
 - Crate repositories: environment `crates-io`, restricted to `v*` tags, with the
   owner as required reviewer. Environment configuration does not by itself
   authorize publishing or configure the crates.io trusted publisher.
